@@ -1,24 +1,48 @@
-{ config, pkgs, ... }: {
+# Hardware configuration.
+{ config, lib, pkgs, modulesPath, ... }:
+
+{
+  disabledModules = [ "virtualisation/parallels-guest.nix" ];
+
   imports = [
-    ./vm-shared.nix
+    (modulesPath + "/profiles/qemu-guest.nix")
+    ../modules/parallels-unfree/parallels-guest.nix
   ];
 
-  virtualisation.parallels.guest.enable = true;
-
-  # Interface is this on Intel Fusion
-  networking.interfaces.ens33.useDHCP = true;
-
-  # Shared folder to host works on Intel
-  fileSystems."/host" = {
-    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
-    device = ".host:/";
-    options = [
-      "umask=22"
-      "uid=1000"
-      "gid=1000"
-      "allow_other"
-      "auto_unmount"
-      "defaults"
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "usbhid"
+        "sr_mod"
+      ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ ];
+    kernelParams = [
+      "root=/dev/sda2"
     ];
+    extraModulePackages = [ ];
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "ext4";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+  };
+
+  swapDevices = [ ];
+
+  networking.interfaces.enp0s5.useDHCP = true;
+
+  nixpkgs.config.allowUnfree = true;
+  hardware.parallels = {
+    enable = true;
+    package = (config.boot.kernelPackages.callPackage ./prl-tools.nix {});
   };
 }

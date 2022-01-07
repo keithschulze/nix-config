@@ -52,8 +52,8 @@
     # };
 
     packages.x86_64-linux = {
-      parallelsImage =
-        self.nixosConfigurations.vm-intel.config.system.build.parallelsImage;
+      vmwareImage =
+        self.nixosConfigurations.vm-intel.config.system.build.vmwareImage;
     };
   };
 }

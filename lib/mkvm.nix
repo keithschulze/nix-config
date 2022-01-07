@@ -14,6 +14,11 @@ nixpkgs.lib.nixosSystem rec {
     ../hardware/${name}.nix
     ../machines/${name}.nix
     ../users/${user}/nixos.nix
+    home-manager.nixosModules.home-manager {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users.${user} = import ../users/${user}/home.nix;
+    }
   ];
 
   extraArgs = {

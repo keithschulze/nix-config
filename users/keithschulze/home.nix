@@ -21,9 +21,7 @@
 
   news.display = "silent";
 
-  nixpkgs.config.allowUnfree = true;
-
   imports = [
-    .nix-home/role/work/default.nix
+    ./nix-home/role/work/default.nix
   ];
 }
