@@ -1,5 +1,5 @@
 {
-  description = "NixOS systems and tools by mitchellh";
+  description = "NixOS systems and tools";
 
   inputs = {
     # Pin our primary nixpkgs repository. This is the main nixpkgs repository
@@ -18,7 +18,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Other packages
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs: let
@@ -26,19 +26,34 @@
 
     # Overlays is the list of overlays we want to apply from flake inputs.
     overlays = [
-      inputs.neovim-nightly-overlay.overlay
+      #inputs.neovim-nightly-overlay.overlay
     ];
   in {
-    nixosConfigurations.vm-aarch64 = mkVM "vm-aarch64" rec {
-      inherit overlays nixpkgs home-manager;
-      system = "aarch64-linux";
-      user   = "mitchellh";
-    };
+    # nixosConfigurations.vm-aarch64 = mkVM "vm-aarch64" rec {
+    #   inherit overlays nixpkgs home-manager;
+    #   system = "aarch64-linux";
+    #   user   = "keithschulze";
+    # };
 
     nixosConfigurations.vm-intel = mkVM "vm-intel" rec {
       inherit nixpkgs home-manager overlays;
       system = "x86_64-linux";
-      user   = "mitchellh";
+      user   = "keithschulze";
+    };
+
+    # Use this to prepare a new VMWare image.
+    #
+    # $ nix build .#vmwareImage -L
+    # $ open ./result/*.vmdk
+    #
+    # packages.aarch64-linux = {
+    #   parallelsImage =
+    #     self.nixosConfigurations.vm-aarch64.config.system.build.vmwareImage;
+    # };
+
+    packages.x86_64-linux = {
+      parallelsImage =
+        self.nixosConfigurations.vm-intel.config.system.build.parallelsImage;
     };
   };
 }

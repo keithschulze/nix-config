@@ -3,7 +3,7 @@
     ./vm-shared.nix
   ];
 
-  virtualisation.vmware.guest.enable = true;
+  virtualisation.parallels.guest.enable = true;
 
   # Interface is this on Intel Fusion
   networking.interfaces.ens33.useDHCP = true;
