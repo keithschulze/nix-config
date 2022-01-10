@@ -7,6 +7,8 @@
     name = "keithschulze";
     home = "/home/keithschulze";
     extraGroups = [ "docker" "wheel" ];
+    shell = pkgs.zsh;
+    initialPassword = "test";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHl4x/eh2n9WnzGZdluFMceNAHa0K7E6dHQ18e8wVIx8 keith.schulze@thoughtworks.com"
     ];
