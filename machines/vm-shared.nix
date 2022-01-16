@@ -81,9 +81,8 @@
   # fonts require a purchase.
   fonts = {
     fontDir.enable = true;
-
-    fonts = [
-      pkgs.fira-code
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
 

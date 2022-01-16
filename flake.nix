@@ -29,11 +29,11 @@
       #inputs.neovim-nightly-overlay.overlay
     ];
   in {
-    # nixosConfigurations.vm-aarch64 = mkVM "vm-aarch64" rec {
-    #   inherit overlays nixpkgs home-manager;
-    #   system = "aarch64-linux";
-    #   user   = "keithschulze";
-    # };
+    nixosConfigurations.vm-aarch64 = mkVM "vm-intel" rec {
+      inherit overlays nixpkgs home-manager;
+      system = "aarch64-linux";
+      user   = "keithschulze";
+    };
 
     nixosConfigurations.vm-intel = mkVM "vm-intel" rec {
       inherit nixpkgs home-manager overlays;
@@ -51,9 +51,9 @@
     #     self.nixosConfigurations.vm-aarch64.config.system.build.vmwareImage;
     # };
 
-    packages.x86_64-linux = {
-      vmwareImage =
-        self.nixosConfigurations.vm-intel.config.system.build.vmwareImage;
-    };
+    # packages.x86_64-linux = {
+    #   vmwareImage =
+    #     self.nixosConfigurations.vm-intel.config.system.build.vmwareImage;
+    # };
   };
 }
