@@ -1,3 +1,3 @@
-[submodule "nix-home"]
+[submodule "users/keithschulze/nix-home"]
 	path = users/keithschulze/nix-home
 	url = git@github.com:keithschulze/nix-home.git
