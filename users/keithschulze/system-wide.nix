@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
   users.users.keithschulze = {
     isNormalUser = true;
     name = "keithschulze";
