@@ -123,5 +123,5 @@ in {
   home.file.".config/nix/nix.conf".text = ''
     experimental-features = nix-command flakes
   '';
-  home.file.".background-image".source = ./tardis.png;
+  home.file.".background-image".source = ./tardis.jpg;
 }
