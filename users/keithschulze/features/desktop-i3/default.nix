@@ -17,8 +17,69 @@ let
   ];
 in
 {
+  programs.autorandr = {
+    enable = true;
+    profiles = {
+      "dell27" = {
+        fingerprint = {
+          "Virtual-1" = "--CONNECTED-BUT-EDID-UNAVAILABLE--Virtual-1";
+        };
+        config = {
+          "Virtual-1" = {
+            enable = true;
+            primary = true;
+            position = "0x0";
+            mode = "2560x1440";
+            rate = "60.00";
+          };
+        };
+      };
+      "mbp" = {
+        fingerprint = {
+          "Virtual-1" = "--CONNECTED-BUT-EDID-UNAVAILABLE--Virtual-1";
+        };
+        config = {
+          "Virtual-1" = {
+            enable = true;
+            primary = true;
+            position = "0x0";
+            mode = "2560x1600";
+            rate = "60.00";
+          };
+        };
+      };
+    };
+    hooks = {
+      postswitch = {
+        "change-dpi" = ''
+          case "$AUTORANDR_CURRENT_PROFILE" in
+            default)
+              DPI=220
+              ;;
+            dell27)
+              DPI=108
+              ;;
+            mbp)
+              DPI=220
+              ;;
+            *)
+              echo "UNKNOWN PROFILE: $AUTORANDR_CURRENT_PROFILE"
+              exit 1
+          esac
+
+          echo "Xft.dpi: $DPI" | ${pkgs.xorg.xrdb}/bin/xrdb -merge
+        '';
+      };
+    };
+  };
+
   xsession = {
     enable = true;
+    pointerCursor = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+      size = 32;
+    };
     windowManager.i3 = {
       enable = true;
       config = {
@@ -26,8 +87,8 @@ in
         gaps = {
           inner = 5;
         };
-        window.border = 5;
-        floating.border = 5;
+        window.border = 2;
+        floating.border = 2;
         modifier = "${mod}";
         terminal = "${term}";
         keybindings = lib.mkOptionDefault {
@@ -83,11 +144,18 @@ in
     };
   };
 
+  services.picom = {
+    enable = true;
+    backend = "glx";
+  };
+
   services.polybar = {
     enable = true;
     package = pkgs.polybarFull;
     config = with config.colorscheme; {
       "bar/main" = {
+        witdth = "100%";
+        height = "3%";
         background = "#${colorscheme.colors.base00}";
         foreground = "#${colorscheme.colors.base05}";
         modules-left = "i3";
@@ -101,7 +169,7 @@ in
         border-top-color = "#${colorscheme.colors.base00}";
         border-bottom-size = 2;
         border-bottom-color = "#${colorscheme.colors.base00}";
-        font-0 = "lemon:pixelsize=10;1";
+        font-0 = "lemon:pixelsize=14;1";
       };
       "module/battery" = {
         type = "internal/battery";

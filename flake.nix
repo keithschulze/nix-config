@@ -90,7 +90,7 @@
         "keithschulze@parallels-vm" = mkHome {
           username = "keithschulze";
           hostname = "parallels-vm";
-          role = "work";
+          role = "work-vm";
           features = [ "desktop-i3" ];
           system = "x86_64-linux";
         };

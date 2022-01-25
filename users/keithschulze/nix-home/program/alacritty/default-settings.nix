@@ -4,7 +4,7 @@
   window = {
     padding.x = 10;
     padding.y = 10;
-    decorations = "transparent";
+    decorations = "full";
   };
 
   font = {

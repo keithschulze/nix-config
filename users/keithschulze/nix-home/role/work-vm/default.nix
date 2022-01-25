@@ -76,10 +76,6 @@ in {
       init.defaultBranch = "main";
       pager.log = false;
     };
-    signing = {
-      key = "9E570B3D76B11770";
-      signByDefault = true;
-    };
   };
 
   programs.neovim = (import ../../program/neovim/default.nix) { inherit config; inherit pkgs; inherit lib; };
@@ -127,4 +123,5 @@ in {
   home.file.".config/nix/nix.conf".text = ''
     experimental-features = nix-command flakes
   '';
+  home.file.".background-image".source = ./tardis.png;
 }

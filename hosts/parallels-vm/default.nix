@@ -40,6 +40,12 @@
 
   environment.systemPackages = with pkgs; [
     xclip
+    (writeShellScriptBin "xrandr-27" ''
+      xrandr -s 2560x1440
+    '')
+    (writeShellScriptBin "xrandr-mbp" ''
+      xrandr -s 2560x1600
+    '')
   ];
 
   # Enable the OpenSSH daemon.
@@ -60,7 +66,7 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    # dpi = 220;
+    dpi = 220;
 
     desktopManager = {
       xterm.enable = true;
@@ -83,6 +89,12 @@
       waitPID=$!";
         }
       ];
+      # sessionCommands = ''
+      #   ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      #     Xcursor.size: 64;
+      #     Xft.dpi: 220;
+      #   EOF
+      # '';
     };
   };
 
