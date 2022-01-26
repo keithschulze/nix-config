@@ -1,5 +1,5 @@
 # System configuration for my dev VMs
-{ config, pkgs, system, inputs, ... }:
+{ config, pkgs, lib, system, inputs, ... }:
 {
   disabledModules = [ "virtualisation/parallels-guest.nix" ];
   imports = [
@@ -40,12 +40,6 @@
 
   environment.systemPackages = with pkgs; [
     xclip
-    (writeShellScriptBin "xrandr-27" ''
-      xrandr -s 2560x1440
-    '')
-    (writeShellScriptBin "xrandr-mbp" ''
-      xrandr -s 2560x1600
-    '')
   ];
 
   # Enable the OpenSSH daemon.
@@ -67,6 +61,10 @@
     enable = true;
     layout = "us";
     dpi = 220;
+    resolutions = lib.mkOverride 10 [
+      { x = 2560; y = 1600; }
+      { x = 2560; y = 1440; }
+    ];
 
     desktopManager = {
       xterm.enable = true;
@@ -89,12 +87,6 @@
       waitPID=$!";
         }
       ];
-      # sessionCommands = ''
-      #   ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      #     Xcursor.size: 64;
-      #     Xft.dpi: 220;
-      #   EOF
-      # '';
     };
   };
 

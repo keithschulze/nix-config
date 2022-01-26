@@ -8,6 +8,7 @@ let
   exec = "exec --no-startup-id";
 
   alwaysRun = [
+    "${pkgs.feh}/bin/feh --bg-scale ~/.background-image"
     "systemctl --user restart polybar"
     "xset r rate 250 50"
   ];
@@ -78,7 +79,7 @@ in
     pointerCursor = {
       name = "Adwaita";
       package = pkgs.gnome.adwaita-icon-theme;
-      size = 32;
+      size = 24;
     };
     windowManager.i3 = {
       enable = true;
