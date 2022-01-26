@@ -94,6 +94,14 @@ in
         terminal = "${term}";
         keybindings = lib.mkOptionDefault {
           "${mod}+Return" = "${exec} ${term}";
+          "${mod}+h" = "focus left";
+          "${mod}+j" = "focus down";
+          "${mod}+k" = "focus up";
+          "${mod}+l" = "focus right";
+          "${mod}+Shift+h" = "move left";
+          "${mod}+Shift+j" = "move down";
+          "${mod}+Shift+k" = "move up";
+          "${mod}+Shift+l" = "move right";
         };
         colors = {
           focused = {
