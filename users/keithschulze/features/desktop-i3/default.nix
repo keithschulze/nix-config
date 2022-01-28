@@ -2,7 +2,7 @@
 let
   colorscheme = config.colorscheme;
 
-  term = "WINIT_X11_SCALE_FACTOR=1.0 alacritty";
+  term = "WINIT_X11_SCALE_FACTOR=1.3333333333 alacritty";
 
   mod = "Mod1";
   exec = "exec --no-startup-id";
@@ -16,6 +16,8 @@ let
   run = [
     "i3-msg workspace number 1"
   ];
+
+  inherit (config.lib.formats.rasi) mkLiteral;
 in
 {
   programs.autorandr = {
@@ -74,6 +76,161 @@ in
     };
   };
 
+  programs.rofi = {
+    enable = true;
+    font = "FiraCode 24";
+    theme = {
+      "*" = {
+        background-color = mkLiteral "#${colorscheme.colors.base00}";
+        foreground-color = mkLiteral "#${colorscheme.colors.base07}";
+        active-background = mkLiteral "#${colorscheme.colors.base02}";
+        urgent-background = mkLiteral "#${colorscheme.colors.base05}";
+        selected-background = mkLiteral "@active-background";
+        selected-urgent-background = mkLiteral "@urgent-background";
+        selected-active-background = mkLiteral "@active-background";
+        separatorcolor = mkLiteral "@active-background";
+        bordercolor = mkLiteral "@active-background";
+        width = 1280;
+      };
+
+      "#window" = {
+        background-color = mkLiteral "@background";
+        border = 2;
+        border-radius = 6;
+        border-color = mkLiteral "@bordercolor";
+        padding = 5;
+      };
+
+      "#mainbox" = {
+        border = 0;
+        padding = 0;
+      };
+
+      "#message" = {
+        border = mkLiteral "1px dash 0px 0px";
+        border-color = mkLiteral "@separatorcolor";
+        padding = mkLiteral "1px";
+      };
+
+      "#listview" = {
+        fixed-height = 0;
+        border = mkLiteral "2px dash 0px 0px";
+        border-color = mkLiteral "@bordercolor";
+        spacing =      mkLiteral "2px" ;
+        scrollbar =    false;
+        padding =      mkLiteral "2px 0px 0px" ;
+      };
+
+      "#element" = {
+        border =  0;
+        padding = mkLiteral "1px" ;
+      };
+
+      "#element-text" = {
+        background-color = mkLiteral "inherit";
+        text-color = mkLiteral "inherit";
+      };
+
+      "#element.normal.normal" = {
+        background-color = mkLiteral "@background-color";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.normal.urgent" = {
+        background-color = mkLiteral "@urgent-background";
+        text-color =       mkLiteral "@urgent-foreground";
+      };
+
+      "#element.normal.active" = {
+        background-color = mkLiteral "@active-background";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.selected.normal" = {
+        background-color = mkLiteral "@selected-background";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.selected.urgent" = {
+        background-color = mkLiteral "@selected-urgent-background";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.selected.active" = {
+        background-color = mkLiteral "@selected-active-background";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.alternate.normal" = {
+        background-color = mkLiteral "@background-color";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.alternate.urgent" = {
+        background-color = mkLiteral "@urgent-background";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#element.alternate.active" = {
+        background-color = mkLiteral "@active-background";
+        text-color =       mkLiteral "@foreground-color";
+      };
+
+      "#scrollbar" = {
+        width =        mkLiteral "2px" ;
+        border =       0;
+        handle-width = mkLiteral "8px" ;
+        padding =      0;
+      };
+
+      "#sidebar" = {
+        border =       mkLiteral "2px dash 0px 0px" ;
+        border-color = mkLiteral "@separatorcolor";
+      };
+
+      "#button.selected" = {
+        background-color = mkLiteral "@selected-background";
+        text-color =       mkLiteral "@background-color";
+      };
+
+      "#inputbar" = {
+        spacing =    0;
+        text-color =  mkLiteral "@foreground-color";
+        padding = mkLiteral "1px";
+      };
+
+      "#case-indicator" = {
+        spacing = 0;
+        text-color =  mkLiteral "@foreground-color";
+      };
+
+      "#entry" = {
+        spacing = 0;
+        text-color =  mkLiteral "@foreground-color";
+      };
+
+      "#prompt" = {
+        spacing = 0;
+        text-color =  mkLiteral "@foreground-color";
+      };
+
+      "#inputbar" = {
+        children = map mkLiteral [ "prompt" "entry" ];
+      };
+
+      "#textbox" = {
+        text-color = mkLiteral "@foreground-color";
+      };
+
+      "#textbox-prompt-colon" = {
+        expand = false;
+        str = ":";
+        margin = mkLiteral "0px 0.3em 0em 0em";
+        text-color = mkLiteral "@foreground-color";
+      };
+    };
+  };
+
   xsession = {
     enable = true;
     pointerCursor = {
@@ -86,7 +243,7 @@ in
       config = {
         bars = [ ];
         gaps = {
-          inner = 5;
+          inner = 3;
         };
         window.border = 2;
         floating.border = 2;
@@ -94,6 +251,7 @@ in
         terminal = "${term}";
         keybindings = lib.mkOptionDefault {
           "${mod}+Return" = "${exec} ${term}";
+          "${mod}+d" = "${exec} ${pkgs.rofi}/bin/rofi -show run";
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
           "${mod}+k" = "focus up";
@@ -166,9 +324,8 @@ in
         witdth = "100%";
         height = "3%";
         background = "#${colorscheme.colors.base00}";
-        foreground = "#${colorscheme.colors.base05}";
+        foreground = "#${colorscheme.colors.base07}";
         modules-left = "i3";
-        modules-center = "mpd";
         modules-right = "battery date";
         border-left-size = 1;
         border-left-color = "#${colorscheme.colors.base00}";
@@ -178,24 +335,16 @@ in
         border-top-color = "#${colorscheme.colors.base00}";
         border-bottom-size = 2;
         border-bottom-color = "#${colorscheme.colors.base00}";
-        font-0 = "lemon:pixelsize=14;1";
+        font-0 = "FiraCode:pixelsize=18;1";
       };
       "module/battery" = {
         type = "internal/battery";
       };
-      "module/date" =
-        let
-          calnotify = pkgs.writeShellScript "calnotify.sh" ''
-            day="$(${pkgs.coreutils}/bin/date +'%-d ' | ${pkgs.gnused}/bin/sed 's/\b[0-9]\b/ &/g')"
-            cal="$(${pkgs.utillinux}/bin/cal | ${pkgs.gnused}/bin/sed -e 's/^/ /g' -e 's/$/ /g' -e "s/$day/\<span color=\'#${colorscheme.colors.base0B}\'\>\<b\>$day\<\/b\>\<\/span\>/" -e '1d')"
-            top="$(${pkgs.utillinux}/bin/cal | ${pkgs.gnused}/bin/sed '1!d')"
-            ${pkgs.libnotify}/bin/notify-send "$top" "$cal"
-          '';
-        in
-        {
+      "module/date" = {
           type = "internal/date";
-          date = "%I:%M %p    %a %b %d";
-          label = "%{A1:${calnotify}:}%date%%{A}";
+          interval = 1;
+          date = "%a %d %b   %I:%M %p";
+          label = "%date%";
           format = "<label>";
           label-padding = 5;
         };

@@ -9,6 +9,7 @@
     fzf
     ripgrep
     fd
+    neofetch
 
     # dev
     shellcheck
