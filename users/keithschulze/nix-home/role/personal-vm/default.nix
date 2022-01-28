@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-
   home.packages = with pkgs; [
     # utils
     jq
@@ -109,7 +108,7 @@
 
   programs.alacritty = {
     enable = true;
-    settings = import ../../program/alacritty/default-settings.nix;
+    settings = pkgs.callPackage ../../../../../home/alacritty/default-settings.nix { };
   };
 
   programs.direnv = {
