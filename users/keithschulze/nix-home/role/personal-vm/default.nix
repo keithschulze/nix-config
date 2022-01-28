@@ -106,11 +106,6 @@
     };
   };
 
-  programs.alacritty = {
-    enable = true;
-    settings = pkgs.callPackage ../../../../../home/alacritty/default-settings.nix { };
-  };
-
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
