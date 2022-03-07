@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  settings = pkgs.callPackage ./settings { };
+  settings = import ./settings.nix { inherit config; };
 in {
   programs.alacritty = {
     enable = true;

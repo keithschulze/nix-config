@@ -27,6 +27,13 @@
       # Overlays is the list of overlays we want to apply from flake inputs.
       overlays = [
         #inputs.neovim-nightly-overlay.overlay
+        (self: super: {
+          alacritty = super.alacritty.overrideAttrs (
+            o: rec {
+              doCheck = false;
+            }
+          );
+        })
       ];
 
       mkSystem = { hostname, system, users }:
@@ -81,7 +88,7 @@
       nixosConfigurations = {
         parallels-vm = mkSystem {
           hostname = "parallels-vm";
-          system = "x86_64-linux";
+          system = "aarch64-linux";
           users = [ "keithschulze" ];
         };
       };
@@ -90,9 +97,9 @@
         "keithschulze@parallels-vm" = mkHome {
           username = "keithschulze";
           hostname = "parallels-vm";
-          role = "work-vm";
-          features = [ "desktop-i3" ];
-          system = "x86_64-linux";
+          role = "personal-vm";
+          features = [ "desktop-i3" "alacritty" ];
+          system = "aarch64-linux";
         };
       };
     } // utils.lib.eachDefaultSystem (system:

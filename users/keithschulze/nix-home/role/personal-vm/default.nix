@@ -19,7 +19,11 @@
     # languages
     nodejs
 
+    # language clients
+    terraform-ls
+
     # tools
+    docker-compose
     poetry
     cookiecutter
   ];
@@ -110,6 +114,10 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  # services.lorri = {
+  #   enable = true;
+  # };
 
   home.file.".background-image".source = ./wallpaper.jpg;
 }

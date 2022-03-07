@@ -12,4 +12,10 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHl4x/eh2n9WnzGZdluFMceNAHa0K7E6dHQ18e8wVIx8 keith.schulze@thoughtworks.com"
     ];
   };
+
+  services.lorri = {
+    enable = true;
+  };
+
+  virtualisation.docker.enable = true;
 }
