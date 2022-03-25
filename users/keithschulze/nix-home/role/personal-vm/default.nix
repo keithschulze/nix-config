@@ -9,6 +9,7 @@
     ripgrep
     fd
     neofetch
+    zathura
 
     # dev
     shellcheck
