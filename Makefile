@@ -10,7 +10,7 @@ NIXBLOCKDEVICE ?= sda
 MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 # The name of the nixosConfiguration in the flake
-NIXNAME ?= parallels-vm
+NIXNAME ?= parallels-work
 
 # SSH options that are used. These aren't meant to be overridden but are
 # reused a lot so we just store them up here.
@@ -61,6 +61,7 @@ vm/bootstrap0:
 vm/bootstrap:
 	NIXUSER=root $(MAKE) vm/copy
 	NIXUSER=root $(MAKE) vm/switch
+	$(MAKE) vm/hm-switch
 	$(MAKE) vm/secrets
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
 		sudo reboot; \
@@ -94,7 +95,12 @@ vm/copy:
 # have to run vm/copy before.
 vm/switch:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
-		sudo NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nixos-rebuild switch --flake \"/nix-config#${NIXNAME}\" \
+		sudo NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix develop /nix-config --command nixos-rebuild switch --flake \"/nix-config#${NIXNAME}\" \
+	"
+
+vm/hm-switch:
+	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR) " \
+		NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix develop /nix-config --command home-manager switch --flake \"/nix-config#keithschulze@${NIXNAME}\" \
 	"
 
 # Build an ISO image

@@ -91,6 +91,11 @@
           system = "aarch64-linux";
           users = [ "keithschulze" ];
         };
+        parallels-work = mkSystem {
+          hostname = "parallels-vm";
+          system = "x86_64-linux";
+          users = [ "keithschulze" ];
+        };
       };
 
       homeConfigurations = {
@@ -100,6 +105,13 @@
           role = "personal-vm";
           features = [ "desktop-i3" "alacritty" ];
           system = "aarch64-linux";
+        };
+        "keithschulze@parallels-work" = mkHome {
+          username = "keithschulze";
+          hostname = "parallels-vm";
+          role = "work-vm";
+          features = [ "desktop-i3" "alacritty" ];
+          system = "x86_64-linux";
         };
       };
     } // utils.lib.eachDefaultSystem (system:

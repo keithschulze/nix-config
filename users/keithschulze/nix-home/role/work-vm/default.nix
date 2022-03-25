@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
-let
-  vscodeBase = (import ../../program/vscode/default.nix) { inherit config; inherit pkgs; };
-  vscodeBaseExts = vscodeBase.extensions;
-in {
-
+{
   home.packages = with pkgs; [
     # utils
     jq
@@ -109,19 +105,10 @@ in {
     };
   };
 
-  programs.alacritty = {
-    enable = true;
-    settings = import ../../program/alacritty/default-settings.nix;
-  };
-
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  # home.file.".config/tmuxinator/hotdoc.yml".source = ./config/tmux/hotdoc.yml;
-  home.file.".config/nix/nix.conf".text = ''
-    experimental-features = nix-command flakes
-  '';
-  home.file.".background-image".source = ./tardis.jpg;
+  home.file.".background-image".source = ./wallpaper.jpg;
 }
