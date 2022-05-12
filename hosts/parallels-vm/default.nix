@@ -25,7 +25,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Set your time zone.
-  time.timeZone = "Australia/Sydney";
+  time.timeZone = "Pacific/Auckland";
   services.ntp.enable = true;
 
   # Global fonts
