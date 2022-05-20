@@ -2,12 +2,11 @@
 let
   colors = config.colorscheme.colors;
 in {
-  background_opacity = 1.0;
-
   window = {
     padding.x = 10;
     padding.y = 10;
     decorations = "full";
+    opacity = 1.0;
   };
 
   font = {

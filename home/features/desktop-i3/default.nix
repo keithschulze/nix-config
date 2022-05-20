@@ -231,13 +231,15 @@ in
     };
   };
 
+  home.pointerCursor = {
+    x11.enable = true;
+    name = "Adwaita";
+    package = pkgs.gnome.adwaita-icon-theme;
+    size = 24;
+  };
+
   xsession = {
     enable = true;
-    pointerCursor = {
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
-      size = 24;
-    };
     windowManager.i3 = {
       enable = true;
       config = {
