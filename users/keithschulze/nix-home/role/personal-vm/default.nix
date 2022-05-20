@@ -22,6 +22,7 @@
 
     # language clients
     terraform-ls
+    rust-analyzer
 
     # tools
     docker-compose
