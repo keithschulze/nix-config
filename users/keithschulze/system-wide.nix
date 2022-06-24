@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  system.stateVersion = "22.11";
   users.users.keithschulze = {
     isNormalUser = true;
     name = "keithschulze";
