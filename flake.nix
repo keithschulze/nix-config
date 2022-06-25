@@ -36,6 +36,7 @@
         })
       ];
 
+
       mkSystem = { hostname, system, users }:
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -65,8 +66,10 @@
 
       # Make home configuration, given username, required features, and system type
       mkHome = { username, system, hostname, role, features ? [ ] }:
-        home-manager.lib.homeManagerConfiguration {
-          inherit username system;
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in home-manager.lib.homeManagerConfiguration {
+          inherit username system pkgs;
           extraSpecialArgs = {
             inherit features hostname role inputs system;
           };
