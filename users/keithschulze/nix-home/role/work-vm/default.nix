@@ -18,6 +18,7 @@
     black
     cookiecutter
     awscli2
+    pyright
   ];
 
   programs.ssh = {
