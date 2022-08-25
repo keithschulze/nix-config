@@ -27,13 +27,13 @@
       # Overlays is the list of overlays we want to apply from flake inputs.
       overlays = [
         #inputs.neovim-nightly-overlay.overlay
-        (self: super: {
-          alacritty = super.alacritty.overrideAttrs (
-            o: rec {
-              doCheck = false;
-            }
-          );
-        })
+        # (self: super: {
+        #   alacritty = super.alacritty.overrideAttrs (
+        #     o: rec {
+        #       doCheck = false;
+        #     }
+        #   );
+        # })
       ];
 
 
@@ -69,18 +69,22 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in home-manager.lib.homeManagerConfiguration {
-          inherit username system pkgs;
+          inherit pkgs;
           extraSpecialArgs = {
             inherit features hostname role inputs system;
           };
-          homeDirectory = "/home/${username}";
-          configuration = ./users + "/${username}";
-          extraModules = [
+          modules = [
             ./modules/home-manager
+            (./users + "/${username}")
             {
               nixpkgs = {
                 inherit overlays;
                 config.allowUnfree = true;
+              };
+              home = {
+                inherit username;
+                homeDirectory = "/home/${username}";
+                stateVersion = "22.05";
               };
             }
           ];
