@@ -23,16 +23,16 @@ in
   programs.autorandr = {
     enable = true;
     profiles = {
-      "dell27" = {
+      "dell32" = {
         fingerprint = {
           "Virtual-1" = "--CONNECTED-BUT-EDID-UNAVAILABLE--Virtual-1";
         };
         config = {
           "Virtual-1" = {
             enable = true;
-            primary = true;
+            primary = false;
             position = "0x0";
-            mode = "2560x1440";
+            mode = "3840x2160";
             rate = "60.00";
           };
         };
@@ -59,8 +59,8 @@ in
             default)
               DPI=220
               ;;
-            dell27)
-              DPI=108
+            dell32)
+              DPI=138
               ;;
             mbp)
               DPI=220
