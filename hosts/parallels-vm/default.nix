@@ -1,10 +1,8 @@
 # System configuration for my dev VMs
 { config, pkgs, lib, system, inputs, ... }:
 {
-  disabledModules = [ "virtualisation/parallels-guest.nix" ];
   imports = [
     ./hardware-configuration.nix
-    ../../modules/parallels-unfree/parallels-guest.nix
   ];
 
   # use unstable nix so we can access flakes
@@ -66,7 +64,7 @@
     dpi = 220;
     resolutions = lib.mkOverride 10 [
       { x = 2560; y = 1600; }
-      { x = 2560; y = 1440; }
+      { x = 3840; y = 2160; }
     ];
 
     desktopManager = {
@@ -96,6 +94,5 @@
   # Enable parallel guest mode with prl-tools
   hardware.parallels = {
     enable = true;
-    package = (config.boot.kernelPackages.callPackage ../../modules/parallels-unfree/prl-tools.nix {});
   };
 }
