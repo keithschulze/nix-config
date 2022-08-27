@@ -24,6 +24,7 @@ in {
     vim-repeat
     vim-fugitive
     vim-surround
+    vim-dispatch
     vim-commentary
 
     vim-peekaboo
