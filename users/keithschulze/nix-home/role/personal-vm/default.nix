@@ -1,6 +1,13 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  extraVimPlugins = with pkgs.vimPlugins; [
+    # Clojure
+    conjure
+    vim-jack-in
+    parinfer-rust
+  ];
+in {
   home.packages = with pkgs; [
     # utils
     jq
@@ -23,6 +30,7 @@
     # language clients
     terraform-ls
     rust-analyzer
+    clojure-lsp
 
     # tools
     docker-compose
@@ -85,7 +93,11 @@
     };
   };
 
-  programs.neovim = (import ../../program/neovim/default.nix) { inherit config; inherit pkgs; inherit lib; };
+  programs.neovim = (import ../../program/neovim/default.nix) {
+    inherit config pkgs lib;
+    lsps = ["pyright" "rust_analyzer" "terraformls" "clojure-lsp"];
+    extraPlugins = extraVimPlugins;
+  };
 
   programs.tmux = (import ../../program/tmux/default.nix) { inherit pkgs; };
 

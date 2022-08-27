@@ -1,22 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, lsps ? ["pyright" "rust_analyzer" "terraformls"], extraPlugins ? [], ... }:
 
 let
-  vim-zettel = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-zettel";
-    src = pkgs.fetchFromGitHub {
-      owner = "michal-h21";
-      repo = "vim-zettel";
-      rev = "5f046caa2044d2ecd08ff0ce7aa0e73d70a77e50";
-      sha256 = "0jrwirz6dhhd4mhrw5vvkdvfhla22hcmxfgxbqdcl272cgpplg5x";
-    };
-  };
+  lspString = "{ '" + (builtins.concatStringsSep "', '" lsps) + "' }";
+  luaConfig = builtins.replaceStrings ["{{ servers }}"] [lspString] (lib.strings.fileContents ../../config/neovim/lsp.lua);
+
 in {
   enable = true;
   extraConfig = builtins.concatStringsSep "\n" [
     (lib.strings.fileContents ../../config/neovim/base.vim)
     ''
       lua << EOF
-      ${lib.strings.fileContents ../../config/neovim/lsp.lua}
+      ${luaConfig}
       EOF
     ''
   ];
@@ -64,8 +58,5 @@ in {
     # plant-uml
     plantuml-syntax
     open-browser
-
-    vimwiki
-    vim-zettel
-  ];
+  ] ++ extraPlugins;
 }
