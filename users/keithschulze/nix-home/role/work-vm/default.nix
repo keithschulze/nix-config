@@ -1,5 +1,13 @@
 { config, lib, pkgs, ... }:
-{
+
+let
+  extraVimPlugins = with pkgs.vimPlugins; [
+    # Clojure
+    conjure
+    vim-jack-in
+    parinfer-rust
+  ];
+in {
   home.packages = with pkgs; [
     # utils
     jq
@@ -12,13 +20,18 @@
     shellcheck
     tmux
     tmuxinator
+    helix
 
     # tools
     poetry
     black
     cookiecutter
     awscli2
+
+    # lsps
     pyright
+    clojure-lsp
+    terraform-ls
   ];
 
   programs.ssh = {
@@ -75,7 +88,11 @@
     };
   };
 
-  programs.neovim = (import ../../program/neovim/default.nix) { inherit config; inherit pkgs; inherit lib; };
+  programs.neovim = (import ../../program/neovim/default.nix) {
+    inherit config pkgs lib;
+    lsps = ["pyright" "terraformls" "clojure-lsp"];
+    extraPlugins = extraVimPlugins;
+  };
 
   programs.tmux = (import ../../program/tmux/default.nix) { inherit pkgs; };
 
@@ -112,4 +129,6 @@
   };
 
   home.file.".background-image".source = ./wallpaper.jpg;
+
+  home.file.".config/helix/config.toml".text = builtins.readFile ../../config/helix/config.toml;
 }
