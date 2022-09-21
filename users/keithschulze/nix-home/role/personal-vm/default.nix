@@ -17,6 +17,7 @@ in {
     fd
     neofetch
     zathura
+    helix
 
     # dev
     shellcheck
@@ -134,4 +135,6 @@ in {
   # };
 
   home.file.".background-image".source = ./wallpaper.jpg;
+
+  home.file.".config/helix/config.toml".text = builtins.readFile ../../config/helix/config.toml;
 }
