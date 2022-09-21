@@ -17,7 +17,7 @@ in {
 
   withPython3 = true;
 
-  extraPython3Packages = (ps: with ps; [jedi black]);
+  extraPython3Packages = (ps: with ps; [jedi]);
 
   plugins = with pkgs.vimPlugins; [
     vim-nix

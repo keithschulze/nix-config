@@ -7,6 +7,11 @@
     # it'll impact your entire system.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    darwin = {
+      url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
 
@@ -17,23 +22,13 @@
     nix-colors.url = "github:narutoxy/nix-colors/5ae8ab6b2ccad1b9f3ca3135ab805ac440174940";
 
     utils.url = "github:numtide/flake-utils";
-    # Other packages
-    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, utils, ... }@inputs:
+  outputs = { nixpkgs, darwin, home-manager, utils, ... }@inputs:
     let
       overlay = (import ./overlays);
       # Overlays is the list of overlays we want to apply from flake inputs.
       overlays = [
-        #inputs.neovim-nightly-overlay.overlay
-        # (self: super: {
-        #   alacritty = super.alacritty.overrideAttrs (
-        #     o: rec {
-        #       doCheck = false;
-        #     }
-        #   );
-        # })
       ];
 
 
@@ -62,6 +57,14 @@
             # System wide config for each user
           ] ++ nixpkgs.lib.forEach users
             (u: ./users + "/${u}" + /system-wide.nix);
+        };
+
+      mkDarwin = { hostname, system, users, role, features ? [ ] }:
+        darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            ./hosts/darwin
+          ];
         };
 
       # Make home configuration, given username, required features, and system type
