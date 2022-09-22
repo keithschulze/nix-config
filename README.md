@@ -2,6 +2,9 @@
 
 This is my NixOS Parallels developer VM setup. This is adapted from Mitchell Hashimoto's excellent NixOS VM repo.
 
+The structure of this repo has evolved quite a bit and is heavily inspired by
+the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) repo.
+
 ## Setup
 
 If you need an ISO for NixOS, you can build your own in the `iso` folder.

@@ -1,19 +1,15 @@
-{ pkgs, config, inputs, hostname, ... }:
-
-with inputs.nix-colors.lib { inherit pkgs; };
+{ pkgs, config, inputs, colorscheme, ... }:
 
 let
-  currentScheme.parallels-vm = "tokyonight";
-in
-{
+  inherit (inputs.nix-colors.lib { inherit pkgs; }) colorschemeFromPicture;
+in {
   imports = [ inputs.nix-colors.homeManagerModule ];
 
   colorscheme =
-    if currentScheme.${hostname} != null then
-      inputs.nix-colors.colorSchemes.${currentScheme.${hostname}}
+    if colorscheme != null then
+      inputs.nix-colors.colorSchemes.${colorscheme}
     else
-      colorschemeFromPicture {
-        path = config.wallpaper;
-        kind = currentMode;
-      };
+      inputs.nix-colors.colorSchemes.tokyonight;
+
+  home.sessionVariables.SCHEME = colorscheme;
 }

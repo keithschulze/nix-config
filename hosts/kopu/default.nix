@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../common/users/keithschulze.nix
   ];
 
   # use unstable nix so we can access flakes

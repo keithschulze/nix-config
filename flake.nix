@@ -24,122 +24,58 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { nixpkgs, darwin, home-manager, utils, ... }@inputs:
+  outputs = inputs:
     let
-      overlay = (import ./overlays);
+      lib = import ./lib { inherit inputs; };
+      inherit (lib) mkSystem mkHome forAllSystems;
       # Overlays is the list of overlays we want to apply from flake inputs.
-      overlays = [
-      ];
+    in
+    rec {
+      inherit lib;
 
+      overlays = {};
 
-      mkSystem = { hostname, system, users }:
-        nixpkgs.lib.nixosSystem {
+      legacyPackages = forAllSystems (system:
+        import inputs.nixpkgs {
           inherit system;
-          specialArgs = {
-            inherit inputs system;
-          };
-          modules = [
-            # ./modules/nixos
-            (./hosts + "/${hostname}")
-            {
-              networking.hostName = hostname;
-              # Apply overlay and allow unfree packages
-              nixpkgs = {
-                inherit overlays;
-                config.allowUnfree = true;
-              };
-              # Add each input as a registry
-              nix.registry = nixpkgs.lib.mapAttrs'
-                (n: v:
-                  nixpkgs.lib.nameValuePair (n) ({ flake = v; }))
-                inputs;
-            }
-            # System wide config for each user
-          ] ++ nixpkgs.lib.forEach users
-            (u: ./users + "/${u}" + /system-wide.nix);
-        };
-
-      mkDarwin = { hostname, system, users, role, features ? [ ] }:
-        darwin.lib.darwinSystem {
-          inherit system;
-          modules = [
-            ./hosts/darwin
-          ];
-        };
-
-      # Make home configuration, given username, required features, and system type
-      mkHome = { username, system, hostname, role, features ? [ ] }:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit features hostname role inputs system;
-          };
-          modules = [
-            ./modules/home-manager
-            (./users + "/${username}")
-            {
-              nixpkgs = {
-                inherit overlays;
-                config.allowUnfree = true;
-              };
-              home = {
-                inherit username;
-                homeDirectory = "/home/${username}";
-                stateVersion = "22.05";
-              };
-            }
-          ];
-        };
-    in {
-      inherit overlay overlays;
+          overlays = builtins.attrValues overlays;
+          config.allowUnfree = true;
+        }
+      );
 
       nixosConfigurations = {
-        parallels-vm = mkSystem {
-          hostname = "parallels-vm";
-          system = "aarch64-linux";
-          users = [ "keithschulze" ];
+        wheru = mkSystem {
+          hostname = "wheru";
+          pkgs = legacyPackages."aarch64-linux";
         };
-        parallels-work = mkSystem {
-          hostname = "parallels-vm";
-          system = "x86_64-linux";
-          users = [ "keithschulze" ];
+        kopu = mkSystem {
+          hostname = "kopu";
+          system = legacyPackages."x86_64-linux";
         };
       };
 
       homeConfigurations = {
-        "keithschulze@parallels-vm" = mkHome {
+        "keithschulze@wheru" = mkHome {
           username = "keithschulze";
-          hostname = "parallels-vm";
+          hostname = "wheru";
           role = "personal-vm";
           features = [ "desktop-i3" "alacritty" ];
-          system = "aarch64-linux";
+          colorscheme = "tokyonight";
         };
-        "keithschulze@parallels-work" = mkHome {
+        "keithschulze@kopu" = mkHome {
           username = "keithschulze";
-          hostname = "parallels-vm";
+          hostname = "kopu";
           role = "work-vm";
           features = [ "desktop-i3" "alacritty" ];
-          system = "x86_64-linux";
+          colorscheme = "tokyonight";
         };
       };
-    } // utils.lib.eachDefaultSystem (system:
+    } // inputs.utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system overlays; };
-
-        hm = home-manager.defaultPackage."${system}";
-        gtkThemeFromScheme = (inputs.nix-colors.lib { inherit pkgs; }).gtkThemeFromScheme;
-        generated-gtk-themes =  builtins.mapAttrs (name: value: gtkThemeFromScheme { scheme = value; }) inputs.nix-colors.colorSchemes;
-      in
-      {
-        packages = pkgs // {
-          inherit generated-gtk-themes;
-          home-manager = hm;
-        };
-
+        pkgs = import inputs.nixpkgs { inherit system; };
+      in {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [ nixUnstable nixfmt rnix-lsp hm ];
+          buildInputs = with pkgs; [ nixUnstable hm ];
         };
       });
 }
