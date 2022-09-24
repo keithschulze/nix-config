@@ -7,15 +7,21 @@
     # it'll impact your entire system.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    darwin = {
-      url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # darwin = {
+    #   url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
 
       # We want home-manager to use the same set of nixpkgs as our system.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,7 +39,9 @@
     rec {
       inherit lib;
 
-      overlays = {};
+      overlays = {
+        hyprland = inputs.hyprland.overlays.default;
+      };
 
       legacyPackages = forAllSystems (system:
         import inputs.nixpkgs {

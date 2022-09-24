@@ -11,5 +11,8 @@ in {
     else
       inputs.nix-colors.colorSchemes.tokyonight;
 
-  home.sessionVariables.SCHEME = colorscheme;
+    home.sessionVariables = {
+      SCHEME = colorscheme;
+      LIBSEAT_BACKEND = "logind";
+    };
 }

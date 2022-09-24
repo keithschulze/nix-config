@@ -4,6 +4,9 @@
   imports = [
     ./hardware-configuration.nix
     ../common/users/keithschulze.nix
+    ../common/optional/quietboot.nix
+    # ../common/optional/greetd.nix
+    ../common/optional/xserver.nix
   ];
 
   # use unstable nix so we can access flakes
@@ -16,7 +19,6 @@
 
   # We expect to run the VM on hidpi machines.
   hardware.video.hidpi.enable = true;
-
 
   boot.kernelPackages = pkgs.linuxPackages_5_15;
   # Use the systemd-boot EFI boot loader.
@@ -37,16 +39,26 @@
 
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;
-
-  environment.systemPackages = with pkgs; [
-    xclip
-  ];
+  security.polkit.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = true;
   services.openssh.permitRootLogin = "no";
 
+  services.logind ={
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "lock";
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
+
+  hardware.opengl.enable = true;
+
+  programs.dconf.enable = true;
   programs.ssh.startAgent = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -58,39 +70,6 @@
   # easy to visit stuff in here. We only use NAT networking anyways.
   networking.firewall.enable = false;
   networking.interfaces.enp0s5.useDHCP = true;
-
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    dpi = 220;
-    resolutions = lib.mkOverride 10 [
-      { x = 2560; y = 1600; }
-      { x = 3840; y = 2160; }
-    ];
-
-    desktopManager = {
-      xterm.enable = true;
-    };
-
-    displayManager = {
-      lightdm = {
-        enable = true;
-      };
-      autoLogin = {
-        enable = true;
-        user = "keithschulze";
-      };
-      defaultSession = "hm";
-      session = [
-        {
-          name = "hm";
-          manage = "desktop";
-          start = "${pkgs.runtimeShell} $HOME/.xsession &
-      waitPID=$!";
-        }
-      ];
-    };
-  };
 
   # Enable parallel guest mode with prl-tools
   hardware.parallels = {
