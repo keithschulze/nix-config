@@ -3,7 +3,6 @@
 let
   inherit (pkgs) stdenv;
   home = if stdenv.isDarwin then "Users" else "home";
-  feats = if stdenv.isDarwin then [] else features;
 in {
   imports = [
     ./rice.nix

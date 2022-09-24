@@ -1,7 +1,7 @@
 { inputs, ... }:
 
 let
-  inherit (inputs) self home-manager nixpkgs;
+  inherit (inputs) self home-manager nixpkgs darwin;
   inherit (self) outputs;
   inherit (nixpkgs.lib) genAttrs;
 in
@@ -28,6 +28,19 @@ in
         ];
       };
 
+    mkDarwin =
+      { hostname
+      , system
+      , pkgs
+      }:
+      darwin.lib.darwinSystem {
+        inherit system;
+        modules = [
+          ../hosts/${hostname}
+        ];
+        specialArgs = { inherit inputs outputs pkgs system; };
+      };
+
     mkHome =
       { username
       , hostname
@@ -46,18 +59,4 @@ in
           ../users/${username}
         ];
       };
-
-    # mkDarwin =
-    #   { hostname
-    #   , system
-    #   , users
-    #   , role
-    #   , features ? [ ]
-    #   }:
-    #   darwin.lib.darwinSystem {
-    #     inherit system;
-    #     modules = [
-    #       ./hosts/darwin
-    #     ];
-    #   };
   }

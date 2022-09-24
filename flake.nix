@@ -7,10 +7,10 @@
     # it'll impact your entire system.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # darwin = {
-    #   url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -33,7 +33,7 @@
   outputs = inputs:
     let
       lib = import ./lib { inherit inputs; };
-      inherit (lib) mkSystem mkHome forAllSystems;
+      inherit (lib) mkSystem mkDarwin mkHome forAllSystems;
       # Overlays is the list of overlays we want to apply from flake inputs.
     in
     rec {
@@ -52,20 +52,28 @@
       );
 
       nixosConfigurations = {
-        wheru = mkSystem {
-          hostname = "wheru";
+        whiro = mkSystem {
+          hostname = "whiro";
           pkgs = legacyPackages."aarch64-linux";
         };
         kopu = mkSystem {
           hostname = "kopu";
-          system = legacyPackages."x86_64-linux";
+          pkgs = legacyPackages."x86_64-linux";
+        };
+      };
+
+      darwinConfigurations = {
+        matawhero = mkDarwin {
+          hostname = "matawhero";
+          system = "aarch64-darwin";
+          pkgs = legacyPackages."aarch64-darwin";
         };
       };
 
       homeConfigurations = {
-        "keithschulze@wheru" = mkHome {
+        "keithschulze@whiro" = mkHome {
           username = "keithschulze";
-          hostname = "wheru";
+          hostname = "whiro";
           role = "personal-vm";
           features = [ "desktop-i3" "alacritty" ];
           colorscheme = "tokyonight";
@@ -76,6 +84,14 @@
           role = "work-vm";
           features = [ "desktop-i3" "alacritty" ];
           colorscheme = "tokyonight";
+        };
+        "keithschulze@matawhero" = mkHome {
+          username = "keithschulze";
+          hostname = "matawhero";
+          role = "personal";
+          features = [ "alacritty" ];
+          colorscheme = "tokyonight";
+          pkgs = legacyPackages."aarch64-darwin";
         };
       };
     } // inputs.utils.lib.eachDefaultSystem (system:
