@@ -68,6 +68,11 @@
           system = "aarch64-darwin";
           pkgs = legacyPackages."aarch64-darwin";
         };
+        parearau = mkDarwin {
+          hostname = "parearau";
+          system = "x86_64-darwin";
+          pkgs = legacyPackages."x86_64-darwin";
+        };
       };
 
       homeConfigurations = {
@@ -92,6 +97,14 @@
           features = [ "alacritty" ];
           colorscheme = "tokyonight";
           pkgs = legacyPackages."aarch64-darwin";
+        };
+        "keithschulze@parearau" = mkHome {
+          username = "keithschulze";
+          hostname = "parearau";
+          role = "q";
+          features = [ "alacritty" ];
+          colorscheme = "tokyonight";
+          pkgs = legacyPackages."x86_64-darwin";
         };
       };
     } // inputs.utils.lib.eachDefaultSystem (system:
