@@ -1,7 +1,13 @@
 { config, pkgs, lib, ... }:
 
-{
-
+let
+  extraVimPlugins = with pkgs.vimPlugins; [
+    # Clojure
+    conjure
+    vim-jack-in
+    parinfer-rust
+  ];
+in {
   home.packages = with pkgs; [
     # utils
     jq
@@ -9,6 +15,9 @@
     fzf
     ripgrep
     fd
+
+    # editors
+    helix
 
     # dev
     shellcheck
@@ -22,6 +31,11 @@
     # tools
     poetry
     cookiecutter
+    terraform
+
+    # lang clients
+    terraform-ls
+    clojure-lsp
   ];
 
   programs.ssh = {
@@ -79,7 +93,11 @@
     };
   };
 
-  programs.neovim = (import ../../program/neovim/default.nix) { inherit config; inherit pkgs; inherit lib; };
+  programs.neovim = (import ../../program/neovim/default.nix) {
+    inherit config pkgs lib;
+    lsps = ["pyright" "rust_analyzer" "terraformls" "clojure-lsp"];
+    extraPlugins = extraVimPlugins;
+  };
 
   programs.tmux = (import ../../program/tmux/default.nix) { inherit pkgs; };
 
@@ -130,4 +148,10 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  home.file.".config/nix/nix.conf".text = ''
+    experimental-features = nix-command flakes
+  '';
+
+  home.file.".config/helix/config.toml".text = builtins.readFile ../../config/helix/config.toml;
 }
