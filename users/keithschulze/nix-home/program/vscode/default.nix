@@ -313,8 +313,8 @@
     ];
     "vim.enableNeovim" = true;
     "vim.textwidth" = 80;
-    "vim.neovimPath" = "/etc/profiles/per-user/keithschulze/bin/nvim";
-    "git.path" = "/etc/profiles/per-user/keithschulze/bin/git";
+    "vim.neovimPath" = "/Users/keithschulze/.nix-profile/bin/nvim";
+    "git.path" = "/Users/keithschulze/.nix-profile/bin/git";
     "vim.gdefault" = true;
     "vim.sneak" = true;
     "vim.useSystemClipboard" = true;

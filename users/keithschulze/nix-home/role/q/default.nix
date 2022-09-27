@@ -47,6 +47,13 @@ in {
   programs.ssh = {
     enable = true;
     matchBlocks = {
+      "jqdev.net" = {
+        hostname = "jqdev.net";
+        extraOptions = {
+          AddKeysToAgent = "yes";
+        };
+        identityFile = "~/.ssh/id_ed25519_qantas";
+      };
       "github.com" = {
         hostname = "github.com";
         extraOptions = {

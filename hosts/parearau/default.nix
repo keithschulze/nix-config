@@ -2,6 +2,7 @@
 
 let
   inherit (pkgs) lorri;
+  inherit (inputs) home-manager;
 in {
   nix.package = pkgs.nixFlakes;
 
@@ -29,22 +30,8 @@ in {
     home = "/Users/keithschulze";
   };
 
-  services.nix-daemon.enable = true;
-
-  launchd.user.agents = {
-    "lorri" = {
-      serviceConfig = {
-        WorkingDirectory = (builtins.getEnv "HOME");
-        EnvironmentVariables = { };
-        KeepAlive = true;
-        RunAtLoad = true;
-        StandardOutPath = "/var/tmp/lorri.log";
-        StandardErrorPath = "/var/tmp/lorri.log";
-      };
-      script = ''
-        source ${config.system.build.setEnvironment}
-        exec ${lorri}/bin/lorri daemon
-      '';
-    };
+  services = {
+    nix-daemon.enable = false;
+    lorri.enable = true;
   };
 }
