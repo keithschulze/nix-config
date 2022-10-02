@@ -29,13 +29,14 @@ in {
     nodejs
 
     # tools
-    poetry
+    # poetry
     cookiecutter
     terraform
 
     # lang clients
     terraform-ls
     clojure-lsp
+    rust-analyzer
   ];
 
   programs.ssh = {
