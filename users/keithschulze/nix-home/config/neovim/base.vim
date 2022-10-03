@@ -178,17 +178,17 @@ nnoremap <leader>s/ :Rg<CR>
 nnoremap <leader>wv <C-w>v<C-w>l   " split vertically
 nnoremap <leader>wh <C-w>s<C-w>j   " split horizontally
 
-" file
-nnoremap <leader>ff :Files<CR>
+" Telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " buffer
-nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>bd :bdelete<CR>
 nnoremap <leader>bc :BD<CR>
 nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
-nnoremap <leader>b/ :Lines<CR>
-nnoremap <leader>bl :BLines<CR>
 
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gc :Gcommit<CR>

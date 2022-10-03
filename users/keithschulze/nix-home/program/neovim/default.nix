@@ -30,7 +30,6 @@ in {
     vim-peekaboo
     vim-slash
     vim-startify
-    fzf-vim
     gv-vim
 
     vim-gitgutter
@@ -39,6 +38,9 @@ in {
     vim-rooter
     vim-tmux-navigator
     vim-bufkill
+
+    telescope-nvim
+    telescope-fzf-native-nvim
 
     nerdtree
     luasnip
