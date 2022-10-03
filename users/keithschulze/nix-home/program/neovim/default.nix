@@ -45,6 +45,21 @@ in {
     nvim-cmp
     cmp-nvim-lsp
     cmp_luasnip
+    (nvim-treesitter.withPlugins (plugins: [
+      plugins.tree-sitter-rust
+      plugins.tree-sitter-python
+      plugins.tree-sitter-clojure
+      plugins.tree-sitter-nix
+      plugins.tree-sitter-scala
+      plugins.tree-sitter-dockerfile
+      plugins.tree-sitter-hcl
+      plugins.tree-sitter-javascript
+      plugins.tree-sitter-json
+      plugins.tree-sitter-markdown
+      plugins.tree-sitter-sql
+      plugins.tree-sitter-typescript
+      plugins.tree-sitter-yaml
+    ]))
 
     # Style
     nord-vim
