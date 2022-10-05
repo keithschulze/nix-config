@@ -3,7 +3,7 @@
 let
   inherit (pkgs) lorri;
 in {
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixVersions.stable;
 
   environment.systemPackages = with pkgs;
     [ lorri

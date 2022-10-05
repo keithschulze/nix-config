@@ -33,7 +33,6 @@ in {
 
     # tools
     terraform
-    poetry
     black
     cookiecutter
     awscli2
