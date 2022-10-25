@@ -37,6 +37,7 @@ in {
     terraform-ls
     clojure-lsp
     rust-analyzer
+    pyright
   ];
 
   programs.ssh = {
