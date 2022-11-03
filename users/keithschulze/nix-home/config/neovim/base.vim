@@ -62,6 +62,10 @@ set shiftwidth=2        " 2 spaces for autoindenting
 set softtabstop=2       " when <BS>, pretend a tab is removed even if spaces
 set expandtab           " expand tabs to spaces (overloadable by file type)
 
+" Set split options
+set splitright
+set splitbelow
+
 set autoread            " reload files changed on disk, i.e. via `git checkout`
 set hidden              " switch beteen buffers without saving
 
