@@ -68,6 +68,13 @@ in {
         };
         identityFile = "~/.ssh/id_ed25519";
       };
+      "thoughtworks.github.com" = {
+        hostname = "github.com";
+        extraOptions = {
+          AddKeysToAgent = "yes";
+        };
+        identityFile = "~/.ssh/id_ed25519_thoughtworks";
+      };
     };
   };
 
