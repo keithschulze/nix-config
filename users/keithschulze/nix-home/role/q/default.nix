@@ -37,7 +37,6 @@ in {
     black
     cookiecutter
     awscli2
-    polylith
 
     # lang servers
     terraform-ls
