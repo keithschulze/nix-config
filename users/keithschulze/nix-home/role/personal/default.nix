@@ -35,6 +35,7 @@ in {
 
     # lang clients
     elmPackages.elm-language-server
+    ocamlPackages.ocaml-lsp
     terraform-ls
     clojure-lsp
     rust-analyzer
@@ -98,7 +99,14 @@ in {
 
   programs.neovim = (import ../../program/neovim/default.nix) {
     inherit config pkgs lib;
-    lsps = ["pyright" "rust_analyzer" "terraformls" "clojure_lsp" "elm_language_server"];
+    lsps = [
+      "pyright"
+      "rust_analyzer"
+      "terraformls"
+      "clojure_lsp"
+      "elm_language_server"
+      "ocamllsp"
+    ];
     extraPlugins = extraVimPlugins;
   };
 
