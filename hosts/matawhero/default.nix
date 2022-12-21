@@ -14,6 +14,43 @@ in {
     promptInit = "";
   };
 
+  homebrew = {
+    enable = true;
+
+    brews = [
+      "colima"
+      "docker"
+      "docker-compose"
+      "hyperfine"
+    ];
+
+    casks = [
+      "1password"
+      "fiji"
+      "firefox-developer-edition"
+      "font-fontawesome"
+      "google-chrome"
+      "iterm2"
+      "karabiner-elements"
+      "miniforge"
+      "obsidian"
+      "rectangle"
+      "zoom"
+    ];
+
+    taps = [
+      "homebrew/cask"
+      "homebrew/cask-fonts"
+      "homebrew/cask-versions"
+    ];
+
+    global.autoUpdate = false;
+    onActivation = {
+      cleanup = "uninstall";
+      upgrade = true;
+    };
+  };
+
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
