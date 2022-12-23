@@ -101,7 +101,7 @@
         "keithschulze@parearau" = mkHome {
           username = "keithschulze";
           hostname = "parearau";
-          role = "q";
+          role = "work";
           features = [ "alacritty" ];
           colorscheme = "tokyonight";
           pkgs = legacyPackages."x86_64-darwin";
