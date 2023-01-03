@@ -19,12 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-colors.url = "github:narutoxy/nix-colors/5ae8ab6b2ccad1b9f3ca3135ab805ac440174940";
 
     utils.url = "github:numtide/flake-utils";
@@ -40,7 +34,6 @@
       inherit lib;
 
       overlays = {
-        hyprland = inputs.hyprland.overlays.default;
       };
 
       legacyPackages = forAllSystems (system:
@@ -51,16 +44,12 @@
         }
       );
 
-      nixosConfigurations = {
-        whiro = mkSystem {
-          hostname = "whiro";
-          pkgs = legacyPackages."aarch64-linux";
-        };
-        kopu = mkSystem {
-          hostname = "kopu";
-          pkgs = legacyPackages."x86_64-linux";
-        };
-      };
+      # nixosConfigurations = {
+      #   whiro = mkSystem {
+      #     hostname = "whiro";
+      #     pkgs = legacyPackages."aarch64-linux";
+      #   };
+      # };
 
       darwinConfigurations = {
         matawhero = mkDarwin {
@@ -68,28 +57,9 @@
           system = "aarch64-darwin";
           pkgs = legacyPackages."aarch64-darwin";
         };
-        parearau = mkDarwin {
-          hostname = "parearau";
-          system = "x86_64-darwin";
-          pkgs = legacyPackages."x86_64-darwin";
-        };
       };
 
       homeConfigurations = {
-        "keithschulze@whiro" = mkHome {
-          username = "keithschulze";
-          hostname = "whiro";
-          role = "personal-vm";
-          features = [ "desktop-i3" "alacritty" ];
-          colorscheme = "tokyonight";
-        };
-        "keithschulze@kopu" = mkHome {
-          username = "keithschulze";
-          hostname = "kopu";
-          role = "work-vm";
-          features = [ "desktop-i3" "alacritty" ];
-          colorscheme = "tokyonight";
-        };
         "keithschulze@matawhero" = mkHome {
           username = "keithschulze";
           hostname = "matawhero";
@@ -100,14 +70,6 @@
           ];
           colorscheme = "tokyonight";
           pkgs = legacyPackages."aarch64-darwin";
-        };
-        "keithschulze@parearau" = mkHome {
-          username = "keithschulze";
-          hostname = "parearau";
-          role = "work";
-          features = [ "alacritty" ];
-          colorscheme = "tokyonight";
-          pkgs = legacyPackages."x86_64-darwin";
         };
       };
     } // inputs.utils.lib.eachDefaultSystem (system:

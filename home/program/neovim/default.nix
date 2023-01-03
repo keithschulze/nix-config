@@ -2,12 +2,12 @@
 
 let
   lspString = "{ '" + (builtins.concatStringsSep "', '" lsps) + "' }";
-  luaConfig = builtins.replaceStrings ["{{ servers }}"] [lspString] (lib.strings.fileContents ../../config/neovim/lsp.lua);
+  luaConfig = builtins.replaceStrings ["{{ servers }}"] [lspString] (lib.strings.fileContents ./lsp.lua);
 
 in {
   enable = true;
   extraConfig = builtins.concatStringsSep "\n" [
-    (lib.strings.fileContents ../../config/neovim/base.vim)
+    (lib.strings.fileContents ./base.vim)
     ''
       lua << EOF
       ${luaConfig}
