@@ -21,6 +21,8 @@ in {
       "colima"
       "docker"
       "docker-compose"
+      "glew"
+      "glfw"
       "hyperfine"
     ];
 
