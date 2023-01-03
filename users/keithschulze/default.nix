@@ -128,11 +128,11 @@ in {
     extraPlugins = extraVimPlugins;
   };
 
-  programs.tmux = (import ./nix-home/program/tmux/default.nix) { inherit pkgs; };
+  programs.tmux = (import ../../home/program/tmux/default.nix) { inherit pkgs; };
 
-  programs.vscode = (import ./nix-home/program/vscode/default.nix) { inherit config; inherit pkgs; };
+  programs.vscode = (import ../../home/program/vscode/default.nix) { inherit config; inherit pkgs; };
 
-  programs.zsh = lib.attrsets.recursiveUpdate (import ./nix-home/program/zsh/default.nix) {
+  programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
     initExtra = ''
       if [ -n "''\${commands[fzf-share]}" ]; then
         source "$(fzf-share)/key-bindings.zsh"
