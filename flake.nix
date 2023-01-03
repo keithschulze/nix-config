@@ -94,7 +94,10 @@
           username = "keithschulze";
           hostname = "matawhero";
           role = "personal";
-          features = [ "alacritty" ];
+          features = [
+            "alacritty"
+            "starship"
+          ];
           colorscheme = "tokyonight";
           pkgs = legacyPackages."aarch64-darwin";
         };

@@ -112,8 +112,6 @@ in {
 
   programs.tmux = (import ../../program/tmux/default.nix) { inherit pkgs; };
 
-  programs.starship = import ../../program/starship/default.nix;
-
   programs.vscode = (import ../../program/vscode/default.nix) { inherit config; inherit pkgs; };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../program/zsh/default.nix) {
