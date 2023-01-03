@@ -57,13 +57,29 @@
           system = "aarch64-darwin";
           pkgs = legacyPackages."aarch64-darwin";
         };
+
+        rapu = mkDarwin {
+          hostname = "rapu";
+          system = "aarch64-darwin";
+          pkgs = legacyPackages."aarch64-darwin";
+        };
       };
 
       homeConfigurations = {
         "keithschulze@matawhero" = mkHome {
           username = "keithschulze";
           hostname = "matawhero";
-          role = "personal";
+          features = [
+            "alacritty"
+            "starship"
+          ];
+          colorscheme = "tokyonight";
+          pkgs = legacyPackages."aarch64-darwin";
+        };
+
+        "kschulze@rapu" = mkHome {
+          username = "kschulze";
+          hostname = "rapu";
           features = [
             "alacritty"
             "starship"

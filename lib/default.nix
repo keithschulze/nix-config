@@ -44,7 +44,6 @@ in
     mkHome =
       { username
       , hostname
-      , role
       , pkgs ? outputs.nixosConfigurations.${hostname}.pkgs
       , features ? [ ]
       , colorscheme ? "tokyonight"
@@ -52,7 +51,7 @@ in
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs outputs username hostname role features colorscheme;
+          inherit inputs outputs username hostname features colorscheme;
         };
         modules = [
           ../modules/home-manager

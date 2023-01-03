@@ -4,10 +4,6 @@ let
   inherit (pkgs) stdenv;
   home = if stdenv.isDarwin then "Users" else "home";
   extraVimPlugins = with pkgs.vimPlugins; [
-    # Clojure
-    conjure
-    vim-jack-in
-    parinfer-rust
   ];
 in {
   imports = [
@@ -30,9 +26,7 @@ in {
     # utils
     jq
     htop
-    fzf
     ripgrep
-    fd
 
     # editors
     helix
@@ -41,44 +35,34 @@ in {
     shellcheck
     tmux
     tmuxinator
-    graphviz
-
-    # languages
-    nodejs
 
     # tools
-    # poetry
-    cookiecutter
     terraform
 
     # lang clients
-    elmPackages.elm-language-server
-    ocamlPackages.ocaml-lsp
     terraform-ls
-    clojure-lsp
-    rust-analyzer
     pyright
   ];
 
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      nix-aws = {
-        hostname = "13.239.106.150";
-        user = "root";
+      "github.com" = {
+        hostname = "github.com";
         extraOptions = {
           AddKeysToAgent = "yes";
         };
-        identityFile = "~/.ssh/id_rsa";
-        localForwards = [
-          {
-            bind.port = 8888;
-            host.address = "127.0.0.1";
-            host.port = 8888;
-          }
-        ];
+        identityFile = "~/.ssh/id_ed25519_seek";
       };
-    };
+
+      "personal.github.com" = {
+        hostname = "github.com";
+        extraOptions = {
+          AddKeysToAgent = "yes";
+        };
+        identityFile = "~/.ssh/id_ed25519";
+      };
+   };
   };
 
   programs.gpg = {
@@ -88,7 +72,7 @@ in {
   programs.git = {
     enable = true;
     userName = "Keith Schulze";
-    userEmail = "keith.schulze@hey.com";
+    userEmail = "kschulze@seek.co.nz";
     aliases = {
       co = "checkout";
       up = "!git pull --rebase --prune $@";
@@ -119,11 +103,7 @@ in {
     inherit config pkgs lib;
     lsps = [
       "pyright"
-      "rust_analyzer"
       "terraformls"
-      "clojure_lsp"
-      "elm_language_server"
-      "ocamllsp"
     ];
     extraPlugins = extraVimPlugins;
   };
@@ -138,24 +118,6 @@ in {
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
       fi
-
-      # >>> conda initialize >>>
-      # !! Contents within this block are managed by 'conda init' !!
-      __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-      if [ $? -eq 0 ]; then
-          eval "$__conda_setup"
-      else
-          if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-              . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-          else
-              export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
-          fi
-      fi
-      unset __conda_setup
-      # <<< conda initialize <<<
-
-      PATH=/Users/keithschulze/.cargo/bin:/opt/homebrew/bin:$PATH
-      PATH=/opt/homebrew/opt/openjdk/bin:$PATH
     '';
     oh-my-zsh = {
       enable = true;
@@ -166,7 +128,6 @@ in {
         "ripgrep"
         "terraform"
         "tmux"
-        "kubectl"
       ];
     };
   };
