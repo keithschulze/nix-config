@@ -52,14 +52,6 @@ in {
         extraOptions = {
           AddKeysToAgent = "yes";
         };
-        identityFile = "~/.ssh/id_ed25519_seek";
-      };
-
-      "personal.github.com" = {
-        hostname = "github.com";
-        extraOptions = {
-          AddKeysToAgent = "yes";
-        };
         identityFile = "~/.ssh/id_ed25519";
       };
    };
@@ -96,6 +88,10 @@ in {
       core.commitGraph = true;
       gc.writeCommitGraph = true;
       init.defaultBranch = "main";
+    };
+    signing = {
+      key = "85AD7BCF4C5D6105";
+      signByDefault = true;
     };
   };
 
