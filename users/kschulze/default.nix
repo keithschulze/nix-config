@@ -114,6 +114,8 @@ in {
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
       fi
+
+      function awsauth { /Users/kschulze/Development/github/aws-auth-bash/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
     '';
     oh-my-zsh = {
       enable = true;

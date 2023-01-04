@@ -22,6 +22,10 @@ in {
       "docker"
       "docker-compose"
       "hyperfine"
+      "awscli"
+      "jq"
+      "curl"
+      "unzip"
     ];
 
     casks = [
