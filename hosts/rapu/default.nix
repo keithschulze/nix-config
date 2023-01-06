@@ -32,7 +32,7 @@ in {
       "arc"
       "1password"
       "iterm2"
-      "karabiner-elements"
+      "keybase"
       "obsidian"
       "rectangle"
     ];
