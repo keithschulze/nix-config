@@ -42,6 +42,9 @@ in {
     # lang clients
     terraform-ls
     pyright
+
+    # Scala
+    coursier
   ];
 
   programs.ssh = {

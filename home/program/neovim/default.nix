@@ -62,6 +62,7 @@ in {
       plugins.tree-sitter-typescript
       plugins.tree-sitter-yaml
     ]))
+    plenary-nvim
 
     # Style
     nord-vim
@@ -72,6 +73,7 @@ in {
 
     # LSP
     nvim-lspconfig
+    nvim-metals
 
     # plant-uml
     plantuml-syntax
