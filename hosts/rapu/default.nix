@@ -1,13 +1,7 @@
 { config, pkgs, system, inputs, ... }:
 
-let
-  inherit (pkgs) lorri;
-in {
+{
   nix.package = pkgs.nixVersions.stable;
-
-  environment.systemPackages = with pkgs;
-    [ lorri
-    ];
 
   programs.zsh = {
     enable = true;  # default shell on catalina
@@ -67,11 +61,12 @@ in {
 
   services = {
     nix-daemon.enable = true;
-    lorri.enable = true;
   };
 
   nix.extraOptions = ''
     system = ${system}
     extra-platforms = x86_64-darwin aarch64-darwin
+    keep-outputs = true
+    keep-derivations = true
   '';
 }

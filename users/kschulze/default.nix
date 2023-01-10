@@ -136,6 +136,10 @@ in {
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   home.file.".config/nix/nix.conf".text = ''
