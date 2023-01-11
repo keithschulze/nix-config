@@ -113,6 +113,10 @@ in {
       gc.writeCommitGraph = true;
       init.defaultBranch = "main";
     };
+    signing = {
+      key = "D18B101053EEC8C9";
+      signByDefault = true;
+    };
   };
 
   programs.neovim = (import ../../home/program/neovim/default.nix) {
