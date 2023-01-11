@@ -29,6 +29,7 @@
       "google-chrome"
       "iterm2"
       "karabiner-elements"
+      "keybase"
       "miniforge"
       "obsidian"
       "rectangle"
