@@ -147,4 +147,5 @@ in {
   '';
 
   home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
+  home.file.".config/tmuxinator/seek.yml".text = builtins.readFile ../../home/config/tmuxinator/seek.yml;
 }
