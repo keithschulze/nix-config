@@ -87,3 +87,10 @@ windows:
       panes:
         - poetry run nvim
         -
+
+  - interchange:
+      root: ~/Development/github/hirer-analytics-data-interchange-keyspaces
+      layout: main-vertical
+      panes:
+        - poetry run nvim
+        -

@@ -120,6 +120,16 @@ in {
 
       function awsauth { /Users/kschulze/Development/github/aws-auth-bash/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
     '';
+
+    shellAliases = {
+      analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
+      analytics-prod-eng = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
+      analytics-prod-data = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
+      analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
+      analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
+      data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED*** --no-interactive";
+    };
+
     oh-my-zsh = {
       enable = true;
       plugins = [
