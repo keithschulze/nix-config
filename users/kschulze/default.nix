@@ -122,12 +122,12 @@ in {
     '';
 
     shellAliases = {
-      analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
-      analytics-prod-eng = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
-      analytics-prod-data = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
-      analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
-      analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED*** --no-interactive";
-      data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED*** --no-interactive";
+      analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      analytics-prod-eng = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      analytics-prod-data = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED***";
     };
 
     oh-my-zsh = {
