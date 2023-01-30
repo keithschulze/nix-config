@@ -30,6 +30,7 @@
       "iterm2"
       "karabiner-elements"
       "keybase"
+      "microsoft-teams"
       "miniforge"
       "obsidian"
       "rectangle"
