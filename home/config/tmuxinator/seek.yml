@@ -87,10 +87,33 @@ windows:
       panes:
         - poetry run nvim
         -
-
-  - interchange:
+  - ks-interchange:
       root: ~/Development/github/hirer-analytics-data-interchange-keyspaces
       layout: main-vertical
       panes:
         - poetry run nvim
         -
+  - workflows:
+      root: ~/Development/github/hirer-analytics-workflow-jobs
+      layout: main-vertical
+      panes:
+        - nvim
+        -
+  - hats:
+      root: ~/Development/github/hirer-analytics-dataplatform-aur-transform
+      layout: main-vertical
+      panes:
+        - poetry run jupyter lab
+        -
+  - hadi:
+      root: ~/Development/github/hirer-analytics-data-interchange
+      layout: main-vertical
+      panes:
+        - poetry run jupyter lab
+        -
+  - eda:
+      root: ~/Development/github/eda
+      layout: main-vertical
+      panes:
+        -
+        - poetry run jupyter lab
