@@ -1,9 +1,67 @@
-# NixOS System Configurations
+# My personal Nix system config
+
+This is my personal Nix system configuration. Mostly I use this to manage my
+environments for my Mac systems using nix-darwin; however, I have also experimented with
+creating
+developer NixOS VMs that run on Parallels (see below).
+
+Generally speaking, the configuration of the host and home environment are
+separated.
+
+The structure of this repo was inspired by
+the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) repo, though the two repos have subsequently diverged.
+
+## TLDR Getting started
+
+1. Install Nix:
+
+  ```sh
+  sh <(curl -L https://nixos.org/nix/install)
+  ```
+  Note: this has only really been tested for multi-user installation.
+
+2. Bootstrap/install nix-darwin and home-manager:
+
+  nix-darwin:
+
+  ```sh
+  nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+  ./result/bin/darwin-installer
+  ```
+
+  home-manager (standalone):
+
+  ```sh
+  nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+  nix-channel --update
+  nix-shell '<home-manager>' -A install
+  ```
+
+2. Clone this repo:
+
+  ```sh
+  git clone git@github.com:keithschulze/nixos-config.git
+  ```
+
+3. Build and apply host config
+
+  ```sh
+  darwin-rebuild switch --flake .#matawhero
+  ```
+  __note:__ in this case we are applying the `matawhero` host configuration as
+  an example. Other hosts are/can be defined in `flake.nix`.
+
+4. Build and apply the home configuration
+
+  ```sh
+  home-manager switch --flake .#keithschulze@matawhero
+  ```
+  __note:__ in this case we are applying the `keithschulze@matawhero` home configuration as an
+  example. Other home configrations are/can be defined in `flake.nix`.
+
+# Parallels developer VM setup [no actively used]
 
 This is my NixOS Parallels developer VM setup. This is adapted from Mitchell Hashimoto's excellent NixOS VM repo.
-
-The structure of this repo has evolved quite a bit and is heavily inspired by
-the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) repo.
 
 ## Setup
 
