@@ -6,7 +6,11 @@ creating
 developer NixOS VMs that run on Parallels (see below).
 
 Generally speaking, the configuration of the host and home environment are
-separated.
+separated such that we can define, build and apply these configs separately.I
+find that I need to more frequently update home configs that host configs, so I
+think it's useful to separate them.
+
+These configs use [Nix flakes](https://nixos.wiki/wiki/Flakes).
 
 The structure of this repo was inspired by
 the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) repo, though the two repos have subsequently diverged.
@@ -20,7 +24,13 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   ```
   Note: this has only really been tested for multi-user installation.
 
-2. Bootstrap/install nix-darwin and home-manager:
+2. Enable flakes:
+
+  ```sh
+  echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+  ```
+
+3. Bootstrap/install [nix-darwin](https://github.com/LnL7/nix-darwin) and [home-manager](https://github.com/nix-community/home-manager):
 
   nix-darwin:
 
@@ -37,13 +47,13 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   nix-shell '<home-manager>' -A install
   ```
 
-3. Clone this repo:
+4. Clone this repo:
 
   ```sh
   git clone git@github.com:keithschulze/nixos-config.git
   ```
 
-4. Build and apply host config
+5. Build and apply host config
 
   ```sh
   darwin-rebuild switch --flake .#matawhero
@@ -51,7 +61,7 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   __note:__ in this case we are applying the `matawhero` host configuration as
   an example. Other hosts are/can be defined in `flake.nix`.
 
-5. Build and apply the home configuration
+6. Build and apply the home configuration
 
   ```sh
   home-manager switch --flake .#keithschulze@matawhero
