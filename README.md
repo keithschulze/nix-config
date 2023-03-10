@@ -37,13 +37,13 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   nix-shell '<home-manager>' -A install
   ```
 
-2. Clone this repo:
+3. Clone this repo:
 
   ```sh
   git clone git@github.com:keithschulze/nixos-config.git
   ```
 
-3. Build and apply host config
+4. Build and apply host config
 
   ```sh
   darwin-rebuild switch --flake .#matawhero
@@ -51,13 +51,32 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   __note:__ in this case we are applying the `matawhero` host configuration as
   an example. Other hosts are/can be defined in `flake.nix`.
 
-4. Build and apply the home configuration
+5. Build and apply the home configuration
 
   ```sh
   home-manager switch --flake .#keithschulze@matawhero
   ```
   __note:__ in this case we are applying the `keithschulze@matawhero` home configuration as an
   example. Other home configrations are/can be defined in `flake.nix`.
+
+
+## Updating
+
+In order to update packages, we need to update the locked versions:
+
+```sh
+nix flake update
+```
+
+Before applying or committing this, we should check that it builds correctly
+with update versions:
+
+```sh
+darwin-rebuild build --flake .#matawhero
+home-manager build --flake .#keithschulze@matawhero
+```
+Note: this example only builds host and home configs for a single host and
+user. We should do this for all that matter.
 
 # Parallels developer VM setup [no actively used]
 
