@@ -28,6 +28,7 @@
       "datagrip"
       "iterm2"
       "keybase"
+      "microsoft-teams"
       "obsidian"
       "rectangle"
     ];
