@@ -38,6 +38,8 @@ in {
 
     # tools
     terraform
+    kubectl
+    kubernetes-helm
 
     # lang clients
     terraform-ls
