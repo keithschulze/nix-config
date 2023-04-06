@@ -57,24 +57,6 @@ windows:
       panes:
         - nvim
         -
-  - config:
-      root: ~/Development/github/hirer-analytics-data-pipeline-config
-      layout: main-vertical
-      panes:
-        - nvim
-        -
-  - shared:
-      root: ~/Development/github/hirer-analytics-datapipeline-shared
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
-  - fetch:
-      root: ~/Development/github/hirer-analytics-datapipeline-fetch
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
   - clean:
       root: ~/Development/github/hirer-analytics-datapipeline-cleanup
       layout: main-vertical
@@ -97,19 +79,25 @@ windows:
       root: ~/Development/github/hirer-analytics-workflow-jobs
       layout: main-vertical
       panes:
-        - nvim
+        - poetry run nvim
         -
   - hats:
       root: ~/Development/github/hirer-analytics-dataplatform-aur-transform
       layout: main-vertical
       panes:
-        - poetry run jupyter lab
+        - nvim
         -
   - hadi:
       root: ~/Development/github/hirer-analytics-data-interchange
       layout: main-vertical
       panes:
-        - poetry run jupyter lab
+        - nvim
+        -
+  - haws:
+      root: ~/Development/github/hirer-analytics-workflow-services
+      layout: main-vertical
+      panes:
+        - nvim
         -
   - eda:
       root: ~/Development/github/eda
@@ -117,3 +105,33 @@ windows:
       panes:
         -
         - poetry run jupyter lab
+  - config:
+      root: ~/Development/github/hirer-analytics-data-pipeline-config
+      layout: main-vertical
+      panes:
+        - nvim
+        -
+  - shared:
+      root: ~/Development/github/hirer-analytics-datapipeline-shared
+      layout: main-vertical
+      panes:
+        - poetry run nvim
+        -
+  - fetch:
+      root: ~/Development/github/hirer-analytics-datapipeline-fetch
+      layout: main-vertical
+      panes:
+        - poetry run nvim
+        -
+  - legacy_dp:
+      root: ~/Development/github/hirer-analytics-dataplatform
+      layout: main-vertical
+      panes:
+        - nvim
+        -
+  - flakes:
+      root: ~/Development/github/flakes
+      layout: main-vertical
+      panes:
+        - nvim
+        -
