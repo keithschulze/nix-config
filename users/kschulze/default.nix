@@ -38,6 +38,8 @@ in {
     tmuxinator
 
     # tools
+    awscli2
+    ssm-session-manager-plugin
     gantry
     terraform
     kubectl
