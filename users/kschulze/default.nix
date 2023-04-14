@@ -3,8 +3,9 @@
 let
   inherit (pkgs) stdenv;
   home = if stdenv.isDarwin then "Users" else "home";
-  extraVimPlugins = with pkgs.vimPlugins; [
-  ];
+  gantry = (import ../../modules/gantry) { inherit stdenv; inherit pkgs; };
+
+  extraVimPlugins = with pkgs.vimPlugins; [];
 in {
   imports = [
     ./rice.nix
@@ -37,6 +38,7 @@ in {
     tmuxinator
 
     # tools
+    gantry
     terraform
     kubectl
     kubernetes-helm
