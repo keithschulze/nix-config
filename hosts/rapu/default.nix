@@ -20,6 +20,7 @@
       "jq"
       "curl"
       "unzip"
+      "ubuntu/microk8s/microk8s"
     ];
 
     casks = [
@@ -29,6 +30,7 @@
       "iterm2"
       "keybase"
       "microsoft-teams"
+      "multipass"
       "obsidian"
       "rectangle"
     ];
@@ -37,6 +39,7 @@
       "homebrew/cask"
       "homebrew/cask-fonts"
       "homebrew/cask-versions"
+      "ubuntu/microk8s"
     ];
 
     global.autoUpdate = false;

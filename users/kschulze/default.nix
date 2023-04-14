@@ -40,6 +40,7 @@ in {
     terraform
     kubectl
     kubernetes-helm
+    argocd
 
     # lang clients
     terraform-ls
