@@ -13,8 +13,6 @@
 
     brews = [
       "colima"
-      "docker"
-      "docker-compose"
       "hyperfine"
       "awscli"
       "jq"
