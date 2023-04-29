@@ -102,9 +102,7 @@ windows:
   - eda:
       root: ~/Development/github/eda
       layout: main-vertical
-      panes:
-        -
-        - poetry run jupyter lab
+
   - config:
       root: ~/Development/github/hirer-analytics-data-pipeline-config
       layout: main-vertical
