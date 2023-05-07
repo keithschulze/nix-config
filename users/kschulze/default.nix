@@ -48,6 +48,7 @@ in {
     kubectl
     kubernetes-helm
     argocd
+    kubeseal
 
     # lang clients
     terraform-ls
