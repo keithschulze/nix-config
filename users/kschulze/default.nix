@@ -25,6 +25,7 @@ in {
 
   home.packages = with pkgs; [
     # utils
+    fzf
     jq
     htop
     ripgrep
