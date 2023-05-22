@@ -81,6 +81,12 @@ windows:
       panes:
         - poetry run nvim
         -
+  - haart:
+      root: ~/Development/github/hirer-analytics-ad-rating-transform
+      layout: main-vertical
+      panes:
+        - source venv/bin/activate; nvim
+        -
   - hats:
       root: ~/Development/github/hirer-analytics-dataplatform-aur-transform
       layout: main-vertical
