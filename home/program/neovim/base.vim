@@ -32,7 +32,7 @@ set smartindent                   " does the right thing (mostly) in programs
 set linespace=3                   " prefer a slight higher line height
 set linebreak                     " wrap intelligently, won't insert hard line breaks
 set wrap                          " use line wrapping
-set textwidth=79                  " at column 79
+set textwidth=99                  " at column 79
 set ruler                         " display current cursor position
 set list                          " show invisible characters
 set showmatch                     " show matching brackets
@@ -115,12 +115,11 @@ let &fcs='eob: '
 " colorscheme nord
 
 " Tokyo Night
-let g:tokyonight_style = "storm"
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-let g:lightline = {'colorscheme': 'tokyonight'}
-
-colorscheme tokyonight
+" let g:tokyonight_style = "storm"
+" let g:tokyonight_italic_functions = 1
+" let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+" let g:lightline = {'colorscheme': 'tokyonight'}
+" colorscheme tokyonight
 
 " Keybindings
 

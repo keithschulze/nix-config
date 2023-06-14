@@ -104,3 +104,34 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require("catppuccin").setup({
+  flavour = "frappe",
+  background = {
+    light = "latte",
+    dark = "frappe",
+  },
+  dim_inactive = {
+    enabled = true,
+    shade = "dark",
+    percentage = 0.1,
+  },
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    telescope = true,
+    treesitter = true,
+  },
+})
+
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
+
+require('lualine').setup {
+  options = {
+    theme = "catppuccin",
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' }
+  }
+}

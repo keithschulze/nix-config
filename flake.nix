@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:narutoxy/nix-colors/5ae8ab6b2ccad1b9f3ca3135ab805ac440174940";
+    nix-colors.url = "github:misterio77/nix-colors";
 
     utils.url = "github:numtide/flake-utils";
   };
@@ -73,7 +73,7 @@
             "alacritty"
             "starship"
           ];
-          colorscheme = "tokyonight";
+          colorscheme = "catppuccin-frappe";
           pkgs = legacyPackages."aarch64-darwin";
         };
 
@@ -84,7 +84,7 @@
             "alacritty"
             "starship"
           ];
-          colorscheme = "tokyonight";
+          colorscheme = "catpuccin-frappe";
           pkgs = legacyPackages."aarch64-darwin";
         };
       };

@@ -67,9 +67,8 @@ in {
     # Style
     nord-vim
     tokyonight-nvim
-    # airline
-    lightline-vim
-    vim-airline-themes
+    catppuccin-nvim
+    lualine-nvim
 
     # LSP
     nvim-lspconfig

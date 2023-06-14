@@ -9,7 +9,7 @@ in {
     if colorscheme != null then
       inputs.nix-colors.colorSchemes.${colorscheme}
     else
-      inputs.nix-colors.colorSchemes.tokyonight;
+      inputs.nix-colors.colorSchemes.tokyo-night-storm;
 
     home.sessionVariables = {
       SCHEME = colorscheme;
