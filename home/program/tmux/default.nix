@@ -74,7 +74,7 @@
     bind-key * set-window-option synchronize-pane
 
     # Reload ~/.tmux.conf
-    bind-key R source-file ~/.tmux.conf \; display-message "Reloaded!"
+    bind-key R source-file ~/.config/tmux/tmux.conf \; display-message "Reloaded!"
 
     # Capture pane and open in Vim
     bind-key C-c run 'tmux capture-pane -S -102400 -p > /tmp/tmux-capture.txt'\;\
@@ -82,6 +82,8 @@
     bind-key M-c run "screencapture -l$(osascript -e 'tell app \"iTerm\" to id of window 1') -x -o -P /tmp/$(date +%Y%m%d-%H%M%S).png"
 
     set -g @catppuccin_flavour 'frappe'
+    set -g @catppuccin_window_tabs_enabled off
+    set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
 
     #------------------------------------------------------------------
     # TokyoNight colors for Tmux
