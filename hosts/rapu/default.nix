@@ -31,6 +31,7 @@
       "multipass"
       "obsidian"
       "rectangle"
+      "zoom"
     ];
 
     taps = [
