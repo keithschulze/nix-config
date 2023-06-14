@@ -52,12 +52,16 @@ in {
     terraform
 
     # lang clients
-    elmPackages.elm-language-server
     ocamlPackages.ocaml-lsp
     terraform-ls
     clojure-lsp
     rust-analyzer
     pyright
+
+    # Scala
+    coursier
+    sbt
+    metals
   ];
 
   programs.ssh = {
@@ -126,7 +130,6 @@ in {
       "rust_analyzer"
       "terraformls"
       "clojure_lsp"
-      "elm_language_server"
       "ocamllsp"
     ];
     extraPlugins = extraVimPlugins;
