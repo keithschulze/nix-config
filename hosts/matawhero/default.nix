@@ -1,6 +1,10 @@
 { config, pkgs, system, inputs, ... }:
 
 {
+  imports = [
+    ../common/global
+  ];
+
   nix.package = pkgs.nixVersions.stable;
 
   programs.zsh = {
