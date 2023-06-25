@@ -33,6 +33,7 @@ in {
     fzf
     ripgrep
     fd
+    cheat
 
     # editors
     helix
