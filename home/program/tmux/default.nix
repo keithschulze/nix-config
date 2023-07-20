@@ -81,10 +81,6 @@
                  new-window "view /tmp/tmux-capture.txt"
     bind-key M-c run "screencapture -l$(osascript -e 'tell app \"iTerm\" to id of window 1') -x -o -P /tmp/$(date +%Y%m%d-%H%M%S).png"
 
-    set -g @catppuccin_flavour 'frappe'
-    set -g @catppuccin_window_tabs_enabled off
-    set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
-
     #------------------------------------------------------------------
     # TokyoNight colors for Tmux
     #------------------------------------------------------------------
@@ -128,6 +124,11 @@
 
     # select-pane (@george-b)
     bind-key 0 run "tmux split-window -l 12 'bash -ci ftpane'"
+
+    # Theme
+    set -g @catppuccin_flavour 'frappe'
+    set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
+    set -g @catppuccin_window_tabs_enabled on
   '';
   plugins = with pkgs.tmuxPlugins; [
     catppuccin

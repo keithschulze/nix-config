@@ -4,6 +4,7 @@ let
   inherit (pkgs) stdenv;
   home = if stdenv.isDarwin then "Users" else "home";
   gantry = (import ../../modules/gantry) { inherit stdenv; inherit pkgs; };
+  jump = (import ../../modules/jump) { inherit stdenv; inherit pkgs; inherit lib; };
 
   extraVimPlugins = with pkgs.vimPlugins; [];
 in {
@@ -29,6 +30,7 @@ in {
     jq
     htop
     ripgrep
+    jump
 
     # editors
     helix
@@ -140,6 +142,11 @@ in {
       analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
       analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
       data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED***";
+
+      jump-argocd-prod-primary = "jump -o -t argocd.workflow-services -e prod -p 9997";
+      jump-airflow-prod-primary = "jump -t airflow.workflow-services -e prod -p 9998";
+      jump-airflow-prod-dark = "jump -t airflow-dark.workflow-services -e prod -p 9999";
+      jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
     };
 
     oh-my-zsh = {
