@@ -100,12 +100,6 @@ if (!has("nvim"))
   endif
 endif
 
-"if theme supports true colour
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-
 " Nord options
 " let g:nord_italic = 1
 " let g:nord_italic_comments = 1
@@ -170,8 +164,8 @@ vno v <esc>
 
 
 " project
-nnoremap <silent> <leader>pt :NERDTreeToggle<CR>   " open a horizontal split and switch to it (,h)
-nnoremap <silent> <leader>pF :NERDTreeFind<CR>   " open a horizontal split and switch to it (,h)
+nnoremap <silent> <leader>pt :NvimTreeToggle<CR>   " open a horizontal split and switch to it (,h)
+nnoremap <silent> <leader>pF :NvimTreeFindFile<CR>   " open a horizontal split and switch to it (,h)
 nnoremap <leader>pf :GitFiles<CR>
 nnoremap <leader>pr :History<CR>
 nnoremap <leader>s/ :Rg<CR>

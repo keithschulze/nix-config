@@ -42,7 +42,7 @@ in {
     telescope-nvim
     telescope-fzf-native-nvim
 
-    nerdtree
+    nvim-tree-lua
     luasnip
     nvim-cmp
     cmp-nvim-lsp
