@@ -37,6 +37,7 @@
       "microsoft-teams"
       "miniforge"
       "obsidian"
+      "pastebot"
       "rectangle"
       "zoom"
     ];

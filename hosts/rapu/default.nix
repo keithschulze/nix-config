@@ -33,6 +33,7 @@
       "keybase"
       "microsoft-teams"
       "multipass"
+      "pastebot"
       "obsidian"
       "rectangle"
       "zoom"
