@@ -51,6 +51,7 @@ in {
     # poetry
     cookiecutter
     terraform
+    devbox
 
     # lang clients
     ocamlPackages.ocaml-lsp
@@ -132,6 +133,7 @@ in {
       "terraformls"
       "clojure_lsp"
       "ocamllsp"
+      "hls"
     ];
     extraPlugins = extraVimPlugins;
   };
