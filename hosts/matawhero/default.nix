@@ -31,7 +31,6 @@
       "font-fontawesome"
       "google-chrome"
       "iterm2"
-      "karabiner-elements"
       "keybase"
       "microsoft-teams"
       "miniforge"
