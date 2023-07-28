@@ -25,7 +25,6 @@
     ];
 
     casks = [
-      "arc"
       "1password"
       "fiji"
       "firefox-developer-edition"
