@@ -94,7 +94,7 @@ in {
   programs.git = {
     enable = true;
     userName = "Keith Schulze";
-    userEmail = "keith.schulze@hey.com";
+    userEmail = "keith@schulze.co.nz";
     aliases = {
       co = "checkout";
       up = "!git pull --rebase --prune $@";
