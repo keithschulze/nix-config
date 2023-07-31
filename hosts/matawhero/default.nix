@@ -37,6 +37,7 @@
       "obsidian"
       "pastebot"
       "rectangle"
+      "vnc-viewer"
       "zoom"
     ];
 
