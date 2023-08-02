@@ -6,7 +6,9 @@ let
   gantry = (import ../../modules/gantry) { inherit stdenv; inherit pkgs; };
   jump = (import ../../modules/jump) { inherit stdenv; inherit pkgs; inherit lib; };
 
-  extraVimPlugins = with pkgs.vimPlugins; [];
+  extraVimPlugins = with pkgs.vimPlugins; [
+    copilot-vim
+  ];
 in {
   imports = [
     ./rice.nix
