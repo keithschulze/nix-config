@@ -38,6 +38,7 @@
       "pastebot"
       "rectangle"
       "vnc-viewer"
+      "zed"
       "zoom"
     ];
 
