@@ -27,7 +27,6 @@
 
     casks = [
       "1password"
-      "arc"
       "datagrip"
       "iterm2"
       "keybase"
