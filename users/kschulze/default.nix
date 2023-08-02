@@ -7,7 +7,8 @@ let
   jump = (import ../../modules/jump) { inherit stdenv; inherit pkgs; inherit lib; };
 
   extraVimPlugins = with pkgs.vimPlugins; [
-    copilot-vim
+    copilot-lua
+    copilot-cmp
   ];
 in {
   imports = [
