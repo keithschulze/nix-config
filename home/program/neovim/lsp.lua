@@ -9,6 +9,13 @@ require("nvim-tree").setup()
 
 local api = vim.api
 
+-- setup Copilot
+require("copilot").setup({
+  suggestion = { enabled = false },
+  panel = { enabled = false },
+})
+require("copilot_cmp").setup()
+
 -- Add additional capabilities supported by nvim-cmp
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -109,6 +116,7 @@ cmp.setup {
     },
   },
   sources = {
+    { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
