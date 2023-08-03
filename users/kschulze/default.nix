@@ -24,7 +24,7 @@ in {
   home = {
     inherit username;
     homeDirectory = "/${home}/${username}";
-    stateVersion = "22.05";
+    stateVersion = "23.11";
   };
 
   home.packages = with pkgs; [
@@ -42,6 +42,9 @@ in {
     shellcheck
     tmux
     tmuxinator
+
+    # languages
+    nodejs
 
     # tools
     docker
@@ -62,6 +65,8 @@ in {
 
     # Scala
     coursier
+    sbt
+    metals
   ];
 
   programs.ssh = {
@@ -157,7 +162,6 @@ in {
       plugins = [
         "git"
         "docker-compose"
-        "gcloud"
         "ripgrep"
         "terraform"
         "tmux"
