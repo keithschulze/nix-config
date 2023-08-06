@@ -69,6 +69,8 @@ in {
     metals
   ];
 
+  news.display = "silent";
+
   programs.ssh = {
     enable = true;
     matchBlocks = {
@@ -131,7 +133,9 @@ in {
 
   programs.tmux = (import ../../home/program/tmux/default.nix) { inherit pkgs; };
 
-  programs.vscode = (import ../../home/program/vscode/default.nix) { inherit config; inherit pkgs; };
+  programs.vscode = (import ../../home/program/vscode/default.nix) {
+    inherit config pkgs;
+  };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
     initExtra = ''
