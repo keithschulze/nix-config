@@ -34,6 +34,7 @@
       "keybase"
       "microsoft-teams"
       "miniforge"
+      "nordvpn"
       "obsidian"
       "pastebot"
       "rectangle"
