@@ -144,7 +144,7 @@ in {
 
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
-    extraExtensions = [
+    extraExtensions = with pkgs; [
       vscode-extensions.matklad.rust-analyzer
     ];
   };
