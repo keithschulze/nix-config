@@ -21,14 +21,20 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
+    nixos-asahi = {
+      url = "github:tpwrules/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-asahi, ... }@inputs:
     let
-      lib = import ./lib { inherit inputs; };
+      inherit (self) outputs;
+
+      lib = nixpkgs.lib // home-manager.lib // (import ./lib { inherit inputs; });
       inherit (lib) mkSystem mkDarwin mkHome forAllSystems;
-      # Overlays is the list of overlays we want to apply from flake inputs.
     in
     rec {
       inherit lib;
@@ -45,9 +51,12 @@
       );
 
       nixosConfigurations = {
-        wherangi = mkSystem {
-          hostname = "wherangi";
-          pkgs = legacyPackages."aarch64-linux";
+        wherangi = lib.nixosSystem {
+          modules = [
+            ./hosts/wherangi
+            nixos-asahi.nixosModules.default
+          ];
+          specialArgs = { inherit inputs outputs; };
         };
       };
 
