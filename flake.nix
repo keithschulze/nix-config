@@ -44,12 +44,12 @@
         }
       );
 
-      # nixosConfigurations = {
-      #   whiro = mkSystem {
-      #     hostname = "whiro";
-      #     pkgs = legacyPackages."aarch64-linux";
-      #   };
-      # };
+      nixosConfigurations = {
+        wherangi = mkSystem {
+          hostname = "wherangi";
+          pkgs = legacyPackages."aarch64-linux";
+        };
+      };
 
       darwinConfigurations = {
         matawhero = mkDarwin {
@@ -86,6 +86,17 @@
           ];
           colorscheme = "catppuccin-frappe";
           pkgs = legacyPackages."aarch64-darwin";
+        };
+
+        "keithschulze@wherangi" = mkHome {
+          username = "keithschulze";
+          hostname = "wherangi";
+          features = [
+            "alacritty"
+            "starship"
+          ];
+          colorscheme = "catppuccin-frappe";
+          pkgs = legacyPackages."aarch64-linux";
         };
       };
     } // inputs.utils.lib.eachDefaultSystem (system:
