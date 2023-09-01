@@ -19,6 +19,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-colors.url = "github:misterio77/nix-colors";
 
     nixos-asahi = {
@@ -29,7 +35,7 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-asahi, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-asahi, utils, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -108,9 +114,10 @@
           pkgs = legacyPackages."aarch64-linux";
         };
       };
-    } // inputs.utils.lib.eachDefaultSystem (system:
+    } // utils.lib.eachDefaultSystem (system:
       let
         pkgs = import inputs.nixpkgs { inherit system; };
+        hm = home-manager.defaultPackage."${system}";
       in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [ nixUnstable hm ];
