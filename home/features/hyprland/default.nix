@@ -6,7 +6,16 @@
     # inputs.hyprland.homeManagerModules.default
   ];
 
+  home.packages = with pkgs; [
+    hyprpaper
+  ];
+
   home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    preload = ${./pawel-czerwinski.jpg}
+
+    wallpaper = eDP-1,${./pawel-czerwinski.jpg}
+  '';
 
   # wayland.windowManager.hyprland =
   #   let

@@ -59,6 +59,8 @@
     lidSwitchExternalPower = "lock";
   };
 
+  security.pam.services.swaylock = {};
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = true;
