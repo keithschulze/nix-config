@@ -15,9 +15,19 @@
     '';
    };
 
+  boot.extraModprobeConfig = ''
+    options hid_apple iso_layout=0
+  '';
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
+
+  hardware.asahi.peripheralFirmwareDirectory = /etc/nixos/firmware;
+  hardware.asahi.useExperimentalGPUDriver = true;
+
+  environment.systemPackages = with pkgs; [
+    pinentry-curses
+  ];
 
   # Global fonts
   fonts = {
@@ -27,16 +37,27 @@
     ];
   };
 
-  services.logind ={
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "lock";
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
   };
 
+  programs.git.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+  };
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   programs.ssh.startAgent = true;
+  programs.zsh.enable = true;
+
+  services.logind ={
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "lock";
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

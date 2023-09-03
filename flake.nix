@@ -108,6 +108,7 @@
           hostname = "wherangi";
           features = [
             "alacritty"
+            "hyprland"
             "starship"
           ];
           colorscheme = "catppuccin-frappe";

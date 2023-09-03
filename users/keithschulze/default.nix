@@ -39,6 +39,7 @@ in {
 
     # editors
     helix
+    firefox
 
     # dev
     shellcheck
