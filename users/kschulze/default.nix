@@ -47,17 +47,19 @@ in {
     nodejs
 
     # tools
+    argocd
+    awscli2
     docker
     docker-buildx
     docker-compose
-    awscli2
-    ssm-session-manager-plugin
     gantry
-    terraform
+    github-cli
     kubectl
     kubernetes-helm
-    argocd
     kubeseal
+    poetry
+    ssm-session-manager-plugin
+    terraform
 
     # lang clients
     terraform-ls

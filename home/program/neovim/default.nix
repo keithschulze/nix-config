@@ -63,6 +63,7 @@ in {
       plugins.tree-sitter-yaml
     ]))
     plenary-nvim
+    octo-nvim
 
     # Style
     nord-vim
