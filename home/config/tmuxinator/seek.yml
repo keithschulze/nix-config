@@ -57,6 +57,9 @@ windows:
       panes:
         - nvim
         -
+  - diagrams:
+      root: ~/Development/github/hirer-analytics-diagrams
+      layout: main-vertical
   - clean:
       root: ~/Development/github/hirer-analytics-datapipeline-cleanup
       layout: main-vertical
@@ -114,19 +117,6 @@ windows:
   - eda:
       root: ~/Development/github/eda
       layout: main-vertical
-
-  - config:
-      root: ~/Development/github/hirer-analytics-data-pipeline-config
-      layout: main-vertical
-      panes:
-        - nvim
-        -
-  - shared:
-      root: ~/Development/github/hirer-analytics-datapipeline-shared
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
   - fetch:
       root: ~/Development/github/hirer-analytics-datapipeline-fetch
       layout: main-vertical
