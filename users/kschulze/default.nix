@@ -24,7 +24,7 @@ in {
   home = {
     inherit username;
     homeDirectory = "/${home}/${username}";
-    stateVersion = "23.11";
+    stateVersion = "23.05";
   };
 
   home.packages = with pkgs; [
