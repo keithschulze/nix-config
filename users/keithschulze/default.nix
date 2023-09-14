@@ -50,7 +50,7 @@ in {
     nodejs
 
     # tools
-    # poetry
+    poetry
     cookiecutter
     terraform
     devbox
