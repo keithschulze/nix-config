@@ -8,8 +8,7 @@ let
     conjure
     vim-jack-in
     parinfer-rust
-    copilot-lua
-    copilot-cmp
+    copilot-vim
   ];
 in {
   imports = [
