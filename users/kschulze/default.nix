@@ -4,6 +4,7 @@ let
   inherit (pkgs) stdenv;
   home = if stdenv.isDarwin then "Users" else "home";
   gantry = (import ../../modules/gantry) { inherit stdenv; inherit pkgs; };
+  aws-auth = (import ../../modules/aws-auth) { inherit stdenv; inherit pkgs; };
   jump = (import ../../modules/jump) { inherit stdenv; inherit pkgs; inherit lib; };
 
   extraVimPlugins = with pkgs.vimPlugins; [
@@ -47,6 +48,7 @@ in {
 
     # tools
     argocd
+    aws-auth
     awscli2
     docker
     docker-buildx
@@ -145,7 +147,7 @@ in {
         source "$(fzf-share)/completion.zsh"
       fi
 
-      function awsauth { /Users/kschulze/Development/github/aws-auth-bash/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
+      function awsauth { aws-auth "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
     '';
 
     shellAliases = {
@@ -156,10 +158,18 @@ in {
       analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
       data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED***";
 
-      jump-argocd-prod-primary = "jump -o -t argocd.workflow-services -e prod -p 9997";
-      jump-airflow-prod-primary = "jump -t airflow.workflow-services -e prod -p 9998";
-      jump-airflow-prod-dark = "jump -t airflow-dark.workflow-services -e prod -p 9999";
       jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
+
+      jump-argocd-prod-primary = "jump -t argocd.workflow-services -e prod -p 9997";
+      jump-airflow-prod-primary = "jump -t airflow.workflow-services -e prod -p 9998";
+
+      jump-airflow-prod-dark = "jump -t airflow-dark.workflow-services -e prod -p 9999";
+
+      jump-argocd-dev-primary-green = "jump -t argocd.data -e dev -p 9997";
+      jump-airflow-dev-primary-green = "jump -t airflow.data -e dev -p 9998";
+
+      jump-argocd-prod-primary-green = "jump -t argocd.data -e prod -p 9997";
+      jump-airflow-prod-primary-green = "jump -t airflow.data -e prod -p 9998";
     };
 
     oh-my-zsh = {
