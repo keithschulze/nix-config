@@ -32,7 +32,7 @@ in {
     vim-startify
     gv-vim
 
-    vim-gitgutter
+    gitsigns-nvim
     vim-easymotion
     vim-polyglot
     vim-rooter
@@ -43,6 +43,7 @@ in {
     telescope-fzf-native-nvim
 
     nvim-tree-lua
+    nvim-web-devicons
     luasnip
     nvim-cmp
     cmp-nvim-lsp
