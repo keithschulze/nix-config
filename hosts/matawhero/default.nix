@@ -38,6 +38,7 @@
       "obsidian"
       "pastebot"
       "rectangle"
+      "steam"
       "vnc-viewer"
       "zed"
       "zoom"
