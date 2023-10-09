@@ -53,6 +53,7 @@ in {
     cookiecutter
     terraform
     devbox
+    podman
 
     # lang clients
     ocamlPackages.ocaml-lsp
