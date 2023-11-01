@@ -58,7 +58,6 @@ in {
     kubectl
     kubernetes-helm
     kubeseal
-    poetry
     ssm-session-manager-plugin
     terraform
 

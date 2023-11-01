@@ -16,11 +16,12 @@
     enable = true;
 
     brews = [
-      "colima"
-      "hyperfine"
       "awscli"
-      "jq"
+      "colima"
       "curl"
+      "hyperfine"
+      "jq"
+      "poetry"
       "unzip"
       "ubuntu/microk8s/microk8s"
     ];
