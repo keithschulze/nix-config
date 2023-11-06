@@ -171,8 +171,7 @@ in {
       unset __conda_setup
       # <<< conda initialize <<<
 
-      PATH=/Users/keithschulze/.cargo/bin:/opt/homebrew/bin:$PATH
-      PATH=/opt/homebrew/opt/openjdk/bin:$PATH
+      PATH=/Users/keithschulze/.cargo/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
     '';
     oh-my-zsh = {
       enable = true;
