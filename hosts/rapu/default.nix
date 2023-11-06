@@ -17,7 +17,6 @@
 
     brews = [
       "awscli"
-      "colima"
       "curl"
       "hyperfine"
       "jq"
@@ -29,6 +28,7 @@
     casks = [
       "1password"
       "datagrip"
+      "docker"
       "iterm2"
       "keybase"
       "microsoft-teams"
