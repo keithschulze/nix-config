@@ -54,6 +54,7 @@ in {
     terraform
     devbox
     podman
+    sqlite
 
     # lang clients
     ocamlPackages.ocaml-lsp
