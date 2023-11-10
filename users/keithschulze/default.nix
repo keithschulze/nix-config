@@ -202,4 +202,5 @@ in {
   '';
 
   home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
+  home.file.".config/tmuxinator/home.yml".text = builtins.readFile ../../home/config/tmuxinator/home.yml;
 }
