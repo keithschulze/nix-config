@@ -30,6 +30,7 @@
       "firefox-developer-edition"
       "font-fontawesome"
       "google-chrome"
+      "insomnia"
       "iterm2"
       "keybase"
       "microsoft-teams"
