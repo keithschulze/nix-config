@@ -14,9 +14,58 @@
     vscode-extensions.github.github-vscode-theme
     vscode-extensions.jebbs.plantuml
   ] ++ extraExtensions;
+
   userSettings = {
-    "workbench.colorTheme" = "GitHub Dark Dimmed";
+    "breadcrumbs.enabled" = false;
+    "editor.fontFamily" = "JetBrainsMono Nerd Font, Menlo, 'Courier New', monospace";
+    "editor.fontSize" = 15;
+    "editor.formatOnSave" = true;
+    "editor.minimap.enabled" = false;
+    "editor.renderControlCharacters" = false;
+    "editor.renderWhitespace" = "none";
+    "editor.rulers" = [
+        100
+    ];
+    "editor.semanticHighlighting.enabled" = true;
+    "editor.suggestSelection" = "first";
+    "files.exclude" = {
+        "**/.git" = true;
+        "**/.svn" = true;
+        "**/.hg" = true;
+        "**/CVS" = true;
+        "**/.DS_Store" = true;
+        "**/*.pyc" = true;
+        "**/.classpath" = true;
+        "**/.project" = true;
+        "**/.settings" = true;
+        "**/.factorypath" = true;
+    };
+    "files.insertFinalNewline" = true;
+    "files.trimTrailingWhitespace" = true;
+    "git.path" = "/Users/keithschulze/.nix-profile/bin/git";
+    "markdown.preview.fontSize" = 15;
+    "terminal.integrated.fontSize" = 15;
+    "terminal.integrated.inheritEnv" = false;
+    "terminal.integrated.minimumContrastRatio" = 1;
     "vim.easymotion" = true;
+    "vim.enableNeovim" = true;
+    "vim.gdefault" = true;
+    "vim.leader" = "<space>";
+    "vim.neovimPath" = "/Users/keithschulze/.nix-profile/bin/nvim";
+    "vim.overrideCopy" = true;
+    "vim.sneak" = true;
+    "vim.textwidth" = 100;
+    "vim.useSystemClipboard" = true;
+    "window.restoreWindows" = "none";
+    "window.titleBarStyle" = "custom";
+    "workbench.activityBar.visible" = true;
+    "workbench.colorTheme" = "GitHub Dark";
+    "workbench.editor.enablePreviewFromQuickOpen" = false;
+    "workbench.editor.showTabs" = "single";
+    "workbench.panel.defaultLocation" = "right";
+    "workbench.panel.opensMaximized" = "never";
+    "workbench.statusBar.visible" = false;
+
     "vim.insertModeKeyBindings" = [
         {
             "before" = [
@@ -131,7 +180,6 @@
             "before" = [
                 "leader"
                 "f"
-                "f"
             ];
             "after" = [];
             "commands" = [
@@ -144,7 +192,6 @@
         {
             "before" = [
                 "leader"
-                "b"
                 "b"
             ];
             "after" = [];
@@ -161,7 +208,6 @@
             "before" = [
                 "leader"
                 "t"
-                "t"
             ];
             "after" = [];
             "commands" = [
@@ -173,22 +219,20 @@
         }
         {
             "before" = [
-                "leader"
-                "l"
+                "g"
                 "d"
             ];
             "after" = [];
             "commands" = [
                 {
-                    "command" = "editor.action.peekDefinition";
+                    "command" = "editor.action.revealDefinition";
                     "args" = [];
                 }
             ];
         }
         {
             "before" = [
-                "leader"
-                "l"
+                "g"
                 "r"
             ];
             "after" = [];
@@ -202,8 +246,8 @@
         {
             "before" = [
                 "leader"
-                "l"
-                "q"
+                "c"
+                "a"
             ];
             "after" = [];
             "commands" = [
@@ -216,7 +260,7 @@
         {
             "before" = [
                 "leader"
-                "l"
+                "r"
                 "n"
             ];
             "after" = [];
@@ -229,9 +273,7 @@
         }
         {
             "before" = [
-                "leader"
-                "l"
-                "h"
+                "Shift+k"
             ];
             "after" = [];
             "commands" = [
@@ -260,48 +302,5 @@
             ];
         }
     ];
-    "vim.leader" = "<space>";
-    "editor.fontFamily" = "JetBrainsMono Nerd Font, Menlo, 'Courier New', monospace";
-    "editor.fontSize" = 15;
-    "editor.minimap.enabled" = false;
-    "editor.rulers" = [
-        80
-    ];
-    "vim.enableNeovim" = true;
-    "vim.textwidth" = 80;
-    "vim.neovimPath" = "/Users/keithschulze/.nix-profile/bin/nvim";
-    "git.path" = "/Users/keithschulze/.nix-profile/bin/git";
-    "vim.gdefault" = true;
-    "vim.sneak" = true;
-    "vim.useSystemClipboard" = true;
-    "vim.overrideCopy" = true;
-    "editor.renderWhitespace" = "none";
-    "workbench.editor.enablePreviewFromQuickOpen" = false;
-    "files.trimTrailingWhitespace" = true;
-    "window.restoreWindows" = "none";
-    "files.exclude" = {
-        "**/.git" = true;
-        "**/.svn" = true;
-        "**/.hg" = true;
-        "**/CVS" = true;
-        "**/.DS_Store" = true;
-        "**/*.pyc" = true;
-        "**/.classpath" = true;
-        "**/.project" = true;
-        "**/.settings" = true;
-        "**/.factorypath" = true;
-    };
-    "editor.renderControlCharacters" = false;
-    "terminal.integrated.fontSize" = 15;
-    "terminal.integrated.inheritEnv" = false;
-    "markdown.preview.fontSize" = 15;
-    "editor.formatOnSave" = true;
-    "breadcrumbs.enabled" = true;
-    "editor.suggestSelection" = "first";
-    "python.languageServer" = "Pylance";
-    "python.venvPath" = "/Users/keithschulze/Library/Caches/pypoetry/virtualenvs";
-    "workbench.activityBar.visible" = true;
-    "workbench.editor.showTabs" = false;
-    "files.insertFinalNewline" = true;
   };
 }
