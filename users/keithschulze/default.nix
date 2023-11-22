@@ -4,9 +4,6 @@ let
   inherit (pkgs) stdenv;
   home = if stdenv.isDarwin then "Users" else "home";
   extraVimPlugins = with pkgs.vimPlugins; [
-    # Clojure
-    conjure
-    vim-jack-in
     parinfer-rust
     copilot-vim
   ];
@@ -59,7 +56,6 @@ in {
     # lang clients
     ocamlPackages.ocaml-lsp
     terraform-ls
-    clojure-lsp
     rust-analyzer
     pyright
 
@@ -134,7 +130,6 @@ in {
       "pyright"
       "rust_analyzer"
       "terraformls"
-      "clojure_lsp"
       "ocamllsp"
       "hls"
     ];
