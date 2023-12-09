@@ -23,6 +23,7 @@
       "poetry"
       "unzip"
       "ubuntu/microk8s/microk8s"
+      "virtualenv"
     ];
 
     casks = [
