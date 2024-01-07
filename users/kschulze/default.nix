@@ -29,6 +29,7 @@ in {
 
   home.packages = with pkgs; [
     # utils
+    cloc
     fzf
     jq
     htop
