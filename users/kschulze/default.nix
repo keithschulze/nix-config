@@ -168,8 +168,9 @@ in {
       jump-argocd-dev-primary-green = "jump -t argocd.data -e dev -p 9997";
       jump-airflow-dev-primary-green = "jump -t airflow.data -e dev -p 9998";
 
-      jump-argocd-prod-primary-green = "jump -t argocd.data -e prod -p 9997";
-      jump-airflow-prod-primary-green = "jump -t airflow.data -e prod -p 9998";
+      jump-argocd-prod-primary-green = "jump -t argocd.data -e prod -p 9996";
+      jump-airflow-prod-primary-green = "jump -t airflow.data -e prod -p 9995";
+      jump-airflow-prod-dark-green = "jump -t airflow-dark.data -e prod -p 9994";
     };
 
     oh-my-zsh = {
