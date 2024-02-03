@@ -138,6 +138,9 @@ in {
 
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
+    extraExtensions = with pkgs; [
+      vscode-extensions.ms-vscode-remote.remote-containers
+    ];
   };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {

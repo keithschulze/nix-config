@@ -3,6 +3,7 @@
 {
   enable = true;
   enableUpdateCheck = false;
+  enableExtensionUpdateCheck = false;
   mutableExtensionsDir = false;
   extensions = with pkgs; [
     vscode-extensions.bbenoist.nix
@@ -19,7 +20,7 @@
     "breadcrumbs.enabled" = false;
     "editor.fontFamily" = "JetBrainsMono Nerd Font, Menlo, 'Courier New', monospace";
     "editor.fontSize" = 15;
-    "editor.formatOnSave" = true;
+    "editor.formatOnSave" = false;
     "editor.minimap.enabled" = false;
     "editor.renderControlCharacters" = false;
     "editor.renderWhitespace" = "none";
@@ -64,8 +65,7 @@
     "workbench.editor.showTabs" = "single";
     "workbench.panel.defaultLocation" = "right";
     "workbench.panel.opensMaximized" = "never";
-    "workbench.statusBar.visible" = false;
-
+    "workbench.statusBar.visible" = true;
     "vim.insertModeKeyBindings" = [
         {
             "before" = [
