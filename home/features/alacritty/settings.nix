@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  colors = config.colorscheme.colors;
+  colors = config.colorscheme.palette;
 in {
   window = {
     padding.x = 10;
