@@ -57,8 +57,8 @@ windows:
       panes:
         - nvim
         -
-  - diagrams:
-      root: ~/Development/github/hirer-analytics-diagrams
+  - home:
+      root: ~/Development/github/hirer-analytics-home
       layout: main-vertical
   - clean:
       root: ~/Development/github/hirer-analytics-datapipeline-cleanup
@@ -113,6 +113,18 @@ windows:
       layout: main-vertical
       panes:
         - source venv/bin/activate; nvim
+        -
+  - hatsui:
+      root: ~/Development/github/hirer-talent-search-usage-infra
+      layout: main-vertical
+      panes:
+        - poetry run nvim
+        -
+  - hatsu:
+      root: ~/Development/github/hirer-talent-search-usage-transforms
+      layout: main-vertical
+      panes:
+        - poetry run nvim
         -
   - eda:
       root: ~/Development/github/eda
