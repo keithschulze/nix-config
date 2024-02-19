@@ -140,6 +140,8 @@ in {
     inherit config pkgs;
     extraExtensions = with pkgs; [
       vscode-extensions.ms-vscode-remote.remote-containers
+      vscode-extensions.ms-python.python
+      vscode-extensions.ms-python.vscode-pylance
     ];
   };
 
