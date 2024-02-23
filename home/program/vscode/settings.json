@@ -1,0 +1,287 @@
+{
+  "breadcrumbs.enabled": false,
+  "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "none",
+  "editor.rulers": [
+    100
+  ],
+  "editor.semanticHighlighting.enabled": true,
+  "editor.suggestSelection": "first",
+  "files.exclude": {
+    "**/*.pyc": true,
+    "**/.DS_Store": true,
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.svn": true,
+    "**/CVS": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "git.path": "/Users/keithschulze/.nix-profile/bin/git",
+  "markdown.preview.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "update.mode": "none",
+  "vim.easymotion": true,
+  "vim.enableNeovim": true,
+  "vim.gdefault": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "f",
+        "d"
+      ]
+    },
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "k"
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.neovimPath": "/Users/keithschulze/.nix-profile/bin/nvim",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": [
+        "<C-w>",
+        "l"
+      ],
+      "before": [
+        "<C-l>"
+      ]
+    },
+    {
+      "after": [
+        "<C-w>",
+        "h"
+      ],
+      "before": [
+        "<C-h>"
+      ]
+    },
+    {
+      "after": [
+        "<C-w>",
+        "j"
+      ],
+      "before": [
+        "<C-j>"
+      ]
+    },
+    {
+      "after": [
+        "<C-w>",
+        "k"
+      ],
+      "before": [
+        "<C-k>"
+      ]
+    },
+    {
+      "after": [
+        "<C-w>",
+        "v"
+      ],
+      "before": [
+        "leader",
+        "w",
+        "v"
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "w",
+        "h"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.splitEditorDown"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "p",
+        "t"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.toggleSidebarVisibility"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "b",
+        "c"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.closeActiveEditor"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "f"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.quickOpen"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "b"
+      ],
+      "commands": [
+        {
+          "args": [
+            "edt "
+          ],
+          "command": "workbench.action.quickOpen"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "t"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.terminal.toggleTerminal"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.revealDefinition"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.goToReferences"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "c",
+        "a"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.quickFix"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "leader",
+        "r",
+        "n"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.rename"
+        }
+      ]
+    },
+    {
+      "after": [],
+      "before": [
+        "Shift+k"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "editor.action.showHover"
+        }
+      ]
+    }
+  ],
+  "vim.overrideCopy": true,
+  "vim.sneak": true,
+  "vim.textwidth": 100,
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    }
+  ],
+  "window.restoreWindows": "none",
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.panel.opensMaximized": "never",
+  "workbench.statusBar.visible": true
+}
