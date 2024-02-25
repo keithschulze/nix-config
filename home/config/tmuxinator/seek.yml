@@ -114,6 +114,12 @@ windows:
       panes:
         - source venv/bin/activate; nvim
         -
+  - haud:
+      root: ~/Development/github/hirer-ad-usage-data
+      layout: main-vertical
+      panes:
+        - poetry run nvim
+        -
   - hatsui:
       root: ~/Development/github/hirer-talent-search-usage-infra
       layout: main-vertical
