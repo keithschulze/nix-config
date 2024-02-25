@@ -34,8 +34,9 @@
       "keybase"
       "microsoft-teams"
       "multipass"
-      "pastebot"
       "obsidian"
+      "ollama"
+      "pastebot"
       "rectangle"
       "zoom"
     ];
