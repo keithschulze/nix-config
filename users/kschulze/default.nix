@@ -157,21 +157,8 @@ in {
     '';
 
     shellAliases = {
-      analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      analytics-prod-eng = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      analytics-prod-data = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-
-      au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-
-      tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-      tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
-
-      data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED***";
+      auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
+      auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
 
       jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
 
