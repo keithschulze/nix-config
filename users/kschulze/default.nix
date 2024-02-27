@@ -30,6 +30,7 @@ in {
   home.packages = with pkgs; [
     # utils
     cloc
+    coreutils
     fzf
     jq
     htop
@@ -161,19 +162,29 @@ in {
       analytics-prod-data = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
       analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
       analytics-dev = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+
+      au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+
+      tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+      tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' --role ***REMOVED***";
+
       data-prod = "awsauth --app 'Amazon Web Services (Classic)' --role ***REMOVED***";
 
       jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
 
+      jump-argocd-dev-primary = "jump -t argocd.workflow-services -e dev -p 9997";
       jump-argocd-prod-primary = "jump -t argocd.workflow-services -e prod -p 9997";
-      jump-airflow-prod-primary = "jump -t airflow.workflow-services -e prod -p 9998";
-
-      jump-airflow-prod-dark = "jump -t airflow-dark.workflow-services -e prod -p 9999";
 
       jump-argocd-dev-primary-green = "jump -t argocd.data -e dev -p 9997";
-      jump-airflow-dev-primary-green = "jump -t airflow.data -e dev -p 9998";
-
       jump-argocd-prod-primary-green = "jump -t argocd.data -e prod -p 9996";
+
+      jump-airflow-prod-primary = "jump -t airflow.workflow-services -e prod -p 9998";
+      jump-airflow-prod-dark = "jump -t airflow-dark.workflow-services -e prod -p 9999";
+
+      jump-airflow-dev-primary-green = "jump -t airflow.data -e dev -p 9998";
       jump-airflow-prod-primary-green = "jump -t airflow.data -e prod -p 9995";
       jump-airflow-prod-dark-green = "jump -t airflow-dark.data -e prod -p 9994";
     };
