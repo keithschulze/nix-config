@@ -51,12 +51,18 @@ windows:
       panes:
         - nvim
         -
+  - hirer-ci:
+      root: ~/Development/github/hirer-ci
+      layout: main-vertical
   - infra:
       root: ~/Development/github/hirer-analytics-infra
       layout: main-vertical
       panes:
         - nvim
         -
+  - hasi:
+      root: ~/Development/github/hirer-analytics-shared-infra
+      layout: main-vertical
   - home:
       root: ~/Development/github/hirer-analytics-home
       layout: main-vertical
@@ -68,12 +74,6 @@ windows:
         -
   - transform:
       root: ~/Development/github/hirer-analytics-datapipeline-transform
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
-  - ks-interchange:
-      root: ~/Development/github/hirer-analytics-data-interchange-keyspaces
       layout: main-vertical
       panes:
         - poetry run nvim
@@ -116,12 +116,6 @@ windows:
         -
   - haud:
       root: ~/Development/github/hirer-ad-usage-data
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
-  - hatsui:
-      root: ~/Development/github/hirer-talent-search-usage-infra
       layout: main-vertical
       panes:
         - poetry run nvim
