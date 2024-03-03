@@ -46,6 +46,7 @@ in {
     nodejs
 
     # tools
+    github-cli
     poetry
     cookiecutter
     terraform
