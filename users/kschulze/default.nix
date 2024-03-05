@@ -160,6 +160,24 @@ in {
       auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
       auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
 
+      auth-analytics-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seekanalyticsdevssopri";
+      auth-analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f seekanalyticsprodssoread";
+      auth-analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seekanalyticsprodssopriv";
+
+      auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsadusagedevssopriv";
+      auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsadusageprodssoread";
+      auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsadusageprodssopriv";
+
+      auth-tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticstalentsearchdevssopriv";
+      auth-tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticstalentsearchprodssoread";
+      auth-tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticstalentsearchprodssopriv";
+
+      auth-data-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsdatadevssopriv";
+      auth-data-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsdataprodsso";
+      auth-data-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsdataprodsopriv";
+
+      auth-dp-prod = "awsauth --app 'Amazon Web Services (Classic)' -f adfsdataplatformprodseekanalytics";
+
       jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
 
       jump-argocd-dev-primary = "jump -t argocd.workflow-services -e dev -p 9997";
