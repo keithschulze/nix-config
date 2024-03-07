@@ -160,34 +160,28 @@ in {
       auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
       auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
 
-      auth-analytics-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seekanalyticsdevssopri";
-      auth-analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f seekanalyticsprodssoread";
-      auth-analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seekanalyticsprodssopriv";
+      auth-analytics-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-analytics-dev-sso-priv";
+      auth-analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f seek-analytics-prod-sso-read";
+      auth-analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-analytics-prod-sso-priv";
 
-      auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsadusagedevssopriv";
-      auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsadusageprodssoread";
-      auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsadusageprodssopriv";
+      auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-dev-sso-priv";
+      auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-prod-sso-read";
+      auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-prod-sso-priv";
 
-      auth-tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticstalentsearchdevssopriv";
-      auth-tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticstalentsearchprodssoread";
-      auth-tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticstalentsearchprodssopriv";
+      auth-tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-dev-sso-priv";
+      auth-tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-prod-sso-read";
+      auth-tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-prod-sso-priv";
 
-      auth-data-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsdatadevssopriv";
-      auth-data-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsdataprodsso";
-      auth-data-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apachireranalyticsdataprodsopriv";
+      auth-data-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-dev-sso-priv";
+      auth-data-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-read";
+      auth-data-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-priv";
 
-      auth-dp-prod = "awsauth --app 'Amazon Web Services (Classic)' -f adfsdataplatformprodseekanalytics";
+      auth-dp-prod = "awsauth --app 'Amazon Web Services (Classic)' -f adfs-data-platform-prod-seek-analytics";
 
       jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
 
-      jump-argocd-dev-primary = "jump -t argocd.workflow-services -e dev -p 9997";
-      jump-argocd-prod-primary = "jump -t argocd.workflow-services -e prod -p 9997";
-
       jump-argocd-dev-primary-green = "jump -t argocd.data -e dev -p 9997";
       jump-argocd-prod-primary-green = "jump -t argocd.data -e prod -p 9996";
-
-      jump-airflow-prod-primary = "jump -t airflow.workflow-services -e prod -p 9998";
-      jump-airflow-prod-dark = "jump -t airflow-dark.workflow-services -e prod -p 9999";
 
       jump-airflow-dev-primary-green = "jump -t airflow.data -e dev -p 9998";
       jump-airflow-prod-primary-green = "jump -t airflow.data -e prod -p 9995";
