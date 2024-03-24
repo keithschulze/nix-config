@@ -10,6 +10,14 @@ let
   extraVimPlugins = with pkgs.vimPlugins; [
     copilot-vim
   ];
+  remoteContainers = (pkgs.vscode-utils.extensionFromVscodeMarketplace
+    {
+      name = "remote-containers";
+      publisher = "ms-vscode-remote";
+      version = "0.349.0";
+      sha256 = "d9c49ad605c20cddef8d44cb989ddf959f21bdc499111c81b855d9ead1822a4f";
+    }
+  );
 in {
   imports = [
     ./rice.nix
@@ -140,7 +148,7 @@ in {
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
     extraExtensions = with pkgs; [
-      vscode-extensions.ms-vscode-remote.remote-containers
+      remoteContainers
       vscode-extensions.ms-python.python
       vscode-extensions.ms-python.vscode-pylance
     ];
