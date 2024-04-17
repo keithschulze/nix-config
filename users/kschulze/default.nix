@@ -150,6 +150,7 @@ in {
     inherit config pkgs;
     extraExtensions = with pkgs; [
       remoteContainers
+      vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
       vscode-extensions.ms-python.vscode-pylance
     ];
