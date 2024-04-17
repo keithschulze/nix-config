@@ -7,6 +7,16 @@ let
     parinfer-rust
     copilot-vim
   ];
+  autodeskAutolisp = (pkgs.vscode-utils.extensionFromVscodeMarketplace
+     {
+       name = "autolispext";
+       publisher = "Autodesk";
+       version = "1.6.2";
+       sha256 = "6a58a6718775ad5c5ff71d05c5c7f8d714f794538d552dc5de6ed9b68c592592";
+     })
+     .overrideAttrs (_: {
+       sourceRoot = "extension";
+     });
 in {
   imports = [
     ./rice.nix
@@ -143,6 +153,7 @@ in {
     inherit config pkgs;
     extraExtensions = with pkgs; [
       vscode-extensions.matklad.rust-analyzer
+      autodeskAutolisp
     ];
   };
 
