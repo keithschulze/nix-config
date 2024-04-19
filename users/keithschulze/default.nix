@@ -17,6 +17,13 @@ let
      .overrideAttrs (_: {
        sourceRoot = "extension";
      });
+  rocExtension = (pkgs.vscode-utils.extensionFromVscodeMarketplace
+     {
+       name = "roc-lang-unofficial";
+       publisher = "IvanDemchenko";
+       version = "1.2.0";
+       sha256 = "94c37a1a550cdb4a6d83573a7cda7c8f04b3942cc4d54d2e811ca144b6063c61";
+     });
 in {
   imports = [
     ./rice.nix
@@ -154,6 +161,7 @@ in {
     extraExtensions = with pkgs; [
       vscode-extensions.matklad.rust-analyzer
       autodeskAutolisp
+      rocExtension
     ];
   };
 
