@@ -159,6 +159,9 @@ in {
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
     extraExtensions = with pkgs; [
+      vscode-extensions.hashicorp.terraform
+      vscode-extensions.ms-python.python
+      vscode-extensions.ms-python.vscode-pylance
       vscode-extensions.matklad.rust-analyzer
       autodeskAutolisp
       rocExtension

@@ -37,6 +37,7 @@
       "miniforge"
       "nordvpn"
       "obsidian"
+      "ollama"
       "pastebot"
       "rectangle"
       "steam"
