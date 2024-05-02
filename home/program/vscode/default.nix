@@ -12,6 +12,7 @@
     vscode-extensions.redhat.vscode-yaml
     vscode-extensions.vscodevim.vim
     vscode-extensions.github.copilot
+    vscode-extensions.github.copilot-chat
     vscode-extensions.github.github-vscode-theme
     vscode-extensions.jebbs.plantuml
   ] ++ extraExtensions;
