@@ -18,6 +18,14 @@ let
       sha256 = "d9c49ad605c20cddef8d44cb989ddf959f21bdc499111c81b855d9ead1822a4f";
     }
   );
+  dbt-vscode = (pkgs.vscode-utils.extensionFromVscodeMarketplace
+    {
+      name = "vscode-dbt-power-user";
+      publisher = "innoverio";
+      version = "0.38.2";
+      sha256 = "df19d761b3b434841976b447c4529ed6c38973ad4ef7ee5a232ff43200019655";
+    }
+  );
 in {
   imports = [
     ./rice.nix
@@ -149,10 +157,12 @@ in {
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
     extraExtensions = with pkgs; [
+      dbt-vscode
       remoteContainers
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
       vscode-extensions.ms-python.vscode-pylance
+      vscode-extensions.samuelcolvin.jinjahtml
     ];
   };
 
