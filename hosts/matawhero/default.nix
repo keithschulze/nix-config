@@ -5,7 +5,7 @@
     ../common/global
   ];
 
-  nix.package = pkgs.nixVersions.stable;
+  nix.package = pkgs.nixVersions.latest;
 
   programs.zsh = {
     enable = true;  # default shell on catalina

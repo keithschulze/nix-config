@@ -25,14 +25,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+    };
 
     nixos-asahi = {
       url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    utils.url = "github:numtide/flake-utils";
+    utils = {
+      url = "github:numtide/flake-utils";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-asahi, utils, ... }@inputs:
@@ -121,7 +125,7 @@
         hm = home-manager.defaultPackage."${system}";
       in {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [ nixUnstable hm ];
+          buildInputs = with pkgs; [ nixVersions.latest hm ];
         };
       });
 }

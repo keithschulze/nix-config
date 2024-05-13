@@ -5,7 +5,7 @@
     ../common/global
   ];
 
-  nix.package = pkgs.nixVersions.stable;
+  nix.package = pkgs.nixVersions.latest;
 
   programs.zsh = {
     enable = true;  # default shell on catalina
@@ -23,17 +23,11 @@
       "poetry"
       "pybind11"
       "unzip"
-      "ubuntu/microk8s/microk8s"
       "virtualenv"
     ];
 
     casks = [
       "1password"
-      "datagrip"
-      "docker"
-      "iterm2"
-      "microsoft-teams"
-      "multipass"
       "obsidian"
       "pastebot"
       "rectangle"
@@ -44,7 +38,6 @@
       "homebrew/cask"
       "homebrew/cask-fonts"
       "homebrew/cask-versions"
-      "ubuntu/microk8s"
     ];
 
     global.autoUpdate = false;
