@@ -161,7 +161,7 @@ in {
       remoteContainers
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
-      vscode-extensions.ms-python.vscode-pylance
+      vscode-extensions.ms-pyright.pyright
       vscode-extensions.samuelcolvin.jinjahtml
     ];
   };
