@@ -26,20 +26,6 @@
       "virtualenv"
     ];
 
-    casks = [
-      "1password"
-      "obsidian"
-      "pastebot"
-      "rectangle"
-      "zoom"
-    ];
-
-    taps = [
-      "homebrew/cask"
-      "homebrew/cask-fonts"
-      "homebrew/cask-versions"
-    ];
-
     global.autoUpdate = false;
     onActivation = {
       cleanup = "uninstall";
