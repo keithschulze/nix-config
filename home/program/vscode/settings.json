@@ -11,6 +11,7 @@
   ],
   "editor.semanticHighlighting.enabled": true,
   "editor.suggestSelection": "first",
+  "extensions.ignoreRecommendations": true,
   "files.exclude": {
     "**/*.pyc": true,
     "**/.DS_Store": true,
