@@ -221,4 +221,6 @@ in {
 
   home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
   home.file.".config/tmuxinator/home.yml".text = builtins.readFile ../../home/config/tmuxinator/home.yml;
+  home.file.".config/zed/keymap.json".text = builtins.readFile ../../home/config/zed/keymap.json;
+  home.file.".config/zed/settings.json".text = builtins.readFile ../../home/config/zed/settings.json;
 }
