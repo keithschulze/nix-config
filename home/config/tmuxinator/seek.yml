@@ -54,36 +54,27 @@ windows:
   - hirer-ci:
       root: ~/Development/github/hirer-ci
       layout: main-vertical
-  - infra:
-      root: ~/Development/github/hirer-analytics-infra
-      layout: main-vertical
-      panes:
-        - nvim
-        -
   - hasi:
       root: ~/Development/github/hirer-analytics-shared-infra
       layout: main-vertical
   - home:
       root: ~/Development/github/hirer-analytics-home
       layout: main-vertical
-  - clean:
-      root: ~/Development/github/hirer-analytics-datapipeline-cleanup
+  - hard:
+      root: ~/Development/github/hirer-ad-rating-data
       layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
-  - transform:
-      root: ~/Development/github/hirer-analytics-datapipeline-transform
+  - hapd:
+      root: ~/Development/github/hirer-ad-performance-data
       layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
-  - workflows:
-      root: ~/Development/github/hirer-analytics-workflow-jobs
+  - haud:
+      root: ~/Development/github/hirer-ad-usage-data
       layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
+  - hatsu:
+      root: ~/Development/github/hirer-talent-search-usage-transforms
+      layout: main-vertical
+  - hadi:
+      root: ~/Development/github/hirer-analytics-data-interchange
+      layout: main-vertical
   - haart:
       root: ~/Development/github/hirer-analytics-ad-rating-transform
       layout: main-vertical
@@ -96,54 +87,15 @@ windows:
       panes:
         - nvim
         -
-  - hadi:
-      root: ~/Development/github/hirer-analytics-data-interchange
+  - dbt:
+      root: ~/Development/github/dataplatform-dbt-hirer-analytics
       layout: main-vertical
       panes:
         - nvim
-        -
-  - haws:
-      root: ~/Development/github/hirer-analytics-workflow-services
-      layout: main-vertical
-      panes:
-        - nvim
-        -
-  - hapi:
-      root: ~/Development/github/hirer-analytics-pipeline-integrations
-      layout: main-vertical
-      panes:
-        - source venv/bin/activate; nvim
-        -
-  - hapd:
-      root: ~/Development/github/hirer-ad-performance-data
-      layout: main-vertical
-  - hard:
-      root: ~/Development/github/hirer-ad-rating-data
-      layout: main-vertical
-  - haud:
-      root: ~/Development/github/hirer-ad-usage-data
-      layout: main-vertical
-  - hatsu:
-      root: ~/Development/github/hirer-talent-search-usage-transforms
-      layout: main-vertical
-      panes:
-        - poetry run nvim
         -
   - eda:
       root: ~/Development/github/eda
       layout: main-vertical
-  - fetch:
-      root: ~/Development/github/hirer-analytics-datapipeline-fetch
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        -
-  - legacy_dp:
-      root: ~/Development/github/hirer-analytics-dataplatform
-      layout: main-vertical
-      panes:
-        - nvim
-        -
   - flakes:
       root: ~/Development/github/flakes
       layout: main-vertical

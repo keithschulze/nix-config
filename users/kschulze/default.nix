@@ -69,6 +69,7 @@ in {
     argocd
     aws-auth
     awscli2
+    dbt
     docker
     docker-buildx
     docker-compose
