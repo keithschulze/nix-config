@@ -81,4 +81,9 @@
     keep-outputs = true
     keep-derivations = true
   '';
+
+  nix.settings.trusted-users = [
+    "root"
+    "keithschulze"
+  ];
 }

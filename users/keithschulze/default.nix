@@ -7,23 +7,6 @@ let
     parinfer-rust
     copilot-vim
   ];
-  autodeskAutolisp = (pkgs.vscode-utils.extensionFromVscodeMarketplace
-     {
-       name = "autolispext";
-       publisher = "Autodesk";
-       version = "1.6.2";
-       sha256 = "6a58a6718775ad5c5ff71d05c5c7f8d714f794538d552dc5de6ed9b68c592592";
-     })
-     .overrideAttrs (_: {
-       sourceRoot = "extension";
-     });
-  rocExtension = (pkgs.vscode-utils.extensionFromVscodeMarketplace
-     {
-       name = "roc-lang-unofficial";
-       publisher = "IvanDemchenko";
-       version = "1.2.0";
-       sha256 = "94c37a1a550cdb4a6d83573a7cda7c8f04b3942cc4d54d2e811ca144b6063c61";
-     });
 in {
   imports = [
     ./rice.nix
@@ -54,6 +37,7 @@ in {
     helix
 
     # dev
+    devenv
     shellcheck
     tmux
     tmuxinator
@@ -67,7 +51,6 @@ in {
     poetry
     cookiecutter
     terraform
-    devbox
     podman
     sqlite
 
@@ -161,10 +144,8 @@ in {
     extraExtensions = with pkgs; [
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
-      vscode-extensions.ms-python.vscode-pylance
+      vscode-extensions.ms-pyright.pyright
       vscode-extensions.rust-lang.rust-analyzer
-      autodeskAutolisp
-      rocExtension
     ];
   };
 
