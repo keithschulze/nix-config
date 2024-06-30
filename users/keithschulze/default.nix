@@ -27,11 +27,10 @@ in {
   home.packages = with pkgs; [
     # utils
     jq
-    htop
-    fzf
     ripgrep
     fd
     cheat
+    hurl
 
     # editors
     helix
@@ -42,9 +41,6 @@ in {
     tmux
     tmuxinator
     graphviz
-
-    # languages
-    nodejs
 
     # tools
     github-cli
@@ -170,6 +166,10 @@ in {
       fi
       unset __conda_setup
       # <<< conda initialize <<<
+
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+      [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
       PATH=/Users/keithschulze/.cargo/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
     '';

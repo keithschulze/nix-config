@@ -22,14 +22,13 @@
       "glew"
       "glfw"
       "hyperfine"
+      "nvm"
     ];
 
     casks = [
       "1password"
-      "firefox-developer-edition"
       "font-fontawesome"
       "google-chrome"
-      "insomnia"
       "keybase"
       "microsoft-teams"
       "miniforge"
