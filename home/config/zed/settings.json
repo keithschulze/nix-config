@@ -1,4 +1,13 @@
 {
+  "assistant": {
+    "version": "1",
+    "provider": {
+      "name": "openai",
+      "type": "openai",
+      "default_model": "gpt-4-turbo-preview",
+      "api_url": "http://localhost:11434/v1"
+    }
+  },
   "buffer_font_family": "FiraCode Nerd Font",
   "cursor_blink": false,
   "use_system_clipboard": "on_yank",
