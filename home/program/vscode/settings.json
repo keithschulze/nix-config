@@ -96,14 +96,17 @@
       ]
     },
     {
-      "after": [
-        "<C-w>",
-        "v"
-      ],
+      "after": [],
       "before": [
         "leader",
         "w",
         "v"
+      ],
+      "commands": [
+        {
+          "args": [],
+          "command": "workbench.action.splitEditorRight"
+        }
       ]
     },
     {
