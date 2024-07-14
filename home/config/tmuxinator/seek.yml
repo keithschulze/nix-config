@@ -72,21 +72,12 @@ windows:
   - hatsu:
       root: ~/Development/github/hirer-talent-search-usage-transforms
       layout: main-vertical
+  - hird:
+      root: ~/Development/github/hirer-insights-role-data
+      layout: main-vertical
   - hadi:
       root: ~/Development/github/hirer-analytics-data-interchange
       layout: main-vertical
-  - haart:
-      root: ~/Development/github/hirer-analytics-ad-rating-transform
-      layout: main-vertical
-      panes:
-        - source venv/bin/activate; nvim
-        -
-  - hats:
-      root: ~/Development/github/hirer-analytics-dataplatform-aur-transform
-      layout: main-vertical
-      panes:
-        - nvim
-        -
   - dbt:
       root: ~/Development/github/dataplatform-dbt-hirer-analytics
       layout: main-vertical
