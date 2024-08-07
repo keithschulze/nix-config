@@ -18,6 +18,7 @@
     brews = [
       "awscli"
       "curl"
+      "duckdb"
       "hyperfine"
       "jq"
       "poetry"
