@@ -31,7 +31,7 @@
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.minimumContrastRatio": 1,
-  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.scrollback": 3000,
   "update.mode": "none",
   "vim.easymotion": true,
   "vim.enableNeovim": true,
