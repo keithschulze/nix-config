@@ -214,7 +214,6 @@ in {
       plugins = [
         "git"
         "docker-compose"
-        "ripgrep"
         "terraform"
         "tmux"
       ];

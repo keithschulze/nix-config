@@ -179,7 +179,6 @@ in {
         "git"
         "docker-compose"
         "gcloud"
-        "ripgrep"
         "terraform"
         "tmux"
         "kubectl"
