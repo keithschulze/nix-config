@@ -49,6 +49,7 @@ in {
     terraform
     podman
     sqlite
+    uv
 
     # lang clients
     ocamlPackages.ocaml-lsp
