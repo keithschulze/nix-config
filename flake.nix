@@ -92,7 +92,7 @@
             "alacritty"
             "starship"
           ];
-          colorscheme = "catppuccin-frappe";
+          colorscheme = "catppuccin-mocha";
           pkgs = legacyPackages."aarch64-darwin";
         };
 
@@ -103,7 +103,7 @@
             "alacritty"
             "starship"
           ];
-          colorscheme = "catppuccin-frappe";
+          colorscheme = "catppuccin-mocha";
           pkgs = legacyPackages."aarch64-darwin";
         };
 

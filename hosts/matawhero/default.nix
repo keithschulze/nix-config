@@ -36,7 +36,6 @@
       "obsidian"
       "ollama"
       "pastebot"
-      "rectangle"
       "steam"
       "vnc-viewer"
       "zed"
