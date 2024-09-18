@@ -80,30 +80,30 @@
     bind-key C-c run 'tmux capture-pane -S -102400 -p > /tmp/tmux-capture.txt'\;\
                  new-window "view /tmp/tmux-capture.txt"
     bind-key M-c run "screencapture -l$(osascript -e 'tell app \"iTerm\" to id of window 1') -x -o -P /tmp/$(date +%Y%m%d-%H%M%S).png"
-
-    # -------------------------------------------------------------------
-    # Theme
-    # -------------------------------------------------------------------
-    set -g @catppuccin_window_left_separator ""
-    set -g @catppuccin_window_right_separator " "
-    set -g @catppuccin_window_middle_separator " █"
-    set -g @catppuccin_window_number_position "right"
-
-    set -g @catppuccin_window_default_fill "number"
-    set -g @catppuccin_window_default_text "#{b:pane_current_path}"
-
-    set -g @catppuccin_window_current_fill "number"
-    set -g @catppuccin_window_current_text "#{b:pane_current_path}"
-
-    set -g @catppuccin_status_modules_right "application session"
-    set -g @catppuccin_status_left_separator  " "
-    set -g @catppuccin_status_right_separator ""
-    set -g @catppuccin_status_fill "icon"
-    set -g @catppuccin_status_connect_separator "no"
   '';
 
   plugins = with pkgs.tmuxPlugins; [
-    catppuccin
+    {
+      plugin = catppuccin;
+      extraConfig = ''
+        # -------------------------------------------------------------------
+        # Theme
+        # -------------------------------------------------------------------
+        set -g @catppuccin_window_left_separator ""
+        set -g @catppuccin_window_right_separator " "
+        set -g @catppuccin_window_middle_separator " █"
+        set -g @catppuccin_window_number_position "right"
+
+        set -g @catppuccin_window_default_fill "number"
+        set -g @catppuccin_window_current_fill "number"
+
+        set -g @catppuccin_status_modules_right "application session"
+        set -g @catppuccin_status_left_separator  " "
+        set -g @catppuccin_status_right_separator ""
+        set -g @catppuccin_status_fill "icon"
+        set -g @catppuccin_status_connect_separator "no"
+      '';
+    }
     sensible
     yank
     vim-tmux-navigator
