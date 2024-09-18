@@ -193,6 +193,10 @@ in {
       auth-tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-read";
       auth-tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-priv";
 
+      auth-ir-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-dev-sso-priv";
+      auth-ir-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-read";
+      auth-ir-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-priv";
+
       auth-data-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-dev-sso-priv";
       auth-data-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-read";
       auth-data-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-priv";
