@@ -29,6 +29,7 @@ in {
     # utils
     jq
     ripgrep
+    fzf
     fd
     cheat
     hurl
@@ -53,7 +54,6 @@ in {
     uv
 
     # lang clients
-    ocamlPackages.ocaml-lsp
     terraform-ls
     rust-analyzer
     pyright
@@ -183,7 +183,6 @@ in {
       "pyright"
       "rust_analyzer"
       "terraformls"
-      "ocamllsp"
       "hls"
     ];
     extraPlugins = extraVimPlugins;
@@ -234,6 +233,7 @@ in {
       plugins = [
         "git"
         "docker-compose"
+        "fzf"
         "gcloud"
         "terraform"
         "tmux"

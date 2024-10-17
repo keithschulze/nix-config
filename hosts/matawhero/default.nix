@@ -27,6 +27,7 @@
 
     casks = [
       "1password"
+      "firefox"
       "font-fontawesome"
       "google-chrome"
       "keybase"
@@ -35,6 +36,7 @@
       "nordvpn"
       "obsidian"
       "ollama"
+      "orion"
       "pastebot"
       "steam"
       "vnc-viewer"
