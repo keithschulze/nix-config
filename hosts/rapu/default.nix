@@ -27,6 +27,10 @@
       "virtualenv"
     ];
 
+    casks = [
+      "miniforge"
+    ];
+
     global.autoUpdate = false;
     onActivation = {
       cleanup = "uninstall";
