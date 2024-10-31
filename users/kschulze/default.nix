@@ -6,24 +6,17 @@ let
   gantry = (import ../../modules/gantry) { inherit stdenv; inherit pkgs; };
   aws-auth = (import ../../modules/aws-auth) { inherit stdenv; inherit pkgs; };
   jump = (import ../../modules/jump) { inherit stdenv; inherit pkgs; inherit lib; };
+  colors = config.colorscheme.palette;
 
   extraVimPlugins = with pkgs.vimPlugins; [
     copilot-vim
   ];
-  remoteContainers = (pkgs.vscode-utils.extensionFromVscodeMarketplace
-    {
-      name = "remote-containers";
-      publisher = "ms-vscode-remote";
-      version = "0.349.0";
-      sha256 = "d9c49ad605c20cddef8d44cb989ddf959f21bdc499111c81b855d9ead1822a4f";
-    }
-  );
   dbt-vscode = (pkgs.vscode-utils.extensionFromVscodeMarketplace
     {
       name = "vscode-dbt-power-user";
       publisher = "innoverio";
-      version = "0.38.2";
-      sha256 = "df19d761b3b434841976b447c4529ed6c38973ad4ef7ee5a232ff43200019655";
+      version = "0.47.4";
+      sha256 = "d6643b32d75eae68d001bb6623f2ae1de71016ed02c9da813305c53f27e5b944";
     }
   );
 in {
@@ -69,7 +62,7 @@ in {
     argocd
     aws-auth
     awscli2
-    dbt
+    # dbt
     docker
     docker-buildx
     docker-compose
@@ -144,6 +137,60 @@ in {
     };
   };
 
+  programs.gitui = {
+    enable = true;
+    keyConfig = ''
+      (
+        open_help: Some(( code: F(1), modifiers: "")),
+        move_left: Some(( code: Char('h'), modifiers: "")),
+        move_right: Some(( code: Char('l'), modifiers: "")),
+        move_up: Some(( code: Char('k'), modifiers: "")),
+        move_down: Some(( code: Char('j'), modifiers: "")),
+        popup_up: Some(( code: Char('p'), modifiers: "CONTROL")),
+        popup_down: Some(( code: Char('n'), modifiers: "CONTROL")),
+        page_up: Some(( code: Char('b'), modifiers: "CONTROL")),
+        page_down: Some(( code: Char('f'), modifiers: "CONTROL")),
+        home: Some(( code: Char('g'), modifiers: "")),
+        end: Some(( code: Char('G'), modifiers: "SHIFT")),
+        shift_up: Some(( code: Char('K'), modifiers: "SHIFT")),
+        shift_down: Some(( code: Char('J'), modifiers: "SHIFT")),
+        edit_file: Some(( code: Char('I'), modifiers: "SHIFT")),
+        status_reset_item: Some(( code: Char('U'), modifiers: "SHIFT")),
+        diff_reset_lines: Some(( code: Char('u'), modifiers: "")),
+        diff_stage_lines: Some(( code: Char('s'), modifiers: "")),
+        stashing_save: Some(( code: Char('w'), modifiers: "")),
+        stashing_toggle_index: Some(( code: Char('m'), modifiers: "")),
+        stash_open: Some(( code: Char('l'), modifiers: "")),
+        abort_merge: Some(( code: Char('M'), modifiers: "SHIFT")),
+      )
+    '';
+    theme = ''
+      (
+        selected_tab: Some("Reset"),
+        selection_bg: Some("#${colors.base00}"),
+        selection_fg: Some("#${colors.base0D}"),
+        command_fg: Some("#${colors.base0D}"),
+        cmdbar_bg: Some("#${colors.base00}"),
+        cmdbar_extra_lines_bg: Some("#${colors.base00}"),
+        disabled_fg: Some("#${colors.base04}"),
+        diff_line_add: Some("#${colors.base0B}"),
+        diff_line_delete: Some("#${colors.base08}"),
+        diff_file_added: Some("#${colors.base0B}"),
+        diff_file_removed: Some("#${colors.base08}"),
+        diff_file_moved: Some("#${colors.base0E}"),
+        diff_file_modified: Some("#${colors.base0A}"),
+        commit_hash: Some("#${colors.base0E}"),
+        commit_time: Some("#${colors.base0C}"),
+        commit_author: Some("#${colors.base0B}"),
+        danger_fg: Some("#${colors.base08}"),
+        push_gauge_bg: Some("#${colors.base00}"),
+        push_gauge_fg: Some("Reset"),
+        tag_fg: Some("#${colors.base0E}"),
+        branch_fg: Some("#${colors.base0A}"),
+      )
+    '';
+  };
+
   programs.neovim = (import ../../home/program/neovim/default.nix) {
     inherit config pkgs lib;
     lsps = [
@@ -159,7 +206,7 @@ in {
     inherit config pkgs;
     extraExtensions = with pkgs; [
       dbt-vscode
-      remoteContainers
+      vscode-extensions.ms-vscode-remote.remote-containers
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
       vscode-extensions.ms-pyright.pyright
