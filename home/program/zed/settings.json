@@ -1,0 +1,29 @@
+
+{
+  "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "llama3.2:latest"
+    },
+    "version": "2"
+  },
+  "language_models": {
+    "ollama": {
+      "low_speed_timeout_in_seconds": 30
+    }
+  },
+  "buffer_font_family": "FiraCode Nerd Font",
+  "cursor_blink": false,
+  "use_system_clipboard": "on_yank",
+  "theme": "Catppuccin Mocha",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "buffer_font_size": 15,
+  "tab_bar": {
+    "show": false
+  },
+  "vim_mode": true
+}
+

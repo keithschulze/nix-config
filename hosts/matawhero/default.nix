@@ -40,7 +40,6 @@
       "pastebot"
       "steam"
       "vnc-viewer"
-      "zed"
       "zoom"
     ];
 

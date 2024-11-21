@@ -200,6 +200,10 @@ in {
     ];
   };
 
+  programs.zed-editor = (import ../../home/program/zed/default.nix) {
+    inherit config pkgs;
+  };
+
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
     initExtra = ''
       if [ -n "''\${commands[fzf-share]}" ]; then
@@ -257,6 +261,6 @@ in {
 
   home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
   home.file.".config/tmuxinator/home.yml".text = builtins.readFile ../../home/config/tmuxinator/home.yml;
-  home.file.".config/zed/keymap.json".text = builtins.readFile ../../home/config/zed/keymap.json;
-  home.file.".config/zed/settings.json".text = builtins.readFile ../../home/config/zed/settings.json;
+  # home.file.".config/zed/keymap.json".text = builtins.readFile ../../home/config/zed/keymap.json;
+  # home.file.".config/zed/settings.json".text = builtins.readFile ../../home/config/zed/settings.json;
 }
