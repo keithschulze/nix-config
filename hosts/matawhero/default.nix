@@ -31,15 +31,10 @@
       "font-fontawesome"
       "google-chrome"
       "keybase"
-      "microsoft-teams"
       "miniforge"
       "nordvpn"
-      "obsidian"
       "ollama"
-      "orion"
       "pastebot"
-      "steam"
-      "vnc-viewer"
       "zoom"
     ];
 
