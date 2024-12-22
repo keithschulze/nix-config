@@ -5,7 +5,6 @@ let
   home = if stdenv.isDarwin then "Users" else "home";
   gantry = (import ../../modules/gantry) { inherit stdenv; inherit pkgs; };
   aws-auth = (import ../../modules/aws-auth) { inherit stdenv; inherit pkgs; };
-  jump = (import ../../modules/jump) { inherit stdenv; inherit pkgs; inherit lib; };
   colors = config.colorscheme.palette;
 
   extraVimPlugins = with pkgs.vimPlugins; [
@@ -59,7 +58,6 @@ in {
     nodejs
 
     # tools
-    argocd
     aws-auth
     awscli2
     # dbt
@@ -68,9 +66,6 @@ in {
     docker-compose
     gantry
     github-cli
-    kubectl
-    kubernetes-helm
-    kubeseal
     ssm-session-manager-plugin
     terraform
 
@@ -214,6 +209,10 @@ in {
     ];
   };
 
+  programs.zed-editor = (import ../../home/program/zed/default.nix) {
+    inherit config pkgs;
+  };
+
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
     initExtra = ''
       if [ -n "''\${commands[fzf-share]}" ]; then
@@ -243,10 +242,6 @@ in {
       auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
       auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
 
-      auth-analytics-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-analytics-dev-sso-priv";
-      auth-analytics-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f seek-analytics-prod-sso-read";
-      auth-analytics-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-analytics-prod-sso-priv";
-
       auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-dev-sso-priv";
       auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-prod-sso-read";
       auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-prod-sso-priv";
@@ -264,15 +259,6 @@ in {
       auth-data-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-priv";
 
       auth-dp-prod = "awsauth --app 'Amazon Web Services (Classic)' -f adfs-data-platform-prod-seek-analytics";
-
-      jump-adusage-search = "jump -t adusage-search -e prod -p 10000";
-
-      jump-argocd-dev-primary-green = "jump -t argocd.data -e dev -p 9997";
-      jump-argocd-prod-primary-green = "jump -t argocd.data -e prod -p 9996";
-
-      jump-airflow-dev-primary-green = "jump -t airflow.data -e dev -p 9998";
-      jump-airflow-prod-primary-green = "jump -t airflow.data -e prod -p 9995";
-      jump-airflow-prod-dark-green = "jump -t airflow-dark.data -e prod -p 9994";
     };
 
     oh-my-zsh = {
@@ -301,6 +287,4 @@ in {
 
   home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
   home.file.".config/tmuxinator/seek.yml".text = builtins.readFile ../../home/config/tmuxinator/seek.yml;
-  home.file.".config/zed/keymap.json".text = builtins.readFile ../../home/config/zed/keymap.json;
-  home.file.".config/zed/settings.json".text = builtins.readFile ../../home/config/zed/settings.json;
 }
