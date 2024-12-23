@@ -197,6 +197,7 @@ in {
       vscode-extensions.ms-python.python
       vscode-extensions.ms-pyright.pyright
       vscode-extensions.rust-lang.rust-analyzer
+      vscode-extensions.tomoki1207.pdf
     ];
   };
 
