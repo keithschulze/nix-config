@@ -198,7 +198,10 @@ in {
       vscode-extensions.ms-pyright.pyright
       vscode-extensions.rust-lang.rust-analyzer
       vscode-extensions.tomoki1207.pdf
+      vscode-extensions.dart-code.dart-code
+      vscode-extensions.dart-code.flutter
     ];
+    extraUserSettings = builtins.fromJSON (builtins.readFile ./config/vscode/settings.json);
   };
 
   programs.zed-editor = (import ../../home/program/zed/default.nix) {

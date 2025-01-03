@@ -1,4 +1,4 @@
-{ config, pkgs, extraExtensions ? [], ... }:
+{ config, pkgs, extraExtensions ? [], extraUserSettings ? {}, ... }:
 
 {
   enable = true;
@@ -17,5 +17,5 @@
     vscode-extensions.jebbs.plantuml
   ] ++ extraExtensions;
 
-  userSettings = builtins.fromJSON(builtins.readFile ./settings.json);
+  userSettings = builtins.fromJSON(builtins.readFile ./settings.json) // extraUserSettings;
 }
