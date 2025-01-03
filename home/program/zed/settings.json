@@ -1,11 +1,11 @@
 
 {
   "assistant": {
+    "version": "2",
     "default_model": {
-      "provider": "ollama",
-      "model": "llama3.2:latest"
-    },
-    "version": "2"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    }
   },
   "language_models": {
     "ollama": {
