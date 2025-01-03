@@ -19,19 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-colors = {
       url = "github:misterio77/nix-colors";
-    };
-
-    nixos-asahi = {
-      url = "github:tpwrules/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     utils = {
@@ -39,7 +28,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-asahi, utils, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, utils, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -59,16 +48,6 @@
           config.allowUnfree = true;
         }
       );
-
-      nixosConfigurations = {
-        wherangi = lib.nixosSystem {
-          modules = [
-            ./hosts/wherangi
-            nixos-asahi.nixosModules.default
-          ];
-          specialArgs = { inherit inputs outputs; };
-        };
-      };
 
       darwinConfigurations = {
         matawhero = mkDarwin {
@@ -105,18 +84,6 @@
           ];
           colorscheme = "catppuccin-mocha";
           pkgs = legacyPackages."aarch64-darwin";
-        };
-
-        "keithschulze@wherangi" = mkHome {
-          username = "keithschulze";
-          hostname = "wherangi";
-          features = [
-            "alacritty"
-            "hyprland"
-            "starship"
-          ];
-          colorscheme = "catppuccin-frappe";
-          pkgs = legacyPackages."aarch64-linux";
         };
       };
     } // utils.lib.eachDefaultSystem (system:
