@@ -11,6 +11,7 @@ let
 in {
   imports = [
     ./rice.nix
+    ../../modules/aerospace
   ] ++ map (f: ../../home/features/${f}) features;
     # Import each feature requested
 
@@ -63,6 +64,92 @@ in {
     sbt
     metals
   ];
+
+  programs.aerospace = {
+    enable = true;
+
+    settings = {
+      start-at-login = true;
+
+      gaps = {
+        inner = {
+          horizontal = 5;
+          vertical = 5;
+        };
+        outer = {
+          bottom = 5;
+          left = 5;
+          right = 5;
+          top = 5;
+        };
+      };
+
+      after-login-command = [];
+      after-startup-command = [];
+
+      enable-normalization-flatten-containers = true;
+      enable-normalization-opposite-orientation-for-nested-containers = true;
+
+      accordion-padding = 30;
+      default-root-container-layout = "tiles";
+      default-root-container-orientation = "auto";
+
+      on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
+      automatically-unhide-macos-hidden-apps = false;
+
+      key-mapping.preset = "qwerty";
+
+      mode.main.binding = {
+        alt-slash = "layout tiles horizontal vertical";
+        alt-comma = "layout accordion horizontal vertical";
+
+        alt-h = "focus left";
+        alt-j = "focus down";
+        alt-k = "focus up";
+        alt-l = "focus right";
+        alt-f = "fullscreen";
+
+        alt-shift-h = "move left";
+        alt-shift-j = "move down";
+        alt-shift-k = "move up";
+        alt-shift-l = "move right";
+
+        alt-shift-minus = "resize smart -50";
+        alt-shift-equal = "resize smart +50";
+
+        alt-1 = "workspace 1";
+        alt-2 = "workspace 2";
+        alt-3 = "workspace 3";
+        alt-4 = "workspace 4";
+
+        alt-shift-1 = "move-node-to-workspace 1";
+        alt-shift-2 = "move-node-to-workspace 2";
+        alt-shift-3 = "move-node-to-workspace 3";
+        alt-shift-4 = "move-node-to-workspace 4";
+
+        alt-tab = "workspace-back-and-forth";
+        alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
+
+        alt-shift-semicolon = "mode service";
+      };
+
+      mode.service.binding = {
+        esc = ["reload-config" "mode main"];
+        r = ["flatten-workspace-tree" "mode main"]; # reset layout
+        f = ["layout floating tiling" "mode main"]; # Toggle between floating and tiling layout
+        backspace = ["close-all-windows-but-current" "mode main"];
+
+        alt-shift-h = ["join-with left" "mode main"];
+        alt-shift-j = ["join-with down" "mode main"];
+        alt-shift-k = ["join-with up" "mode main"];
+        alt-shift-l = ["join-with right" "mode main"];
+
+        down = "volume down";
+        up = "volume up";
+        shift-down = ["volume set 0" "mode main"];
+      };
+    };
+  };
 
   programs.ssh = {
     enable = true;
