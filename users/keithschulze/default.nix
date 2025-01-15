@@ -65,6 +65,8 @@ in {
     metals
   ];
 
+  news.display = "silent";
+
   programs.aerospace = {
     enable = true;
 
@@ -148,6 +150,12 @@ in {
         up = "volume up";
         shift-down = ["volume set 0" "mode main"];
       };
+      on-window-detected = [
+        {
+          "if".app-id = "com.mitchellh.ghostty";
+          run = ["layout tiling"];
+        }
+      ];
     };
   };
 
@@ -352,4 +360,5 @@ in {
 
   home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
   home.file.".config/tmuxinator/home.yml".text = builtins.readFile ../../home/config/tmuxinator/home.yml;
+  home.file.".config/ghostty/config".text = builtins.readFile ../../home/config/ghostty/config;
 }

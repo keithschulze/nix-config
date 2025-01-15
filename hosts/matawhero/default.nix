@@ -30,6 +30,7 @@
       "firefox"
       "font-fontawesome"
       "google-chrome"
+      "ghostty"
       "keybase"
       "miniforge"
       "nordvpn"
