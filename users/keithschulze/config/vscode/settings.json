@@ -1,4 +1,7 @@
 {
+  "git.path": "/Users/keithschulze/.nix-profile/bin/git",
+  "vim.neovimPath": "/Users/keithschulze/.nix-profile/bin/nvim",
+
   "debug.internalConsoleOptions": "openOnSessionStart",
 
   "[dart]": {

@@ -294,6 +294,8 @@ in {
       vscode-extensions.ms-pyright.pyright
       vscode-extensions.samuelcolvin.jinjahtml
     ];
+
+    extraUserSettings = builtins.fromJSON (builtins.readFile ./config/vscode/settings.json);
   };
 
   programs.zed-editor = (import ../../home/program/zed/default.nix) {

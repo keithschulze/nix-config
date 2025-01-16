@@ -1,6 +1,6 @@
 {
   "breadcrumbs.enabled": false,
-  "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, 'Courier New', monospace",
+  "editor.fontFamily": "FiraCode Nerd Font, Menlo, 'Courier New', monospace",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
@@ -11,6 +11,8 @@
   ],
   "editor.semanticHighlighting.enabled": true,
   "editor.suggestSelection": "first",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
   "extensions.ignoreRecommendations": true,
   "files.exclude": {
     "**/*.pyc": true,
@@ -26,7 +28,6 @@
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "git.path": "/Users/keithschulze/.nix-profile/bin/git",
   "markdown.preview.fontSize": 15,
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.inheritEnv": false,
@@ -57,7 +58,6 @@
     }
   ],
   "vim.leader": "<space>",
-  "vim.neovimPath": "/Users/keithschulze/.nix-profile/bin/nvim",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": [
