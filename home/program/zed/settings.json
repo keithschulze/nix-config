@@ -15,7 +15,7 @@
   "buffer_font_family": "FiraCode Nerd Font",
   "cursor_blink": false,
   "use_system_clipboard": "on_yank",
-  "theme": "Github Dark Dimmed",
+  "theme": "Catppuccin Macchiato",
   "telemetry": {
     "metrics": false,
     "diagnostics": false

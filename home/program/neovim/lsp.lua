@@ -118,7 +118,7 @@ cmp.setup {
 }
 
 require("catppuccin").setup({
-  flavour = "mocha",
+  flavour = "macchiato",
   background = {
     light = "latte",
     dark = "frappe",
