@@ -1,4 +1,4 @@
-{ config, pkgs, lib, lsps ? ["pyright" "rust_analyzer" "terraformls"], extraPlugins ? [], ... }:
+{ pkgs, lib, lsps ? ["pyright" "rust_analyzer" "terraformls"], extraPlugins ? [], ... }:
 
 let
   lspString = "{ '" + (builtins.concatStringsSep "', '" lsps) + "' }";

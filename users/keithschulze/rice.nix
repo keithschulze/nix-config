@@ -1,8 +1,6 @@
-{ pkgs, config, inputs, colorscheme, ... }:
+{ inputs, colorscheme, ... }:
 
-let
-  inherit (inputs.nix-colors.lib { inherit pkgs; }) colorschemeFromPicture;
-in {
+{
   imports = [ inputs.nix-colors.homeManagerModule ];
 
   colorscheme =

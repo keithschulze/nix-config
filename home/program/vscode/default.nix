@@ -1,4 +1,4 @@
-{ config, pkgs, extraExtensions ? [], extraUserSettings ? {}, ... }:
+{ pkgs, extraExtensions ? [], extraUserSettings ? {}, ... }:
 
 {
   enable = true;

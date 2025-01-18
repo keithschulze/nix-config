@@ -1,4 +1,4 @@
-{ pkgs, config, lib, features, username, colorscheme, ... }:
+{ pkgs, config, lib, features, username, ... }:
 
 let
   inherit (pkgs) stdenv;
@@ -54,10 +54,11 @@ in {
     sqlite
     uv
 
-    # lang clients
-    terraform-ls
-    rust-analyzer
+    # lang servers
+    nixd
     pyright
+    rust-analyzer
+    terraform-ls
 
     # Scala
     coursier
@@ -275,10 +276,10 @@ in {
   programs.neovim = (import ../../home/program/neovim/default.nix) {
     inherit config pkgs lib;
     lsps = [
+      "nixd"
       "pyright"
       "rust_analyzer"
       "terraformls"
-      "hls"
     ];
     extraPlugins = extraVimPlugins;
   };

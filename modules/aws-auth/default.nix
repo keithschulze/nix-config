@@ -1,6 +1,6 @@
 { stdenv, pkgs }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "aws-auth";
   version = "0.2.4";
 

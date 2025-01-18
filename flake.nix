@@ -28,12 +28,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, utils, ... }@inputs:
+  outputs = { nixpkgs, home-manager, utils, ... }@inputs:
     let
-      inherit (self) outputs;
-
       lib = nixpkgs.lib // home-manager.lib // (import ./lib { inherit inputs; });
-      inherit (lib) mkSystem mkDarwin mkHome forAllSystems;
+      inherit (lib) mkDarwin mkHome forAllSystems;
     in
     rec {
       inherit lib;
