@@ -55,6 +55,7 @@ in {
     uv
 
     # lang servers
+    nil
     nixd
     pyright
     rust-analyzer
