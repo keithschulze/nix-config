@@ -5,6 +5,7 @@
   extensions = [
     "catppuccin"
     "dockerfile"
+    "docker-compose"
     "scss"
     "nix"
   ] ++ extraExtensions;

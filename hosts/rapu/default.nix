@@ -28,6 +28,7 @@
     ];
 
     casks = [
+      "ghostty"
       "miniforge"
     ];
 
