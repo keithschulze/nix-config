@@ -44,11 +44,7 @@ in {
     jq
     htop
     ripgrep
-    jump
     tree
-
-    # editors
-    helix
 
     # dev
     shellcheck
@@ -61,7 +57,6 @@ in {
     # tools
     aws-auth
     awscli2
-    # dbt
     docker
     docker-buildx
     docker-compose
@@ -73,11 +68,6 @@ in {
     # lang clients
     terraform-ls
     pyright
-
-    # Scala
-    coursier
-    sbt
-    metals
   ];
 
   news.display = "silent";
@@ -385,7 +375,6 @@ in {
     experimental-features = nix-command flakes
   '';
 
-  home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
   home.file.".config/tmuxinator/seek.yml".text = builtins.readFile ../../home/config/tmuxinator/seek.yml;
   home.file.".config/ghostty/config".text = builtins.readFile ../../home/config/ghostty/config;
 }

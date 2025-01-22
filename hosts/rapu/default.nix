@@ -30,6 +30,7 @@
     casks = [
       "ghostty"
       "miniforge"
+      "ollama"
     ];
 
     global.autoUpdate = false;
