@@ -9,6 +9,7 @@
       "space t t": "terminal_panel::ToggleFocus",
       "space f f": "file_finder::Toggle",
       "space r n": "editor::Rename",
+      "space p t": "workspace::ToggleLeftDock",
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
       "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],

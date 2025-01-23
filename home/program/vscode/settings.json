@@ -283,7 +283,7 @@
   ],
   "window.restoreWindows": "none",
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": "single",
   "workbench.panel.defaultLocation": "right",
