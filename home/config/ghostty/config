@@ -1,3 +1,4 @@
+shell-integration = zsh
 font-family = FiraCode Nerd Font
 font-size = 16
 theme = catppuccin-macchiato
@@ -14,3 +15,5 @@ keybind = ctrl+a>ctrl+a=last_tab
 keybind = ctrl+a>shift+\=new_split:right
 keybind = ctrl+a>-=new_split:down
 keybind = ctrl+a>f=toggle_split_zoom
+
+window-save-state = always
