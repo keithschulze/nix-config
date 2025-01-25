@@ -20,7 +20,7 @@
     "metrics": false,
     "diagnostics": false
   },
-  "buffer_font_size": 15,
+  "buffer_font_size": 16,
   "tab_bar": {
     "show": false
   },
