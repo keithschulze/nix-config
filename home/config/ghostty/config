@@ -16,5 +16,6 @@ keybind = ctrl+a>shift+\=new_split:right
 keybind = ctrl+a>-=new_split:down
 keybind = ctrl+a>f=toggle_split_zoom
 keybind = global:opt+q=toggle_quick_terminal
+keybind = global:opt+enter=new_window
 
 window-save-state = always
