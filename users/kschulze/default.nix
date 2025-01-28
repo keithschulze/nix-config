@@ -329,6 +329,16 @@ in {
     '';
 
     shellAliases = {
+      nixconf = "cd ~/Development/github/nix-config";
+      hasi = "cd ~/Development/github/hirer-analytics-shared-infra";
+      hard = "cd ~/Development/github/hirer-ad-rating-data";
+      haud = "cd ~/Development/github/hirer-ad-usage-data";
+      hapd = "cd ~/Development/github/hirer-ad-performance-data";
+      hird = "cd ~/Development/github/hirer-insights-role-data";
+      htsud = "cd ~/Development/github/hirer-talent-search-usage-data";
+      hadi = "cd ~/Development/github/hirer-analytics-data-interchange";
+      hdbt = "cd ~/Development/github/dataplatform-dbt-hirer-analytics";
+
       auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
       auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
 
