@@ -11,7 +11,6 @@ let
 in {
   imports = [
     ./rice.nix
-    ../../modules/aerospace
   ] ++ map (f: ../../home/features/${f}) features;
     # Import each feature requested
 
@@ -72,7 +71,7 @@ in {
   programs.aerospace = {
     enable = true;
 
-    settings = {
+    userSettings = {
       start-at-login = true;
 
       gaps = {
