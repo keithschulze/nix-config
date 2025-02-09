@@ -5,8 +5,7 @@
     # Pin our primary nixpkgs repository. This is the main nixpkgs repository
     # we'll use for our configurations. Be very careful changing this because
     # it'll impact your entire system.
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/7abfe415360545836eded3dc9a4ebe08e637fd1c";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
