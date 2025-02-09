@@ -28,6 +28,7 @@
     casks = [
       "1password"
       "firefox"
+      "flutter"
       "font-fontawesome"
       "google-chrome"
       "ghostty"
