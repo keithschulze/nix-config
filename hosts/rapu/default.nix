@@ -54,10 +54,6 @@
     home = "/Users/kschulze";
   };
 
-  services = {
-    nix-daemon.enable = true;
-  };
-
   nix.extraOptions = ''
     system = ${system}
     extra-platforms = x86_64-darwin aarch64-darwin
