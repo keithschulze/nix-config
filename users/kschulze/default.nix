@@ -341,9 +341,9 @@ in {
       auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
       auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
 
-      auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-dev-sso-priv";
-      auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-prod-sso-read";
-      auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-adusage-prod-sso-priv";
+      auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-dev-sso-priv";
+      auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-read";
+      auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-priv";
 
       auth-tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-dev-sso-priv";
       auth-tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-read";
