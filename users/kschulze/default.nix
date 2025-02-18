@@ -55,7 +55,6 @@ in {
 
     # tools
     aws-auth
-    awscli2
     docker
     docker-buildx
     docker-compose
@@ -169,6 +168,94 @@ in {
           run = ["layout tiling"];
         }
       ];
+    };
+  };
+
+  programs.awscli = {
+    enable = true;
+    settings = {
+      default = {
+        region = "ap-southeast-2";
+        output = "json";
+      };
+
+      "profile au-dev-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-dev-sso-priv --credential-process";
+      };
+
+      "profile au-prod-ro" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-read --credential-process";
+      };
+
+      "profile au-prod-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-priv --credential-process";
+      };
+
+      "profile tsu-dev-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-dev-sso-priv --credential-process";
+      };
+
+      "profile tsu-prod-ro" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-read --credential-process";
+      };
+
+      "profile tsu-prod-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-priv --credential-process";
+      };
+
+      "profile ir-dev-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-dev-sso-priv --credential-process";
+      };
+
+      "profile ir-prod-ro" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-read --credential-process";
+      };
+
+      "profile ir-prod-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-priv --credential-process";
+      };
+
+      "profile data-dev-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-dev-sso-priv --credential-process";
+      };
+
+      "profile data-prod-ro" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-read --credential-process";
+      };
+
+      "profile data-prod-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-priv --credential-process";
+      };
+
+      "profile dp-prod" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Classic)' -f adfs-data-platform-prod-seek-analytics --credential-process";
+      };
     };
   };
 
@@ -319,7 +406,7 @@ in {
           export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
       fi
 
-      function awsauth { aws-auth "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
+      function auth-aws-env { eval "$(aws configure export-credentials --profile $1 --format env)"; }
 
       function timezsh() {
         shell=''\${1-$SHELL}
@@ -338,26 +425,25 @@ in {
       hadi = "cd ~/Development/github/hirer-analytics-data-interchange";
       hdbt = "cd ~/Development/github/dataplatform-dbt-hirer-analytics";
 
-      auth-unified = "awsauth --app 'Amazon Web Services (Unified)'";
-      auth-classic = "awsauth --app 'Amazon Web Services (Classic)'";
+      auth-okta = "${aws-auth}/bin/aws-auth --auth-only";
 
-      auth-au-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-dev-sso-priv";
-      auth-au-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-read";
-      auth-au-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-priv";
+      auth-au-dev-priv = "auth-aws-env au-dev-priv";
+      auth-au-prod-ro = "auth-aws-env au-prod-ro";
+      auth-au-prod-priv = "auth-aws-env au-prod-priv";
 
-      auth-tsu-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-dev-sso-priv";
-      auth-tsu-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-read";
-      auth-tsu-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-priv";
+      auth-tsu-dev-priv = "auth-aws-env tsu-dev-priv";
+      auth-tsu-prod-ro = "auth-aws-env tsu-prod-ro";
+      auth-tsu-prod-priv = "auth-aws-env tsu-prod-priv";
 
-      auth-ir-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-dev-sso-priv";
-      auth-ir-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-read";
-      auth-ir-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-priv";
+      auth-ir-dev-priv = "auth-aws-env ir-dev-priv";
+      auth-ir-prod-ro = "auth-aws-env ir-prod-ro";
+      auth-ir-prod-priv = "auth-aws-env ir-prod-priv";
 
-      auth-data-dev-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-dev-sso-priv";
-      auth-data-prod-ro = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-read";
-      auth-data-prod-priv = "awsauth --app 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-priv";
+      auth-data-dev-priv = "auth-aws-env data-dev-priv";
+      auth-data-prod-ro = "auth-aws-env data-prod-ro";
+      auth-data-prod-priv = "auth-aws-env data-prod-priv";
 
-      auth-dp-prod = "awsauth --app 'Amazon Web Services (Classic)' -f adfs-data-platform-prod-seek-analytics";
+      auth-dp-prod = "auth-aws-env dp-prod";
     };
 
     oh-my-zsh = {
