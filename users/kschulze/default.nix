@@ -422,7 +422,7 @@ in {
       hapd = "cd ~/Development/github/hirer-ad-performance-data";
       hird = "cd ~/Development/github/hirer-insights-role-data";
       htsud = "cd ~/Development/github/hirer-talent-search-usage-data";
-      hadi = "cd ~/Development/github/hirer-analytics-data-interchange";
+      hidi = "cd ~/Development/github/hirer-insights-data-interchange";
       hdbt = "cd ~/Development/github/dataplatform-dbt-hirer-analytics";
 
       auth-okta = "${aws-auth}/bin/aws-auth --auth-only";
