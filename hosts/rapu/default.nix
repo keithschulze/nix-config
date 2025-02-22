@@ -47,7 +47,7 @@
     ];
   };
 
-  system.stateVersion = 4;
+  system.stateVersion = 5;
 
   users.users.kschulze = {
     name = "kschulze";
