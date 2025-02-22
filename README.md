@@ -33,25 +33,28 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   nix-darwin:
 
   ```sh
-  nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-  ./result/bin/darwin-installer
+  nix run nix-darwin/master#darwin-rebuild -- switch --flake .#rapu
   ```
 
   home-manager (standalone):
 
   ```sh
-  nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-  nix-channel --update
-  nix-shell '<home-manager>' -A install
+  nix run home-manager/master -- init --switch
   ```
 
-4. Clone this repo:
+4. Install `homebrew`:
+
+  ```sh
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+5. Clone this repo:
 
   ```sh
   git clone git@github.com:keithschulze/nixos-config.git
   ```
 
-5. Build and apply host config
+6. Build and apply host config
 
   ```sh
   darwin-rebuild switch --flake .#matawhero
@@ -59,7 +62,7 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   __note:__ in this case we are applying the `matawhero` host configuration as
   an example. Other hosts are/can be defined in `flake.nix`.
 
-6. Build and apply the home configuration
+7. Build and apply the home configuration
 
   ```sh
   home-manager switch --flake .#keithschulze@matawhero
