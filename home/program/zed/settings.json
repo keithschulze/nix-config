@@ -12,6 +12,13 @@
       "low_speed_timeout_in_seconds": 30
     }
   },
+  "lsp": {
+    "pyright": {
+      "binary": {
+        "ignore_system_version": true
+      }
+    }
+  },
   "buffer_font_family": "FiraCode Nerd Font",
   "cursor_blink": false,
   "use_system_clipboard": "on_yank",
