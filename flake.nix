@@ -87,7 +87,7 @@
     } // utils.lib.eachDefaultSystem (system:
       let
         pkgs = import inputs.nixpkgs { inherit system; };
-        hm = home-manager.defaultPackage."${system}";
+        hm = home-manager.packages."${system}".default;
       in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [ nixVersions.latest hm ];
