@@ -425,7 +425,7 @@ in {
       hidi = "cd ~/Development/github/hirer-insights-data-interchange";
       hdbt = "cd ~/Development/github/dataplatform-dbt-hirer-analytics";
 
-      auth-okta = "${aws-auth}/bin/aws-auth --auth-only";
+      auth-okta = "${aws-auth}/bin/aws-auth --auth-only -a 'Amazon Web Services (Unified)'";
 
       auth-au-dev-priv = "auth-aws-env au-dev-priv";
       auth-au-prod-ro = "auth-aws-env au-prod-ro";
