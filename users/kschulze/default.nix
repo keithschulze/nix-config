@@ -140,7 +140,7 @@ in {
         alt-shift-7 = "move-node-to-workspace 7";
         alt-shift-8 = "move-node-to-workspace 8";
 
-        alt-tab = "workspace-back-and-forth";
+        # alt-tab = "workspace-back-and-forth";
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
         alt-shift-semicolon = "mode service";
