@@ -41,6 +41,7 @@ in {
     coreutils
     fzf
     jq
+    gettext
     htop
     ripgrep
     tree
@@ -62,6 +63,7 @@ in {
     github-cli
     ssm-session-manager-plugin
     terraform
+    jetbrains.datagrip
 
     # lang clients
     terraform-ls
