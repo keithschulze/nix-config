@@ -185,73 +185,73 @@ in {
       "profile au-dev-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-dev-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-ad-usage-dev-sso-priv --credential-process";
       };
 
       "profile au-prod-ro" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-read --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-ad-usage-prod-sso-read --credential-process";
       };
 
       "profile au-prod-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-ad-usage-prod-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-ad-usage-prod-sso-priv --credential-process";
       };
 
       "profile tsu-dev-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-dev-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-talent-search-usage-dev-sso-priv --credential-process";
       };
 
       "profile tsu-prod-ro" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-read --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-talent-search-usage-prod-sso-read --credential-process";
       };
 
       "profile tsu-prod-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-talent-search-usage-prod-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-talent-search-usage-prod-sso-priv --credential-process";
       };
 
       "profile ir-dev-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-dev-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-role-dev-sso-priv --credential-process";
       };
 
       "profile ir-prod-ro" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-read --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-role-prod-sso-read --credential-process";
       };
 
       "profile ir-prod-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-apac-hirer-insights-role-prod-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-role-prod-sso-priv --credential-process";
       };
 
       "profile data-dev-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-dev-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-data-dev-sso-priv --credential-process";
       };
 
       "profile data-prod-ro" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-read --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-data-prod-sso-read --credential-process";
       };
 
       "profile data-prod-priv" = {
         region = "ap-southeast-2";
         output = "json";
-        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f apac-hirer-analytics-data-prod-sso-priv --credential-process";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-data-prod-sso-priv --credential-process";
       };
 
       "profile dp-prod" = {
