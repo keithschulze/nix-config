@@ -16,7 +16,6 @@
     enable = true;
 
     brews = [
-      "awscli"
       "curl"
       "duckdb"
       "hyperfine"

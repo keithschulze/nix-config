@@ -392,10 +392,6 @@ in {
     extraUserSettings = builtins.fromJSON (builtins.readFile ./config/vscode/settings.json);
   };
 
-  programs.zed-editor = (import ../../home/program/zed/default.nix) {
-    inherit config pkgs;
-  };
-
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
     initExtra = ''
       if [ -n "''\${commands[fzf-share]}" ]; then
