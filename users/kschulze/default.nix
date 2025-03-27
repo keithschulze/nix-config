@@ -53,6 +53,7 @@ in {
 
     # languages
     nodejs
+    python312
 
     # tools
     aws-auth
