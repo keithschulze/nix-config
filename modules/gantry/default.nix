@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name = "gantry";
-  version = "4.1.0";
+  version = "4.2.0";
 
   src = builtins.fetchGit {
     url = "git@github.com:SEEK-Jobs/gantry.git";
-    rev = "11f29bc7906a9b01b373342e35178594d293ec60";
+    rev = "f2a2c482f6e10679ef3380c2edf9e00de4b84fef";
   };
 
   buildInputs = with pkgs; [
