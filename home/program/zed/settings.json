@@ -6,6 +6,9 @@
       "model": "claude-3-7-sonnet"
     }
   },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
   "language_models": {
     "ollama": {
       "low_speed_timeout_in_seconds": 30
