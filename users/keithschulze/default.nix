@@ -149,6 +149,7 @@ in {
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
         alt-shift-semicolon = "mode service";
+        alt-b = "exec-and-forget open -n -a 'Firefox' --args '--new-window'";
       };
 
       mode.service.binding = {
