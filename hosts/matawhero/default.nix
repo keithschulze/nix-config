@@ -30,7 +30,6 @@
       "firefox"
       "flutter"
       "font-fontawesome"
-      "google-chrome"
       "ghostty"
       "keybase"
       "miniforge"
