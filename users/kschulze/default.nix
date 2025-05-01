@@ -92,6 +92,9 @@ in {
     terraform
     jetbrains.datagrip
 
+    # package managers
+    uv
+
     # lang clients
     terraform-ls
     pyright
