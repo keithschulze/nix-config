@@ -430,6 +430,9 @@ in {
 
   programs.zed-editor = (import ../../home/program/zed/default.nix) {
     inherit config pkgs;
+    extraExtensions = [
+      "env"
+    ];
   };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
