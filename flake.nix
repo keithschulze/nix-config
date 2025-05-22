@@ -51,12 +51,14 @@
         matawhero = mkDarwin {
           hostname = "matawhero";
           system = "aarch64-darwin";
+          username = "keithschulze";
           pkgs = legacyPackages."aarch64-darwin";
         };
 
         rapu = mkDarwin {
           hostname = "rapu";
           system = "aarch64-darwin";
+          username = "kschulze";
           pkgs = legacyPackages."aarch64-darwin";
         };
       };

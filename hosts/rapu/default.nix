@@ -1,8 +1,6 @@
-{ pkgs, system, ... }:
+{ pkgs, system, username, ... }:
 
-let
-  user = "kschulze";
-in {
+{
   imports = [
     ../common/global
   ];
@@ -16,7 +14,7 @@ in {
 
   homebrew = {
     enable = true;
-    user = user;
+    user = username;
 
     brews = [
       "curl"
@@ -51,9 +49,9 @@ in {
 
   system.stateVersion = 5;
 
-  users.users.kschulze = {
-    name = "${user}";
-    home = "/Users/${user}";
+  users.users.${username} = {
+    name = "${username}";
+    home = "/Users/${username}";
   };
 
   nix.extraOptions = ''
@@ -62,4 +60,9 @@ in {
     keep-outputs = true
     keep-derivations = true
   '';
+
+  nix.settings.trusted-users = [
+    "root"
+    "${username}"
+  ];
 }

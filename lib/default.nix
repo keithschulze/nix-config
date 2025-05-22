@@ -31,6 +31,7 @@ in
     mkDarwin =
       { hostname
       , system
+      , username
       , pkgs
       }:
       darwin.lib.darwinSystem {
@@ -38,7 +39,7 @@ in
         modules = [
           ../hosts/${hostname}
         ];
-        specialArgs = { inherit inputs outputs pkgs system; };
+        specialArgs = { inherit inputs outputs pkgs system username; };
       };
 
     mkHome =
