@@ -1,6 +1,8 @@
 { pkgs, system, ... }:
 
-{
+let
+  user = "keithschulze";
+in {
   imports = [
     ../common/global
   ];
@@ -56,8 +58,8 @@
   system.stateVersion = 4;
 
   users.users.keithschulze = {
-    name = "keithschulze";
-    home = "/Users/keithschulze";
+    name = "${user}";
+    home = "/Users/${user}";
   };
 
   nix.extraOptions = ''

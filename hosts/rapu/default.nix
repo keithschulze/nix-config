@@ -1,6 +1,8 @@
 { pkgs, system, ... }:
 
-{
+let
+  user = "kschulze";
+in {
   imports = [
     ../common/global
   ];
@@ -14,6 +16,7 @@
 
   homebrew = {
     enable = true;
+    user = user;
 
     brews = [
       "curl"
@@ -49,8 +52,8 @@
   system.stateVersion = 5;
 
   users.users.kschulze = {
-    name = "kschulze";
-    home = "/Users/kschulze";
+    name = "${user}";
+    home = "/Users/${user}";
   };
 
   nix.extraOptions = ''
