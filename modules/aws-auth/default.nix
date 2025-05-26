@@ -6,7 +6,7 @@ stdenv.mkDerivation {
 
   src = builtins.fetchGit {
     url = "git@github.com:SEEK-Jobs/aws-auth-bash.git";
-    rev = "9a0f973c19781fec0051dea4b13838ca9046c7f6";
+    rev = "af11ed6fb2aa9b5eb681f1a5552992f0844d7990";
   };
 
   buildInputs = with pkgs; [
