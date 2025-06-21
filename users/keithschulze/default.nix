@@ -57,7 +57,7 @@ in {
     fzf
     fd
     cheat
-    hurl
+    # hurl
 
     # editors
     helix
