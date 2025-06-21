@@ -318,12 +318,12 @@ in {
       co = "checkout";
       up = "!git pull --rebase --prune $@";
       cob = "checkout -b";
-      cm = "!git add -a && git commit -m";
-      save = "!git add -a && git commit -m 'savepoint'";
+      cm = "!git add --all && git commit -m";
+      save = "!git add --all && git commit -m 'savepoint'";
       wip = "!git add -u && git commit -m 'wip'";
       undo = "reset head~1 --mixed";
-      amend = "commit -a --amend";
-      wipe = "!git add -a && git commit -qm 'wipe savepoint' && git reset head~1 --hard";
+      amend = "commit --all --amend";
+      wipe = "!git add --all && git commit -qm 'wipe savepoint' && git reset head~1 --hard";
     };
     extraConfig = {
       github.user = "keithschulze";
