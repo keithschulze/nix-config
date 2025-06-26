@@ -28,7 +28,11 @@
   "buffer_font_family": "FiraCode Nerd Font",
   "cursor_blink": false,
   "use_system_clipboard": "on_yank",
-  "theme": "Catppuccin Macchiato",
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
+  },
   "telemetry": {
     "metrics": false,
     "diagnostics": false
