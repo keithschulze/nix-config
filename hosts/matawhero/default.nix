@@ -35,8 +35,9 @@
       "keybase"
       "miniforge"
       "nordvpn"
-      "ollama"
+      "ollama-app"
       "pastebot"
+      "vivaldi"
       "zoom"
     ];
 
