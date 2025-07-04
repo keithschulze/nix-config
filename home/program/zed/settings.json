@@ -5,10 +5,7 @@
       "provider": "copilot_chat",
       "model": "claude-3.7-sonnet"
     },
-    "editor_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3.7-sonnet"
-    }
+    "enable_feedback": true
   },
   "features": {
     "edit_prediction_provider": "copilot"
