@@ -73,8 +73,9 @@ in {
 
     # dev
     shellcheck
-    tmux
-    tmuxinator
+
+    #editors
+    jetbrains.datagrip
 
     # languages
     nodejs
@@ -90,15 +91,16 @@ in {
     github-cli
     ssm-session-manager-plugin
     terraform
-    jetbrains.datagrip
 
     # package managers
     uv
 
     # lang clients
-    terraform-ls
-    pyright
     metals
+    nil
+    nixd
+    pyright
+    terraform-ls
   ];
 
   news.display = "silent";
@@ -403,6 +405,10 @@ in {
     package = pkgs.temurin-bin-17;
   };
 
+  programs.helix = (import ../../home/program/helix/default.nix) {
+    inherit config pkgs lib;
+  };
+
   programs.neovim = (import ../../home/program/neovim/default.nix) {
     inherit config pkgs lib;
     lsps = [
@@ -411,8 +417,6 @@ in {
     ];
     extraPlugins = extraVimPlugins;
   };
-
-  programs.tmux = (import ../../home/program/tmux/default.nix) { inherit pkgs; };
 
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
@@ -516,6 +520,5 @@ in {
     experimental-features = nix-command flakes
   '';
 
-  home.file.".config/tmuxinator/seek.yml".text = builtins.readFile ../../home/config/tmuxinator/seek.yml;
   home.file.".config/ghostty/config".text = builtins.readFile ../../home/config/ghostty/config;
 }

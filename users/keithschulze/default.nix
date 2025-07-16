@@ -60,9 +60,6 @@ in {
     cheat
     # hurl
 
-    # editors
-    helix
-
     # dev
     devenv
     shellcheck
@@ -306,6 +303,10 @@ in {
     package = pkgs.temurin-bin-17;
   };
 
+  programs.helix = (import ../../home/program/helix/default.nix) {
+    inherit config pkgs lib;
+  };
+
   programs.neovim = (import ../../home/program/neovim/default.nix) {
     inherit config pkgs lib;
     lsps = [
@@ -392,7 +393,6 @@ in {
     experimental-features = nix-command flakes
   '';
 
-  home.file.".config/helix/config.toml".text = builtins.readFile ../../home/config/helix/config.toml;
   home.file.".config/tmuxinator/home.yml".text = builtins.readFile ../../home/config/tmuxinator/home.yml;
   home.file.".config/ghostty/config".text = builtins.readFile ../../home/config/ghostty/config;
 }
