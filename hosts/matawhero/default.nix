@@ -38,6 +38,7 @@
       "ollama-app"
       "pastebot"
       "vivaldi"
+      "zen"
       "zoom"
     ];
 
