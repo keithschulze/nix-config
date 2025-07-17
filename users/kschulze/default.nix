@@ -407,6 +407,11 @@ in {
 
   programs.helix = (import ../../home/program/helix/default.nix) {
     inherit config pkgs lib;
+    extraPackages = with pkgs; [
+      ruff
+      python313Packages.jedi-language-server
+      python313Packages.python-lsp-server
+    ];
   };
 
   programs.neovim = (import ../../home/program/neovim/default.nix) {
