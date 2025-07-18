@@ -96,7 +96,7 @@ in {
     enable = true;
 
     userSettings = {
-      start-at-login = true;
+      start-at-login = false;
 
       gaps = {
         inner = {
