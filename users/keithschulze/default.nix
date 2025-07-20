@@ -101,7 +101,7 @@ in
   news.display = "silent";
 
   programs.aerospace = {
-    enable = true;
+    enable = false;
 
     userSettings = {
       start-at-login = false;
