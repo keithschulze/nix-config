@@ -1,8 +1,13 @@
-{ extraPackages ? [], ... }:
+{
+  extraPackages ? [ ],
+  languages ? { },
+  ...
+}:
 
 {
   enable = true;
   extraPackages = extraPackages;
+  languages = languages;
   settings = {
     theme = "catppuccin_macchiato";
     editor = {

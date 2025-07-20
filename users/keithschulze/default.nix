@@ -1,4 +1,11 @@
-{ pkgs, config, lib, features, username, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  features,
+  username,
+  ...
+}:
 
 let
   inherit (pkgs) stdenv;
@@ -33,11 +40,12 @@ let
     }
   ];
   colors = config.colorscheme.palette;
-in {
+in
+{
   imports = [
     ./rice.nix
   ] ++ map (f: ../../home/features/${f}) features;
-    # Import each feature requested
+  # Import each feature requested
 
   # Needed for basic operations
   programs = {
@@ -111,8 +119,8 @@ in {
         };
       };
 
-      after-login-command = [];
-      after-startup-command = [];
+      after-login-command = [ ];
+      after-startup-command = [ ];
 
       enable-normalization-flatten-containers = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
@@ -121,7 +129,7 @@ in {
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
 
-      on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
+      on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
       automatically-unhide-macos-hidden-apps = false;
 
       key-mapping.preset = "qwerty";
@@ -162,24 +170,51 @@ in {
       };
 
       mode.service.binding = {
-        esc = ["reload-config" "mode main"];
-        r = ["flatten-workspace-tree" "mode main"]; # reset layout
-        f = ["layout floating tiling" "mode main"]; # Toggle between floating and tiling layout
-        backspace = ["close-all-windows-but-current" "mode main"];
+        esc = [
+          "reload-config"
+          "mode main"
+        ];
+        r = [
+          "flatten-workspace-tree"
+          "mode main"
+        ]; # reset layout
+        f = [
+          "layout floating tiling"
+          "mode main"
+        ]; # Toggle between floating and tiling layout
+        backspace = [
+          "close-all-windows-but-current"
+          "mode main"
+        ];
 
-        alt-shift-h = ["join-with left" "mode main"];
-        alt-shift-j = ["join-with down" "mode main"];
-        alt-shift-k = ["join-with up" "mode main"];
-        alt-shift-l = ["join-with right" "mode main"];
+        alt-shift-h = [
+          "join-with left"
+          "mode main"
+        ];
+        alt-shift-j = [
+          "join-with down"
+          "mode main"
+        ];
+        alt-shift-k = [
+          "join-with up"
+          "mode main"
+        ];
+        alt-shift-l = [
+          "join-with right"
+          "mode main"
+        ];
 
         down = "volume down";
         up = "volume up";
-        shift-down = ["volume set 0" "mode main"];
+        shift-down = [
+          "volume set 0"
+          "mode main"
+        ];
       };
       on-window-detected = [
         {
           "if".app-id = "com.mitchellh.ghostty";
-          run = ["layout tiling"];
+          run = [ "layout tiling" ];
         }
       ];
     };
@@ -305,6 +340,25 @@ in {
 
   programs.helix = (import ../../home/program/helix/default.nix) {
     inherit config pkgs lib;
+    languages = {
+      language = [
+        {
+          name = "rust";
+          auto-format = true;
+        }
+      ];
+
+      language-server.rust-analyzer = {
+        config = {
+          checkOnSave = {
+            command = "clippy";
+          };
+          cargo = {
+            allFeatures = true;
+          };
+        };
+      };
+    };
   };
 
   programs.neovim = (import ../../home/program/neovim/default.nix) {
@@ -393,6 +447,7 @@ in {
     experimental-features = nix-command flakes
   '';
 
-  home.file.".config/tmuxinator/home.yml".text = builtins.readFile ../../home/config/tmuxinator/home.yml;
+  home.file.".config/tmuxinator/home.yml".text =
+    builtins.readFile ../../home/config/tmuxinator/home.yml;
   home.file.".config/ghostty/config".text = builtins.readFile ../../home/config/ghostty/config;
 }
