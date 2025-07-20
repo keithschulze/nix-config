@@ -507,7 +507,6 @@ in {
         "git"
         "docker-compose"
         "terraform"
-        "tmux"
       ];
     };
   };
