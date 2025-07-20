@@ -2,18 +2,16 @@
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "space w v": "pane::SplitRight",
-      "space w h": "pane::SplitDown",
       "space f b": "tab_switcher::Toggle",
       "space b c": "pane::CloseActiveItem",
       "space t t": "terminal_panel::ToggleFocus",
       "space f f": "file_finder::Toggle",
       "space r n": "editor::Rename",
       "space p t": "workspace::ToggleLeftDock",
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   },
   {
