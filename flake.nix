@@ -68,7 +68,6 @@
           username = "keithschulze";
           hostname = "matawhero";
           features = [
-            "alacritty"
             "starship"
           ];
           colorscheme = "catppuccin-mocha";
@@ -79,7 +78,6 @@
           username = "kschulze";
           hostname = "rapu";
           features = [
-            "alacritty"
             "starship"
           ];
           colorscheme = "catppuccin-macchiato";
