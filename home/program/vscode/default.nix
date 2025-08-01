@@ -1,7 +1,7 @@
-{ pkgs, extraExtensions ? [], extraUserSettings ? {}, ... }:
+{ pkgs, enable ? true, extraExtensions ? [], extraUserSettings ? {}, ... }:
 
 {
-  enable = true;
+  enable = enable;
   mutableExtensionsDir = false;
   profiles = {
     default = {

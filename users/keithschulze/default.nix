@@ -376,6 +376,7 @@ in
 
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
+    enable = false;
     extraExtensions = with pkgs; [
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
