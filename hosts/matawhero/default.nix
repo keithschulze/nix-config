@@ -37,6 +37,7 @@
       "nordvpn"
       "ollama-app"
       "pastebot"
+      "steam"
       "vivaldi"
       "zen"
       "zoom"
