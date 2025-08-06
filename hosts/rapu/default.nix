@@ -30,7 +30,6 @@
     casks = [
       "ghostty"
       "miniforge"
-      "ollama-app"
     ];
 
     global.autoUpdate = false;

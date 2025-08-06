@@ -79,8 +79,9 @@ in {
 
     # languages
     nodejs
-    python312
-
+    (python312.withPackages(ps: [
+      ps.pip
+    ]))
     # tools
     aws-auth
     coursier
