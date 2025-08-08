@@ -409,10 +409,30 @@ in {
   programs.helix = (import ../../home/program/helix/default.nix) {
     inherit config pkgs lib;
     extraPackages = with pkgs; [
+      black
       ruff
-      python313Packages.jedi-language-server
-      python313Packages.python-lsp-server
+      pyright
     ];
+    
+    languages = {
+      language = [
+        {
+          name = "python";
+          auto-format = true;
+          formatter = {
+            command = "black";
+            args = ["--quiet" "-"];
+          };
+          language-servers = ["pyright" "ruff"];
+          roots = ["pyproject.toml"];
+        }
+      ];
+
+      language-server.pyright = {
+        command = "pyright-langserver";
+        args = ["--stdio"];
+      };
+    };
   };
 
   programs.neovim = (import ../../home/program/neovim/default.nix) {
