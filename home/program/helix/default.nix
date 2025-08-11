@@ -11,6 +11,9 @@
   settings = {
     theme = "catppuccin_macchiato";
     editor = {
+      file-picker  = {
+        hidden = false;
+      };
       line-number = "relative";
       mouse = true;
       cursor-shape = {
