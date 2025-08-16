@@ -36,7 +36,6 @@ in {
     vim-easymotion
     vim-polyglot
     vim-rooter
-    vim-tmux-navigator
     vim-bufkill
 
     telescope-nvim
@@ -63,12 +62,8 @@ in {
       plugins.tree-sitter-typescript
       plugins.tree-sitter-yaml
     ]))
-    plenary-nvim
-    octo-nvim
 
     # Style
-    nord-vim
-    tokyonight-nvim
     catppuccin-nvim
     lualine-nvim
 

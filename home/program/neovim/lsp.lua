@@ -10,7 +10,6 @@ require("nvim-tree").setup()
 local api = vim.api
 
 require('gitsigns').setup()
-require("octo").setup()
 
 -- Add additional capabilities supported by nvim-cmp
 capabilities = require('cmp_nvim_lsp').default_capabilities()
