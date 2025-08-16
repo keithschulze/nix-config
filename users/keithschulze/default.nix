@@ -60,29 +60,29 @@ in
 
   home.packages = with pkgs; [
     # utils
+    cheat
     htop
     jq
-    ripgrep
-    fzf
     fd
-    cheat
-    # hurl
+    fzf
+    ripgrep
 
     # dev
     devenv
+    graphviz
     shellcheck
     tmux
     tmuxinator
-    graphviz
 
     # tools
-    coursier
-    github-cli
-    poetry
     cookiecutter
-    terraform
+    coursier
+    claude-code
+    github-cli
     podman
+    poetry
     sqlite
+    terraform
     uv
 
     # lang servers
@@ -94,8 +94,8 @@ in
 
     # Scala
     coursier
-    sbt
     metals
+    sbt
   ];
 
   news.display = "silent";
