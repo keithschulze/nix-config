@@ -75,6 +75,7 @@ in
     tmuxinator
 
     # tools
+    bun
     cookiecutter
     coursier
     claude-code
