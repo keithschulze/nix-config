@@ -11,7 +11,7 @@
   settings = {
     theme = "catppuccin_macchiato";
     editor = {
-      file-picker  = {
+      file-picker = {
         hidden = false;
       };
       line-number = "relative";
@@ -20,6 +20,9 @@
         insert = "bar";
         normal = "block";
         select = "underline";
+      };
+      soft-wrap = {
+        enable = true;
       };
     };
     keys = {
