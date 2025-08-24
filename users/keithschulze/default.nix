@@ -341,6 +341,9 @@ in
 
   programs.helix = (import ../../home/program/helix/default.nix) {
     inherit config pkgs lib;
+    extraPackages=[
+      pkgs.typescript-language-server
+    ];
     languages = {
       language = [
         {
