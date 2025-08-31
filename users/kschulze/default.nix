@@ -298,6 +298,7 @@ in {
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "github.com" = {
         hostname = "github.com";
