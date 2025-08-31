@@ -223,6 +223,7 @@ in
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       nix-aws = {
         hostname = "13.239.106.150";
