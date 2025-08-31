@@ -490,6 +490,7 @@ in {
     shellAliases = {
       nixconf = "cd ~/Development/github/nix-config";
       hisi = "cd ~/Development/github/hirer-insights-shared-infra";
+      hisp = "cd ~/Development/github/hirer-insights-shared-packages";
       hard = "cd ~/Development/github/hirer-ad-rating-data";
       haud = "cd ~/Development/github/hirer-ad-usage-data";
       hapd = "cd ~/Development/github/hirer-ad-performance-data";
