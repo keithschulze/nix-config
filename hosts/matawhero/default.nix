@@ -34,11 +34,10 @@
       "ghostty"
       "keybase"
       "miniforge"
-      "nordvpn"
       "ollama-app"
+      "orion"
       "pastebot"
       "steam"
-      "vivaldi"
       "zen"
       "zoom"
     ];
