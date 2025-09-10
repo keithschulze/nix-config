@@ -452,7 +452,7 @@ in {
       vscode-extensions.ms-vscode-remote.remote-containers
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-python.python
-      vscode-extensions.ms-pyright.pyright
+      vscode-extensions.ms-python.vscode-pylance
       vscode-extensions.samuelcolvin.jinjahtml
     ];
 

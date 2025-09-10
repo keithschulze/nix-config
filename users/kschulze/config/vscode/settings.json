@@ -1,4 +1,6 @@
 {
   "git.path": "/Users/kschulze/.nix-profile/bin/git",
-  "vim.neovimPath": "/Users/kschulze/.nix-profile/bin/nvim"
+  "python.useEnvironmentsExtension": false,
+  "python.experiments.enabled": false,
+  "python.locator": "native"
 }
