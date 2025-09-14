@@ -451,8 +451,12 @@ in {
       dbt-vscode
       vscode-extensions.ms-vscode-remote.remote-containers
       vscode-extensions.hashicorp.terraform
+      vscode-extensions.ms-pyright.pyright
+      vscode-extensions.ms-python.black-formatter
+      vscode-extensions.ms-python.flake8
+      vscode-extensions.ms-python.mypy-type-checker
       vscode-extensions.ms-python.python
-      vscode-extensions.ms-python.vscode-pylance
+      vscode-extensions.ms-python.pylint
       vscode-extensions.samuelcolvin.jinjahtml
     ];
 

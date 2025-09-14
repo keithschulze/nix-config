@@ -2,5 +2,9 @@
   "git.path": "/Users/kschulze/.nix-profile/bin/git",
   "python.useEnvironmentsExtension": false,
   "python.experiments.enabled": false,
-  "python.locator": "native"
+  "python.locator": "native",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  }
 }
