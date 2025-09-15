@@ -1,7 +1,7 @@
 shell-integration = zsh
 font-family = FiraCode Nerd Font
 font-size = 16
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 
 keybind = ctrl+a>h=goto_split:left
 keybind = ctrl+a>j=goto_split:bottom
