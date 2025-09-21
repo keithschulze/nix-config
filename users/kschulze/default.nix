@@ -413,6 +413,7 @@ in {
       black
       ruff
       pyright
+      sqlfluff
     ];
     
     languages = {
@@ -426,6 +427,14 @@ in {
           };
           language-servers = ["pyright" "ruff"];
           roots = ["pyproject.toml"];
+        }
+        {
+          name = "sql";
+          auto-format = true;
+          formatter = {
+            command = "sqlfluff";
+            args = ["format" "--dialect" "trino" "-"];
+          };
         }
       ];
 
