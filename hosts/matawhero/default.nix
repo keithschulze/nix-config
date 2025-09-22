@@ -17,7 +17,6 @@
     user = username;
 
     brews = [
-      "colima"
       "docker"
       "docker-compose"
       "glew"
@@ -34,9 +33,7 @@
       "ghostty"
       "keybase"
       "miniforge"
-      "ollama-app"
       "orion"
-      "pastebot"
       "steam"
       "zen"
       "zoom"
