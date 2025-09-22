@@ -75,6 +75,7 @@ in
     tmuxinator
 
     # tools
+    amp-cli
     bun
     cookiecutter
     coursier
