@@ -510,7 +510,7 @@ in {
       hird = "cd ~/Development/github/hirer-insights-role-data";
       htsud = "cd ~/Development/github/hirer-talent-search-usage-data";
       hidi = "cd ~/Development/github/hirer-insights-data-interchange";
-      hidbt = "cd ~/Development/github/dataplatform-dbt-hirer-analytics";
+      hidbt = "cd ~/Development/github/dataplatform-dbt-hirer-insights";
       hirer-ci = "cd ~/Development/github/hirer-ci";
 
       data-platform = "cd ~/Development/github/data-platform";
