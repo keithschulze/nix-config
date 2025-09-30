@@ -344,6 +344,7 @@ in
   programs.helix = (import ../../home/program/helix/default.nix) {
     inherit config pkgs lib;
     extraPackages=[
+      pkgs.deno
       pkgs.typescript-language-server
     ];
     languages = {
@@ -351,6 +352,20 @@ in
         {
           name = "rust";
           auto-format = true;
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          roots = ["deno.json" "deno.jsonc" "package.json"];
+          file-types = ["ts" "tsx"];
+          language-servers = ["deno-lsp"];
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+          roots = ["deno.json" "deno.jsonc" "package.json"];
+          file-types = ["js" "jsx"];
+          language-servers = ["deno-lsp"];
         }
       ];
 
@@ -363,6 +378,12 @@ in
             allFeatures = true;
           };
         };
+      };
+
+      language-server.deno-lsp = {
+        command = "deno";
+        args = ["lsp"];
+        config.deno.enable = true;
       };
     };
   };
