@@ -35,14 +35,6 @@ let
       '';
     }
   ];
-  dbt-vscode = (pkgs.vscode-utils.extensionFromVscodeMarketplace
-    {
-      name = "vscode-dbt-power-user";
-      publisher = "innoverio";
-      version = "0.47.4";
-      sha256 = "d6643b32d75eae68d001bb6623f2ae1de71016ed02c9da813305c53f27e5b944";
-    }
-  );
 in {
   imports = [
     ./rice.nix
@@ -457,7 +449,6 @@ in {
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
     extraExtensions = with pkgs; [
-      dbt-vscode
       vscode-extensions.ms-vscode-remote.remote-containers
       vscode-extensions.hashicorp.terraform
       vscode-extensions.ms-pyright.pyright
