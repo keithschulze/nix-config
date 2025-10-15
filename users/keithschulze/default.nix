@@ -282,8 +282,10 @@ in
     };
   };
 
+  programs.lazygit = (import ../../home/program/lazygit/default.nix) { inherit colors; };
+
   programs.gitui = {
-    enable = true;
+    enable = false;
     keyConfig = ''
       (
         open_help: Some(( code: F(1), modifiers: "")),
