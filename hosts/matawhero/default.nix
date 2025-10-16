@@ -34,7 +34,7 @@
       "ghostty"
       "keybase"
       "miniforge"
-      "orion"
+      "stats"
       "steam"
       "zen"
       "zoom"
