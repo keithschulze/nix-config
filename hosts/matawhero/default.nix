@@ -27,6 +27,7 @@
 
     casks = [
       "1password"
+      "fastmail"
       "firefox"
       "flutter"
       "font-fontawesome"
