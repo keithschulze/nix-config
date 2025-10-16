@@ -7,7 +7,7 @@
       theme = {
         lightTheme = false;
         activeBorderColor = [ "#${colors.base0D}" "bold" ];
-        inactiveBorderColor = [ "#${colors.base00}" ];
+        inactiveBorderColor = [ "#${colors.base05}" ];
         optionsTextColor = [ "#${colors.base0D}" ];
         selectedLineBgColor = [ "#${colors.base02}" ];
         cherryPickedCommitBgColor = [ "#${colors.base03}" ];
