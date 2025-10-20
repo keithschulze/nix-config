@@ -250,20 +250,22 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Keith Schulze";
-    userEmail = "keith@schulze.co.nz";
-    aliases = {
-      co = "checkout";
-      up = "!git pull --rebase --prune $@";
-      cob = "checkout -b";
-      cm = "!git add --all && git commit -m";
-      save = "!git add --all && git commit -m 'savepoint'";
-      wip = "!git add -u && git commit -m 'wip'";
-      undo = "reset head~1 --mixed";
-      amend = "commit --all --amend";
-      wipe = "!git add --all && git commit -qm 'wipe savepoint' && git reset head~1 --hard";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Keith Schulze";
+        email = "keith@schulze.co.nz";
+      };
+      alias = {
+        co = "checkout";
+        up = "!git pull --rebase --prune $@";
+        cob = "checkout -b";
+        cm = "!git add --all && git commit -m";
+        save = "!git add --all && git commit -m 'savepoint'";
+        wip = "!git add -u && git commit -m 'wip'";
+        undo = "reset head~1 --mixed";
+        amend = "commit --all --amend";
+        wipe = "!git add --all && git commit -qm 'wipe savepoint' && git reset head~1 --hard";
+      };
       github.user = "keithschulze";
       color.ui = true;
       push.default = "simple";
