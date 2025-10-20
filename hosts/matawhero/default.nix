@@ -27,6 +27,7 @@
 
     casks = [
       "1password"
+      "brave-browser"
       "fastmail"
       "firefox"
       "flutter"
