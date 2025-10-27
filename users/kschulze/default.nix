@@ -37,9 +37,6 @@ in {
     # dev
     shellcheck
 
-    #editors
-    jetbrains.datagrip
-
     # languages
     nodejs
     (python312.withPackages(ps: [
