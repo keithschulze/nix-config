@@ -150,10 +150,30 @@ in
     inherit config pkgs lib;
     extraPackages=[
       pkgs.deno
+      pkgs.harper
+      pkgs.marksman
+      pkgs.rumdl
       pkgs.typescript-language-server
     ];
     languages = {
       language = [
+        {
+          name = "javascript";
+          auto-format = true;
+          roots = ["deno.json" "deno.jsonc" "package.json"];
+          file-types = ["js" "jsx"];
+          language-servers = ["deno-lsp"];
+        }
+        {
+          name = "markdown";
+          auto-format = true;
+          language-servers = ["marksman" "harper-ls" "rumdl"];
+          soft-wrap = {
+            enable = true;
+            wrap-at-text-width = true;
+          };
+          text-width = 100;
+        }
         {
           name = "rust";
           auto-format = true;
@@ -165,14 +185,23 @@ in
           file-types = ["ts" "tsx"];
           language-servers = ["deno-lsp"];
         }
-        {
-          name = "javascript";
-          auto-format = true;
-          roots = ["deno.json" "deno.jsonc" "package.json"];
-          file-types = ["js" "jsx"];
-          language-servers = ["deno-lsp"];
-        }
       ];
+
+      language-server.deno-lsp = {
+        command = "deno";
+        args = ["lsp"];
+        config.deno.enable = true;
+      };
+
+      language-server.harper-ls = {
+        command = "harper-ls";
+        args = ["--stdio"];
+      };
+
+      language-server.rumdl = {
+        command = "rumdl";
+        args = ["server"];
+      };
 
       language-server.rust-analyzer = {
         config = {
@@ -183,12 +212,6 @@ in
             allFeatures = true;
           };
         };
-      };
-
-      language-server.deno-lsp = {
-        command = "deno";
-        args = ["lsp"];
-        config.deno.enable = true;
       };
     };
   };

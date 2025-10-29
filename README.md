@@ -1,17 +1,18 @@
 # My personal Nix system config
 
 This is my personal Nix system configuration. Mostly I use this to manage my
-environments for my Mac systems using nix-darwin.
+environments for my Mac systems using `nix-darwin`.
 
 Generally speaking, the configuration of the host and home environment are
-separated such that we can define, build and apply these configs separately.I
+separated such that we can define, build and apply these configs separately. I
 find that I need to more frequently update home configs that host configs, so I
 think it's useful to separate them.
 
 These configs use [Nix flakes](https://nixos.wiki/wiki/Flakes).
 
-The structure of this repo was inspired by
-the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) repo, though the two repos have subsequently diverged.
+The structure of this repo was inspired by the excellent
+[Misterio77/nix-config](https://github.com/Misterio77/nix-config) repo,
+though the two repos have subsequently diverged.
 
 ## TLDR Getting started
 
@@ -20,15 +21,16 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   ```sh
   sh <(curl -L https://nixos.org/nix/install)
   ```
+
   Note: this has only really been tested for multi-user installation.
 
-2. Enable flakes:
+1. Enable flakes:
 
   ```sh
   echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
   ```
 
-3. Bootstrap/install [nix-darwin](https://github.com/LnL7/nix-darwin) and [home-manager](https://github.com/nix-community/home-manager):
+1. Bootstrap/install [nix-darwin](https://github.com/LnL7/nix-darwin) and [home-manager](https://github.com/nix-community/home-manager):
 
   nix-darwin:
 
@@ -42,34 +44,35 @@ the excellent [Misterio77/nix-config](https://github.com/Misterio77/nix-config) 
   nix run home-manager/master -- init --switch
   ```
 
-4. Install `homebrew`:
+1. Install `homebrew`:
 
   ```sh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
-5. Clone this repo:
+1. Clone this repo:
 
   ```sh
   git clone git@github.com:keithschulze/nixos-config.git
   ```
 
-6. Build and apply host config
+1. Build and apply host config
 
   ```sh
   darwin-rebuild switch --flake .#matawhero
   ```
-  __note:__ in this case we are applying the `matawhero` host configuration as
+
+  __Note:__ in this case we are applying the `matawhero` host configuration as
   an example. Other hosts are/can be defined in `flake.nix`.
 
-7. Build and apply the home configuration
+1. Build and apply the home configuration
 
   ```sh
   home-manager switch --flake .#keithschulze@matawhero
   ```
-  __note:__ in this case we are applying the `keithschulze@matawhero` home configuration as an
-  example. Other home configrations are/can be defined in `flake.nix`.
 
+  __Note:__ in this case we are applying the `keithschulze@matawhero` home configuration as an
+  example. Other home configurations are/can be defined in `flake.nix`.
 
 ## Updating
 
@@ -86,6 +89,6 @@ with update versions:
 darwin-rebuild build --flake .#matawhero
 home-manager build --flake .#keithschulze@matawhero
 ```
+
 Note: this example only builds host and home configs for a single host and
 user. We should do this for all that matter.
-

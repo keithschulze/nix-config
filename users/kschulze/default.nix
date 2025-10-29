@@ -226,13 +226,26 @@ in {
     inherit config pkgs lib;
     extraPackages = with pkgs; [
       black
-      ruff
+      harper
+      marksman
       pyright
+      ruff
+      rumdl
       sqlfluff
     ];
     
     languages = {
       language = [
+        {
+          name = "markdown";
+          auto-format = true;
+          language-servers = ["marksman" "harper-ls" "rumdl"];
+          soft-wrap = {
+            enable = true;
+            wrap-at-text-width = true;
+          };
+          text-width = 100;
+        }
         {
           name = "python";
           auto-format = true;
@@ -253,9 +266,19 @@ in {
         }
       ];
 
+      language-server.harper-ls = {
+        command = "harper-ls";
+        args = ["--stdio"];
+      };
+
       language-server.pyright = {
         command = "pyright-langserver";
         args = ["--stdio"];
+      };
+
+      language-server.rumdl = {
+        command = "rumdl";
+        args = ["server"];
       };
     };
   };
