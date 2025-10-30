@@ -241,7 +241,7 @@ in {
             enable = true;
             wrap-at-text-width = true;
           };
-          text-width = 100;
+          text-width = 120;
         }
         {
           name = "python";
