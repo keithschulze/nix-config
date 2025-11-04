@@ -31,18 +31,6 @@
           d = "normal_mode";
         };
       };
-      normal = {
-        "C-g" = [
-          ":write-all"
-          ":new"
-          ":insert-output lazygit"
-          ":set mouse false"
-          ":set mouse true"
-          ":buffer-close!"
-          ":redraw"
-          ":reload-all"
-        ];
-      };
     };
   };
 }
