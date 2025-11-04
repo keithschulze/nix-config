@@ -139,7 +139,9 @@ in
 
   programs.lazygit = (import ../../home/program/lazygit/default.nix) { inherit colors; };
 
-  programs.gitui = (import ../../home/program/gitui/default.nix) { inherit colors; };
+  programs.gitui = (import ../../home/program/gitui/default.nix) {
+    inherit colors;
+  };
 
   programs.java = {
     enable = true;

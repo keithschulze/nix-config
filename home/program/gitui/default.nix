@@ -1,7 +1,7 @@
-{ colors, ... }:
+{ colors, enable ? false, ... }:
 
 {
-  enable = false;
+  enable = enable;
   keyConfig = ''
     (
       open_help: Some(( code: F(1), modifiers: "")),
