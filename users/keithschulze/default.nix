@@ -37,6 +37,7 @@ in
     fd
     fzf
     ripgrep
+    vips
 
     # dev
     devenv
