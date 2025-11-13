@@ -326,7 +326,7 @@ in {
     '';
 
     shellAliases = {
-      nixconf = "cd ~/Development/github/nix-config";
+      nix-config = "cd ~/Development/github/nix-config";
       hisi = "cd ~/Development/github/hirer-insights-shared-infra";
       hisp = "cd ~/Development/github/hirer-insights-shared-packages";
       hard = "cd ~/Development/github/hirer-ad-rating-data";
@@ -340,6 +340,8 @@ in {
 
       data-platform = "cd ~/Development/github/data-platform";
       uda = "cd ~/Development/github/unified-data-access";
+
+      eda = "cd ~/Development/eda";
 
       auth-okta = "${aws-auth}/bin/aws-auth --auth-only -a 'Amazon Web Services (Unified)'";
 
