@@ -342,6 +342,7 @@ in {
       uda = "cd ~/Development/github/unified-data-access";
 
       eda = "cd ~/Development/eda";
+      hq = "~/.local/bin/harlequin -a databricks --server-hostname seek-workbench.cloud.databricks.com --http-path /sql/1.0/warehouses/42e86e369173b667 --auth-type databricks-oauth --skip-legacy-indexing";
 
       auth-okta = "${aws-auth}/bin/aws-auth --auth-only -a 'Amazon Web Services (Unified)'";
 
