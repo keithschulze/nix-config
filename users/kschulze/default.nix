@@ -32,7 +32,6 @@ in {
     gettext
     htop
     ripgrep
-    tree
 
     # dev
     shellcheck
@@ -295,6 +294,10 @@ in {
     ];
 
     extraUserSettings = builtins.fromJSON (builtins.readFile ./config/vscode/settings.json);
+  };
+
+  programs.yazi = {
+    enable = true;
   };
 
   programs.zed-editor = (import ../../home/program/zed/default.nix) {
