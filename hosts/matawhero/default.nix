@@ -17,6 +17,7 @@
     user = username;
 
     brews = [
+      "cargo-instruments"
       "docker"
       "docker-compose"
       "glew"

@@ -52,6 +52,7 @@ in
     cookiecutter
     coursier
     claude-code
+    flamelens
     github-cli
     podman
     poetry
