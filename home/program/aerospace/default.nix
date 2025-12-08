@@ -1,7 +1,7 @@
 {
   enable = false;
 
-  userSettings = {
+  settings = {
     start-at-login = true;
 
     gaps = {
