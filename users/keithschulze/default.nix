@@ -38,6 +38,7 @@ in
     fzf
     ripgrep
     vips
+    yazi
 
     # dev
     devenv
