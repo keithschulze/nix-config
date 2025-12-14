@@ -157,7 +157,9 @@ in
       pkgs.deno
       pkgs.harper
       pkgs.marksman
+      pkgs.ruff
       pkgs.rumdl
+      pkgs.ty
       pkgs.typescript-language-server
     ];
     languages = {
@@ -178,6 +180,16 @@ in
             wrap-at-text-width = true;
           };
           text-width = 100;
+        }
+        {
+          name = "python";
+          auto-format = true;
+          formatter = {
+            command = "ruff";
+            args = ["format" "--quiet" "-"];
+          };
+          language-servers = ["ty"];
+          roots = ["pyproject.toml"];
         }
         {
           name = "rust";
@@ -217,6 +229,11 @@ in
             allFeatures = true;
           };
         };
+      };
+
+      language-server.ty = {
+        command = "ty";
+        args = ["server"];
       };
     };
   };
