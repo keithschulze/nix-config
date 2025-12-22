@@ -55,7 +55,6 @@ in
     claude-code
     flamelens
     github-cli
-    podman
     poetry
     sqlite
     terraform

@@ -24,6 +24,7 @@
       "glfw"
       "hyperfine"
       "nvm"
+      "podman"
     ];
 
     casks = [
@@ -36,6 +37,7 @@
       "ghostty"
       "keybase"
       "miniforge"
+      "podman-desktop"
       "stats"
       "steam"
       "zen"
