@@ -35,7 +35,6 @@
       "flutter"
       "font-fontawesome"
       "ghostty"
-      "imagej"
       "keybase"
       "miniforge"
       "podman-desktop"
