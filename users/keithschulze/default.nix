@@ -145,6 +145,8 @@ in
     inherit colors;
   };
 
+  programs.gemini-cli = (import ../../home/program/gemini/default.nix);
+
   programs.java = {
     enable = true;
     package = pkgs.temurin-bin-17;
@@ -282,7 +284,7 @@ in
       [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
       [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-      PATH=/Users/keithschulze/.cargo/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
+      PATH=/Users/keithschulze/.cargo/bin:/Users/keithschulze/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
     '';
     oh-my-zsh = {
       enable = true;
