@@ -141,6 +141,8 @@ in
 
   programs.gitui = (import ../../home/program/gitui/default.nix) {
     inherit colors;
+
+    enable = true;
   };
 
   programs.gemini-cli = (import ../../home/program/gemini/default.nix);
