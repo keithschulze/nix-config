@@ -48,11 +48,9 @@ in
     tmuxinator
 
     # tools
-    amp-cli
     bun
     cookiecutter
     coursier
-    claude-code
     flamelens
     github-cli
     poetry
