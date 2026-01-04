@@ -211,7 +211,11 @@ in {
 
   programs.lazygit = (import ../../home/program/lazygit/default.nix) { inherit colors; };
 
-  programs.gitui = (import ../../home/program/gitui/default.nix) { inherit colors; };
+  programs.gitui = (import ../../home/program/gitui/default.nix) {
+    inherit colors;
+
+    enable = true;
+  };
 
   programs.java = {
     enable = true;
