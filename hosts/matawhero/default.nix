@@ -29,7 +29,6 @@
 
     casks = [
       "1password"
-      "brave-browser"
       "fastmail"
       "firefox"
       "flutter"
@@ -40,6 +39,7 @@
       "podman-desktop"
       "stats"
       "steam"
+      "ungoogled-chromium"
       "zen"
       "zoom"
     ];
