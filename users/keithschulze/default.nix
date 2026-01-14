@@ -239,6 +239,18 @@ in
     };
   };
 
+  programs.opencode = {
+    enable = false;
+
+    settings = {
+      plugin = [
+        "opencode-gemini-auth@1.3.7"
+      ];
+      autoshare = false;
+      autoupdate = false;
+    };
+  };
+
   programs.vscode = (import ../../home/program/vscode/default.nix) {
     inherit config pkgs;
     enable = false;
