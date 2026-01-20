@@ -306,9 +306,52 @@ in {
 
   programs.zed-editor = (import ../../home/program/zed/default.nix) {
     inherit config pkgs;
+    extraPackages = [
+      pkgs.basedpyright
+      pkgs.black
+      pkgs.isort
+      pkgs.metals
+    ];
+
     extraExtensions = [
       "env"
+      "scala"
     ];
+
+    userSettings = {
+      agent = {
+        default_model = {
+          provider = "copilot_chat";
+          model = "claude-sonnet-4.5";
+        };
+        enable_feedback = false;
+      };
+
+      features = {
+        edit_prediction_provider = "copilot";
+      };
+
+      languages = {
+        Python = {
+          formatter = [
+            {
+              external = {
+                command = "black";
+                arguments = ["--quiet" "-"];
+              };
+            }
+            {
+              external = {
+                command = "isort";
+                arguments = ["--resolve-all-configs" "-q" "-"];
+              };
+            }
+          ];
+          format_on_save = "on";
+          language_servers = ["basedpyright"];
+        };
+      };
+    };
   };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
