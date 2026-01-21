@@ -29,6 +29,7 @@
 
     casks = [
       "1password"
+      "dagger/tap/container-use"
       "fastmail"
       "firefox"
       "flutter"
@@ -42,6 +43,10 @@
       "ungoogled-chromium"
       "zen"
       "zoom"
+    ];
+
+    taps = [
+      "dagger/tap"
     ];
 
     global.autoUpdate = false;
