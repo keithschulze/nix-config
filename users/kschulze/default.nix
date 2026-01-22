@@ -147,6 +147,18 @@ in {
         credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-insights-data-prod-sso-priv --credential-process";
       };
 
+      "profile msr-prod-ro" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-my-seek-review-prod-sso-read --credential-process";
+      };
+
+      "profile msr-prod-priv" = {
+        region = "ap-southeast-2";
+        output = "json";
+        credential_process = "${aws-auth}/bin/aws-auth -a 'Amazon Web Services (Unified)' -f seek-hirer-my-seek-review-prod-sso-priv --credential-process";
+      };
+
       "profile dp-prod" = {
         region = "ap-southeast-2";
         output = "json";
@@ -411,6 +423,9 @@ in {
       auth-data-dev-priv = "auth-aws-env data-dev-priv";
       auth-data-prod-ro = "auth-aws-env data-prod-ro";
       auth-data-prod-priv = "auth-aws-env data-prod-priv";
+
+      auth-msr-prod-ro = "auth-aws-env msr-prod-ro";
+      auth-msr-prod-priv = "auth-aws-env msr-prod-priv";
 
       auth-dp-prod = "auth-aws-env dp-prod";
     };
