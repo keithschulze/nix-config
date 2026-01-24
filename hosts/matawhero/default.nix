@@ -18,18 +18,17 @@
 
     brews = [
       "cargo-instruments"
-      "docker"
-      "docker-compose"
+      "dagger/tap/dagger"
       "glew"
       "glfw"
       "hyperfine"
       "nvm"
-      "podman"
     ];
 
     casks = [
       "1password"
       "dagger/tap/container-use"
+      "docker-desktop"
       "fastmail"
       "firefox"
       "flutter"
@@ -37,7 +36,6 @@
       "ghostty"
       "keybase"
       "miniforge"
-      "podman-desktop"
       "stats"
       "steam"
       "ungoogled-chromium"

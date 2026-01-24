@@ -145,7 +145,51 @@ in
     enable = true;
   };
 
-  programs.gemini-cli = (import ../../home/program/gemini/default.nix);
+  programs.gemini-cli = {
+    enable = true;
+    settings = {
+      context = {
+        fileName = ["AGENT.md"];
+        loadMemoryFromIncludeDirectories = true;
+      };
+      general = {
+        preferredEditor = "hx";
+        previewFeatures = true;
+        vimMode = true;
+      };
+      mcp = {
+        allowed = ["container-use"];
+      };
+      mcpServers = {
+        container-use = {
+          command = "container-use";
+          args = ["stdio"];
+          timeout = 300000;
+        };
+      };
+      privacy = {
+        usageStatisticsEnabled = false;
+      };
+      security = {
+        auth = {
+          selectedType = "oauth-personal";
+        };
+      };
+      tools = {
+        autoAccept = true;
+        exclude = [
+          "read_file"
+          "write_file"
+          "replace"
+          "run_shell_command"
+        ];
+        useRipgrep = true;
+      };
+      ui = {
+        theme = "Default";
+      };
+    };
+  };
 
   programs.java = {
     enable = true;
@@ -245,6 +289,7 @@ in
     settings = {
       autoshare = false;
       autoupdate = false;
+      theme = "catppuccin-macchiato";
 
       agent = {
         build = {
@@ -277,6 +322,7 @@ in
           enabled = true;
           type = "local";
           command = ["container-use" "stdio"];
+          timeout = 300000;
         };
       };
       plugin = [
@@ -305,6 +351,10 @@ in
   };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
+    shellAliases = {
+      cu = "container-use";
+    };
+
     initContent = ''
       if [ -n "''\${commands[fzf-share]}" ]; then
         source "$(fzf-share)/key-bindings.zsh"
@@ -330,7 +380,7 @@ in
       [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
       [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-      PATH=/Users/keithschulze/.cargo/bin:/Users/keithschulze/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
+      PATH=/Users/keithschulze/.cargo/bin:/Users/keithschulze/.docker/bin:/Users/keithschulze/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
     '';
     oh-my-zsh = {
       enable = true;
@@ -343,6 +393,9 @@ in
         "tmux"
         "kubectl"
       ];
+    };
+    sessionVariables = {
+      DAGGER_NO_NAG = "1";
     };
   };
 
