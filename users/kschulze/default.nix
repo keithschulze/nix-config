@@ -321,7 +321,6 @@ in {
     extraPackages = [
       pkgs.basedpyright
       pkgs.black
-      pkgs.isort
       pkgs.metals
     ];
 
@@ -350,12 +349,6 @@ in {
               external = {
                 command = "black";
                 arguments = ["--quiet" "-"];
-              };
-            }
-            {
-              external = {
-                command = "isort";
-                arguments = ["--resolve-all-configs" "-q" "-"];
               };
             }
           ];
