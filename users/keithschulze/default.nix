@@ -284,7 +284,7 @@ in
   };
 
   programs.opencode = {
-    enable = true;
+    enable = false;
 
     settings = {
       autoshare = false;
