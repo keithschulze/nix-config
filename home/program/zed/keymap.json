@@ -2,12 +2,6 @@
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "space f b": "tab_switcher::Toggle",
-      "space b c": "pane::CloseActiveItem",
-      "space t t": "terminal_panel::ToggleFocus",
-      "space f f": "file_finder::Toggle",
-      "space r n": "editor::Rename",
-      "space p t": "workspace::ToggleLeftDock",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
@@ -17,9 +11,15 @@
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
+      "j k": "vim::NormalBefore",
       "f d": "vim::NormalBefore",
-      "escape": "vim::NormalBefore",
-      "ctrl-c": "vim::NormalBefore"
+      "escape": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space": null
     }
   }
 ]
