@@ -348,6 +348,36 @@ in
 
   programs.zed-editor = (import ../../home/program/zed/default.nix) {
     inherit config pkgs;
+
+    userKeymaps = [
+      {
+        context = "Editor && vim_mode == normal && !VimWaiting && !menu";
+        bindings = {
+          "space g a" = [
+            "agent::NewExternalAgentThread"
+            { agent = "gemini"; }
+          ];
+        };
+      }
+    ];
+
+    userSettings = {
+      context_servers = {
+        container-use = {
+          command = "container-use";
+          args = ["stdio"];
+          env = {};
+        };
+      };
+
+      features = {
+        edit_prediction_provider = "none";
+      };
+
+      agent = {
+        enable_feedback = false;
+      };
+    };
   };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {

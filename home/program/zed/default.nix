@@ -1,4 +1,4 @@
-{ pkgs, extraPackages ? [], extraExtensions ? [], userSettings ? {}, ... }:
+{ pkgs, extraPackages ? [], extraExtensions ? [], userSettings ? {}, userKeymaps ? [], ... }:
 
 {
   enable = true;
@@ -16,8 +16,38 @@
   mutableUserKeymaps = false;
   mutableUserSettings = false;
   mutableUserTasks = false;
-  userKeymaps = builtins.fromJSON(builtins.readFile ./keymap.json);
+
+  userKeymaps = [
+    {
+      context = "Editor && vim_mode == normal && !VimWaiting && !menu";
+      bindings = {
+        ctrl-h = "workspace::ActivatePaneLeft";
+        ctrl-j = "workspace::ActivatePaneDown";
+        ctrl-k = "workspace::ActivatePaneUp";
+        ctrl-l = "workspace::ActivatePaneRight";
+      };
+    }
+    {
+      context = "Editor && vim_mode == insert && !menu";
+      bindings = {
+        "j k" = "vim::NormalBefore";
+        "f d" = "vim::NormalBefore";
+        escape = "vim::NormalBefore";
+      };
+    }
+    {
+      context = "(VimControl && !menu)";
+      bindings = {
+        space = null;
+      };
+    }
+  ] ++ userKeymaps;
+
   userSettings = pkgs.lib.mergeAttrs {
+    agent = {
+      enable_feedback = false;
+    };
+
     buffer_font_family = "FiraCode Nerd Font";
     buffer_font_size = 16;
     ui_font_size = 16;
