@@ -157,16 +157,6 @@ in
         previewFeatures = true;
         vimMode = true;
       };
-      mcp = {
-        allowed = ["container-use"];
-      };
-      mcpServers = {
-        container-use = {
-          command = "container-use";
-          args = ["stdio"];
-          timeout = 300000;
-        };
-      };
       privacy = {
         usageStatisticsEnabled = false;
       };
@@ -177,12 +167,7 @@ in
       };
       tools = {
         autoAccept = true;
-        exclude = [
-          "read_file"
-          "write_file"
-          "replace"
-          "run_shell_command"
-        ];
+        sandbox = true;
         useRipgrep = true;
       };
       ui = {
@@ -291,40 +276,6 @@ in
       autoupdate = false;
       theme = "catppuccin-macchiato";
 
-      agent = {
-        build = {
-          mode = "primary";
-          model = "google/gemini-3-pro-preview";
-          prompt = ''
-            ALWAYS use ONLY Environments for ANY and ALL file, code, or shell operations—NO EXCEPTIONS—even for simple or generic requests.
-
-            DO NOT install or use the git cli with the environment_run_cmd tool. All environment tools will handle git operations for you. Changing ".git" yourself will compromise the integrity of your environment.
-
-            You MUST inform the user how to view your work using `container-use log <env_id>` AND `container-use checkout <env_id>`. Failure to do this will make your work inaccessible to others.
-          ''; 
-          tools = {
-            bash = false;
-            write = false;
-            edit = false;
-            read = false;
-            list = false;
-            lsp = false;
-            patch = false;
-            skill = false;
-        
-            "mcp__container-use*" = true;
-          };
-        };
-      };
-
-      mcp = {
-        container-use = {
-          enabled = true;
-          type = "local";
-          command = ["container-use" "stdio"];
-          timeout = 300000;
-        };
-      };
       plugin = [
         "opencode-gemini-auth@1.3.8"
       ];

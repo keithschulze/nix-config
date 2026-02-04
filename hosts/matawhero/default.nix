@@ -18,7 +18,6 @@
 
     brews = [
       "cargo-instruments"
-      "dagger/tap/dagger"
       "glew"
       "glfw"
       "hyperfine"
@@ -27,7 +26,6 @@
 
     casks = [
       "1password"
-      "dagger/tap/container-use"
       "docker-desktop"
       "fastmail"
       "firefox"
@@ -41,10 +39,6 @@
       "ungoogled-chromium"
       "zen"
       "zoom"
-    ];
-
-    taps = [
-      "dagger/tap"
     ];
 
     global.autoUpdate = false;
