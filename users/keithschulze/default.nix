@@ -332,14 +332,25 @@ in
   };
 
   programs.zsh = lib.attrsets.recursiveUpdate (import ../../home/program/zsh/default.nix) {
+    shellAliases = {
+      zsh_zprof = "time ZSH_DEBUGRC=1 zsh -i -c exit";
+    };
 
     initContent = ''
+      if [[ -n "$ZSH_DEBUGRC" ]]; then
+        zmodload zsh/zprof
+      fi
+
       if [ -n "''\${commands[fzf-share]}" ]; then
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
       fi
 
       PATH=/Users/keithschulze/.cargo/bin:/Users/keithschulze/.docker/bin:/Users/keithschulze/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/openjdk/bin:$PATH
+
+      if [[ -n "$ZSH_DEBUGRC" ]]; then
+        zprof
+      fi
     '';
     oh-my-zsh = {
       enable = true;
