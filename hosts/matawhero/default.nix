@@ -33,7 +33,6 @@
       "font-fontawesome"
       "ghostty"
       "keybase"
-      "miniforge"
       "stats"
       "steam"
       "ungoogled-chromium"
