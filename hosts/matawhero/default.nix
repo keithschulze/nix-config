@@ -21,7 +21,6 @@
       "glew"
       "glfw"
       "hyperfine"
-      "nvm"
     ];
 
     casks = [
