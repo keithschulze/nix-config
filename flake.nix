@@ -23,6 +23,11 @@
       url = "github:misterio77/nix-colors";
     };
 
+    paneru = {
+      url = "github:karinushka/paneru";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     utils = {
       url = "github:numtide/flake-utils";
     };
@@ -69,6 +74,7 @@
           hostname = "matawhero";
           features = [
             "starship"
+            "paneru"
           ];
           colorscheme = "catppuccin-mocha";
           pkgs = legacyPackages."aarch64-darwin";
