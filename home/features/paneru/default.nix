@@ -11,15 +11,22 @@
     settings = {
       options = {
         preset_column_widths = [
-          0.25
           0.33
           0.5
           0.66
           0.75
+          0.9
+          0.97
         ];
+        padding_left = 5;
+        padding_right = 5;
         swipe_gesture_fingers = 4;
         swipe_gesture_direction = "Natural";
         animation_speed = 4000;
+      };
+      windows.all = {
+        title = ".*";
+        horizontal_padding = 3;
       };
       bindings = {
         window_focus_west = "cmd - h";
